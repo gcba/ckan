@@ -127,7 +127,7 @@ class DatastorePlugin(p.SingletonPlugin):
         all internal tables via the api.
         '''
 
-        if self.write_url == self.read_url:
+        if not self.legacy_mode and self.write_url == self.read_url:
             raise Exception("The write and read-only database connection url are the same.")
 
         if self._get_db_from_url(self.ckan_url) == self._get_db_from_url(self.read_url):
