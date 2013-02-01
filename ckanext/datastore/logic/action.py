@@ -56,7 +56,7 @@ def datastore_create(context, data_dict):
             })
 
     result = db.create(context, data_dict)
-    result.pop('id')
+    result.pop('id', None)
     result.pop('connection_url')
     return result
 
@@ -110,7 +110,7 @@ def datastore_upsert(context, data_dict):
     p.toolkit.check_access('datastore_upsert', context, data_dict)
 
     result = db.upsert(context, data_dict)
-    result.pop('id')
+    result.pop('id', None)
     result.pop('connection_url')
     return result
 
@@ -145,7 +145,7 @@ def datastore_delete(context, data_dict):
     p.toolkit.check_access('datastore_delete', context, data_dict)
 
     result = db.delete(context, data_dict)
-    result.pop('id')
+    result.pop('id', None)
     result.pop('connection_url')
     return result
 
