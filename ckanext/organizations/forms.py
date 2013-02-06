@@ -1,7 +1,7 @@
 import os
 import logging
 
-import ckan.authz as authz
+import ckan.new_authz as authz
 from ckan.logic import NotAuthorized
 from ckan.logic.schema import group_form_schema, form_to_db_package_schema
 from ckan.lib import base
