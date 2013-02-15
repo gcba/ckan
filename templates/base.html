@@ -28,11 +28,23 @@
 
     {%- block styles %}
       {# {% resource g.main_css[6:] %} #}
-      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
       <link href="css/main.css" rel="stylesheet" media="screen">
     {% endblock %}
 
     {% block head_extras %} {{ g.template_head_end | safe }} {% endblock %}
+
+    <script type="text/javascript" src="https://github.com/modestmaps/modestmaps-js/raw/master/modestmaps.js"></script>
+        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.0"></script>
+        <script type="text/javascript">
+            function initialize() {
+                var layer = new MM.StamenTileLayer("toner");
+                var map = new MM.Map(document.getElementById("map"), layer);
+                map.setCenterZoom(new MM.Location(-34.6209,-58.3886), 14);
+            }
+        </script>
+
 
     {%- block custom_styles %}
       {%- if g.site_custom_css -%}
@@ -43,7 +55,7 @@
     {% endblock %}
   </head>
 
-  <body{% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}>
+  <body{% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %} onload="initialize()">
 
     {%- block page %}{% endblock -%}
 

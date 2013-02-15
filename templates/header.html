@@ -1,38 +1,113 @@
 {% block header %}
 <header>
+
   <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="navbar1">
-        <div class="container">
-          <a class="" href="#"><img src="img/buenos-aires.png"/></a>
-          <h3 class="pull-right">En todo estas vos</h3>
+
+
+  <!-- Header GCBA
+  ================================================== -->
+    <div class="header-gcba">
+        <div class="header-inner">
+          <div class="container">
+            <div id="logo"></div>
+            <h2 class="slogan">En todo estás vos</h2>
+          </div>
         </div>
-      </div>
-      <div class="navbar2">
-        <div class="container">
-          <h1>BUENOS AIRES DATA</h1>
-          <h6>Iniciativa de datos públicos, tarnsparencia e inovación de la Ciudad Autónoma de Buenos Aires</h6>
+    </div>
+
+    <!-- BRAND DATA -->
+    <div class="branding-data">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <h1>Buenos Aires Data</h1>
+            <h4>Iniciativa de datos públicos, transparencia e innovación de
+la Ciudad Autónoma de Buenos Aires.</h4>
+          </div>
+
+          <div class="span4 description">
+              <form class="navbar-search pull-right" action="{% url_for controller='package', action='search' %}" method="get">
+                <input type="text" class="search-query span3" name="q" placeholder="{{ _('Buscar') }}" />
+              </form>
+          </div>
+
+
         </div>
+
+        <div class="row">
+          <div class="span4 pull-right info-dataviz"><h5>El primer millón</h5> 
+          <p>Enviado por <a href="http://pixelbeat.com.ar/viz/10">@pixelbeat</a>.<br>
+          <small>Un millón de recorridos utilizando el sistema de biciletas públicas</small>
+          <small>Data: Bicicletas publicas, API USIG</small>
+          <small>Tecnologías: three.js</small>
+          </div>
+        </div>
+
+        {# <div id="map" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div> #}
+
+        {# <iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://pixelbeat.cartodb.com/tables/lineas2/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=false&sql=&sw_lat=-34.69194468425017&sw_lon=-58.56330871582031&ne_lat=-34.56481755671176&ne_lon=-58.233718872070305'></iframe> #}
+
+        
+
+
+<iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://mrdoob.github.com/three.js/examples/canvas_lines.html'></iframe>
+
+
       </div>
-      <div class="navbar3">
+    </div>
+
+    <!-- Navbar
+    ================================================== -->
+
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
         <div class="container">
-          {% block header_site_navigation %}
-            <ul class="nav">
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/datasets">Datasets</a></li>
-              <li><a href="#">Aplicaciones</a></li>
-              <li><a href="#">Laboratorio</a></li>
-                {{ h.build_nav_main(
-                  ('about', _('About')),
-                  ('add dataset', _('Add Dataset'), 'package_create'),
-                ) }}
-            </ul>
+  
+            {% block header_site_navigation %}
+            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+
+              <ul class="nav">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/datasets">Datasets</a></li>
+                <li><a href="#">Aplicaciones</a></li>
+                <li><a href="#">Laboratorio</a></li>
+                  {{ h.build_nav_main(
+                    ('about', _('About')),
+                    ('add dataset', _('Add Dataset'), 'package_create'),
+                  ) }}
+              </ul>
+
+
+              <ul class="social pull-right">
+                <li><a href="http://twitter.com/GCBAData" class="twitter"><i class="icon-twitter"></i></a></li>
+                <li><a href="http://twitter.com/GCBAData" class="github"><i class="icon-github-alt"></i></a></li>
+                <li><a href="http://twitter.com/GCBAData" class="contact"><i class=" icon-envelope-alt"></i></a></li>
+              </ul>
+
+
+   
+
+            
+            </div>
+
           {% endblock %}
         </div>
       </div>
     </div>
+
+
+  <!#-- Cierre NavBar -->
   </div>
-  <div class="container">
+
+
+<div class="container">
+
+
     <div class="content">
 
       

@@ -1,36 +1,279 @@
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* webkit scroller */
+::-webkit-scrollbar-thumb:vertical { width:10px; height:10px; background-color: #535353; }
+::-webkit-scrollbar { width:10px; height:5px; background: #000; margin-right:5px; }
+
+
 @font-face {
-    font-family: 'GothamRounded-Medium';
-    src: url('/fonts/gothamrnd-medium.eot');
-    src: url('/fonts/gothamrnd-medium.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/gothamrnd-medium.woff') format('woff'),
-         url('/fonts/gothamrnd-medium.ttf') format('truetype'),
-         url('/fonts/gothamrnd-medium.svg#gothamrnd-medium') format('svg');
+    font-family: 'Gotham';
+    src: url('/fonts/gotham.eot');
+    src: url('/fonts/gotham.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/gotham.woff') format('woff'),
+         url('/fonts/gotham.ttf') format('truetype'),
+         url('/fonts/gotham.svg#Gotham-Medium') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
+body {
+	color: #535353;
+	font-family: "Gotham", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+a{color:#fff;text-decoration:underline;}
+
+a:hover,a:focus{color:#ffe200;text-decoration:none;}
+
+
+.gcba-fixed-top .container {
+  width: 940px;
+}
+
+#logo {
+  width: 201px;
+  height: 37px;
+  background: url(/img/buenos-aires.png);
+}
+
+.header-gcba {
+  height: 30px;
+  padding: 10px 0;
+  overflow: visible;
+  background-color: #f9dd00;
+  *background-color: #f0d400;
+  background-image: -o-linear-gradient(top, #ffe200, #f0d400);
+  background-image: linear-gradient(top, #ffe200, #f0d400);
+  background-image: -ms-linear-gradient(top, #ffe200, #f0d400);
+  background-image: -webkit-linear-gradient(top, #ffe200, #f0d400);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffe200), to(#f0d400));
+  background-image: -moz-linear-gradient(top, #ffe200, #f0d400);
+  background-repeat: repeat-x;
+  border-color: #f0d400 #f0d400 #a39100;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffe200', endColorstr='#f0d400', GradientType=0);
+  box-shadow: 0 0 6px black;
+}
+
+.header-gcba:hover,
+.header-gcba:active,
+.header-gcba.active,
+.header-gcba.disabled,
+.header-gcba[disabled] {
+  background-color: #f0d400;
+  *background-color: #d6be00;
+}
+
+.header-gcba:active,
+.header-gcba.active {
+  background-color: #bda700 \9;
+}
+
+.header-inner {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.header-gcba #logo {
+  float: left;
+  width: 168px;
+  height: 30px;
+  background: url(../img/logo.png);
+}
+
+.header-gcba h2.slogan {
+  float: right;
+  margin-top: -4px;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+
+
+
 .navbar {
-	font-family: GothamRounded-Medium;
+  margin-bottom: 0px;
+  overflow: visible;
+}
+
+.navbar-inner {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #313131;
+  background-image: -moz-linear-gradient(top, #3c3c3c, #222222);
+  background-image: -ms-linear-gradient(top, #3c3c3c, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3c3c), to(#222222));
+  background-image: -webkit-linear-gradient(top, #3c3c3c, #222222);
+  background-image: -o-linear-gradient(top, #3c3c3c, #222222);
+  background-image: linear-gradient(top, #3c3c3c, #222222);
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#3c3c3c', endColorstr='#222222', GradientType=0);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+	border-width: 0 0 0px;
+}
+
+.navbar-inverse .brand,
+.navbar-inverse .nav>li>a {
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    -webkit-transition: color .2s ease-in-out;
 
 }
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav>li>a:hover,
+.navbar-inverse .brand:focus,
+.navbar-inverse .nav>li>a:focus { color: #ffe200; }
+
+.navbar .nav > li > a {
+	padding: 20px 10px;
+}
+
+
+
 
 .navbar1  {
 	color: black;
 	line-height: 50px;
 	background-color: #f9dd00;
-	vertical-align: middle;
 }
 
 .navbar1 h3 {
 	line-height: 50px;
 }
 
-.navbar2 {
-	color: white;
+.branding-data {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	text-align: center;
 	background-color: black;
+	display: block;
+	vertical-align: middle;
+	position: relative;
+	height: 95px;
+	overflow: hidden;
+/*	-webkit-transition: height .5s ease-in-out;
+    -moz-transition: height .5s ease-in-out;
+    -o-transition: height .5s ease-in-out;
+    -ms-transition: height .5s ease-in-out;    
+    transition: height .5s ease-in-out;*/
+}
+
+.branding-data:hover {
+
+	height: 300px;
+
+}
+
+.branding-data h1 {
+	position: relative;
+	color: white;
+	padding-top: 20px;
+	font-size: 45px;
+	letter-spacing: -1px;
+	line-height: 16px;
+	text-align: left;
+	z-index: 11;
+}
+
+.navbar-search {
+	padding-top: 15px;
+}
+
+.navbar-search .search-query {
+    padding: 15px 10px;
+    font-size: 15px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.branding-data .description {
+	position: relative;
+	z-index: 11;
+	margin-top: 5px;
+}
+
+.branding-data h4 {
+	position: relative;
+	padding-left: 5px;
+	font-weight: normal;
+	font-size: 11px;
+	line-height: 14px;
+	display: block;
+	color: white;
+	padding-top: 0px;
+	z-index: 11;
+}
+
+.info-dataviz {
+	margin-top: 110px;
+	background-color: rgba(255,255,255,0.1);
+	display: block;
+	position: relative;
+	z-index: 11;
+	color: #b0b0b0;
+	padding: 5px 15px;
+	border: 1px solid #666;
+
+}
+
+.info-dataviz h5 {
+	font-size: 14px;
+	line-height: 10px;
+	color: #00CCBE;
+}
+
+.info-dataviz p {
+	font-size: 11px;
+	line-height: 13px;
+	color: #CACACA;
+}
+
+.info-dataviz small {
+	display: block;
+	font-size: 10px;
+	clear: both;
+	color: #F1EBEB;
+}
+
+
+
+.social {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;	
+	padding-top: 10px;
+}
+
+.social li {
+
+	float: left;
+
+	margin-right: 5px;
+	margin-top: 3px;
+
+
+}
+
+.social li a {
+
+	display: block;
+	padding: 8px;
+	text-decoration: none;
+	color: white;
+	-webkit-transition: color .2s ease-in-out;
+}
+
+.social li a:hover {
+	color: #ffe200;
 }
 
 .navbar3 {
@@ -38,4 +281,28 @@
 	text-transform: uppercase;
 }
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(255, 213, 15, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
 
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 213, 15, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 213, 15, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 213, 15, 0.6);
+}
