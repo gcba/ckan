@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{%- block page -%}
+  {%- block header %}
+    {% include "header.html" %}
+  {% endblock -%}
+
+  {%- block content %}
+    {% block maintag %}<div role="main">{% endblock %}
+      <div id="content" class="container">
+        {% block main_content %}
+          {% block flash %}
+            {% set flash_messages = h.flash.pop_messages() | list %}
+            <div class="flash-messages">
+              {% for message in flash_messages %}
+                <div class="alert fade in {{ message.category }}">
+                  {{ h.literal(message) }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endblock %}
+
+          {% block toolbar %}
+            <div class="toolbar">
+              {% block breadcrumb %}
+                {% if self.breadcrumb_content() | trim %}
+                  <ol class="breadcrumb">
+                    {% snippet 'snippets/home_breadcrumb_item.html' %}
+                    {% block breadcrumb_content %}{% endblock %}
+                  </ol>
+                {% endif %}
+              {% endblock %}
+              {% block actions %}
+                <ul class="actions pull-right">
+                  {% block actions_content %}{% endblock %}
+                </ul>
+              {% endblock %}
+            </div>
+          {% endblock %}
+
+          {% block primary %}
+            <div class="primary">
+              {% block primary_content %}{% endblock %}
+            </div>
+          {% endblock %}
+
+          {% block secondary %}
+            <aside class="secondary">
+              {% block secondary_content %}{% endblock %}
+            </aside>
+          {% endblock %}
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock -%}
+
+  {%- block footer %}
+    {% include "footer.html" %}
+  {% endblock -%}
+{%- endblock -%}
+
+{%- block scripts %}
+    {% resource 'base/main' %}
+    {% resource 'base/ckan' %}
+    {% if g.tracking_enabled %}
+        {% resource 'base/tracking.js' %}
+    {% endif %}
+  {{ super() }}
+{% endblock -%}

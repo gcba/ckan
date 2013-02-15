@@ -1,0 +1,104 @@
+{% block header %}
+<header>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="navbar1">
+        <div class="container">
+          <a class="" href="#"><img src="img/buenos-aires.png"/></a>
+          <h3 class="pull-right">En todo estas vos</h3>
+        </div>
+      </div>
+      <div class="navbar2">
+        <div class="container">
+          <h1>BUENOS AIRES DATA</h1>
+          <h6>Iniciativa de datos públicos, tarnsparencia e inovación de la Ciudad Autónoma de Buenos Aires</h6>
+        </div>
+      </div>
+      <div class="navbar3">
+        <div class="container">
+          {% block header_site_navigation %}
+            <ul class="nav">
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/datasets">Datasets</a></li>
+              <li><a href="#">Aplicaciones</a></li>
+              <li><a href="#">Laboratorio</a></li>
+                {{ h.build_nav_main(
+                  ('about', _('About')),
+                  ('add dataset', _('Add Dataset'), 'package_create'),
+                ) }}
+            </ul>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content">
+
+      
+
+      {% block header_site_search %}
+        <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get">
+          <div class="field">
+            <label for="field-sitewide-search">{{ _('Search Datasets') }}</label>
+            <input id="field-sitewide-search" name="q" placeholder="{{ _('Search') }}" />
+            <button class="btn-search" type="submit">{{ _('Search') }}</button>
+          </div>
+        </form>
+      {% endblock %}
+
+      {% block header_account %}
+        {% if c.userobj %}
+          <div class="section account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+            <div class="dropdown">
+              <a href="{{ h.url_for(controller='user', action='dashboard') }}" class="button notifications{% if c.new_activities > 0 %} notifications-important{% endif %}" title="{{ c.new_activities }} {{ _('new notifications') }}">
+                {{ c.new_activities }}
+              </a>
+            </div>
+            <div class="dropdown">
+              <a href="#" class="button image dropdown-toggle" data-toggle="dropdown">
+                {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''),size=25) }}
+                <i class="icon-chevron-down"></i>
+              </a>
+              <ul class="user-dropdown-menu dropdown-menu pull-right" role="menu">
+                <li>
+                  <a href="{{ h.url_for(controller='user', action='dashboard') }}">
+                    <i class="icon-dashboard"></i>
+                    {{ _('Dashboard') }}
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}">
+                    <i class="icon-user"></i>
+                    {{ _('My Profile') }}
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}">
+                    <i class="icon-wrench"></i>
+                    {{ _('Edit Profile') }}
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ h.url_for('/user/_logout') }}">
+                    <i class="icon-signout"></i>
+                    {{ _('Log out') }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        {% else %}
+          <nav class="section account not-authed">
+            <ul class="unstyled">
+              <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
+              <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
+            </ul>
+          </nav>
+        {% endif %}
+      {% endblock %}
+
+    </div>  
+  </div>
+</header>
+{% endblock %}
