@@ -72,8 +72,10 @@ la Ciudad Autónoma de Buenos Aires.</h4>
             <div class="nav-collapse collapse">
 
               <ul class="nav">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/datasets">Datasets</a></li>
+                {{ h.build_nav_main(
+                  ('home', _('Home')),
+                  ('search', _('Datasets')),
+                ) }}
                 <li><a href="#">Aplicaciones</a></li>
                 <li><a href="#">Laboratorio</a></li>
                   {{ h.build_nav_main(
@@ -109,18 +111,6 @@ la Ciudad Autónoma de Buenos Aires.</h4>
 
 
     <div class="content">
-
-      
-
-      {% block header_site_search %}
-        <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get">
-          <div class="field">
-            <label for="field-sitewide-search">{{ _('Search Datasets') }}</label>
-            <input id="field-sitewide-search" name="q" placeholder="{{ _('Search') }}" />
-            <button class="btn-search" type="submit">{{ _('Search') }}</button>
-          </div>
-        </form>
-      {% endblock %}
 
       {% block header_account %}
         {% if c.userobj %}
