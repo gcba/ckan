@@ -23,10 +23,6 @@ body {
 	font-family: "Gotham", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
-header {
-  margin-bottom: 177px;
-}
-
 a{color:#fff;text-decoration:underline;}
 
 a:hover,a:focus{color:#ffe200;text-decoration:none;}
@@ -125,6 +121,8 @@ a:hover,a:focus{color:#ffe200;text-decoration:none;}
 .navbar-static-top .navbar-inner {
 	border-width: 0 0 0px;
 }
+
+
 
 .navbar-inverse .brand,
 .navbar-inverse .nav>li>a {
