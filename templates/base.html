@@ -27,7 +27,7 @@
     {% block links -%} <link rel="shortcut icon" href="{{ g.favicon }}" /> {% endblock -%}
 
     {%- block styles %}
-      {# {% resource g.main_css[6:] %} #}
+      {% resource g.main_css[6:] %}
       <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
       <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
       <link href="css/main.css" rel="stylesheet" media="screen">
