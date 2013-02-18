@@ -1,0 +1,42 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
+
+{% block primary_content %}
+  <section class="module">
+    <div class="module-content">
+      <form id="dataset-search" class="dataset-search clearfix" method="get" data-module="select-switch">
+        <span class="control-group search-giant">
+          <input type="text" class="search" name="q" value="{{ c.q }}" autocomplete="off" placeholder="{{ _('Search...') }}" />
+          <button type="submit" value="{{ _('Search') }}">Submit</button>
+        </span>
+
+        {{ h.snippet('snippets/sort_by.html', sort=c.sort_by_selected) }}
+        <div id="dataset-search-ext"></div>
+      </form>
+      <div class="results">
+        <strong>
+            {{ _('All datasets') }}
+        </strong>
+     </div>
+      {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
+    </div>
+  </section>
+{% endblock %}
+
+{% block secondary_content %}
+  {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
+  {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
+  {{ h.snippet('snippets/facet_list.html', title='Groups', name='groups') }}
+{% endblock %}
+
+{%- block scripts %}
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/jquery.ba-bbq.min.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+{% endblock -%}
+
+{%- block custom_styles %}
+    {{ super() }}
+    <link href="css/isotope.css" rel="stylesheet">
+{% endblock %}
