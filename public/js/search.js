@@ -14,20 +14,22 @@ $( document ).ready( function() {
 	pushFilterUrl = function() {
 		filter_array = []
 		if ( facets['tags'].length > 0)
-			filter_array.push(facets['tags'].join());
+			filter_array.push(facets['tags'].join('.'));
 		if ( facets['res_format'].length > 0)
-			filter_array.push(facets['res_format'].join());
+			filter_array.push(facets['res_format'].join('.'));
 		if ( facets['groups'].length > 0)
-			filter_array.push(facets['groups'].join());
-		$.bbq.pushState(  $.param( { filter: filter_array.join()} ));
+			filter_array.push(facets['groups'].join('.'));
+
+		filter_str = filter_array.length > 0 ? "." + filter_array.join('.'): "";
+		$.bbq.pushState(  $.param( { filter: filter_str } ));
 	};
 
 	filterDatasets = function() {
 		var hashOptions = $.deparam.fragment();
 		if (hashOptions.filter) {
-			filters = hashOptions.filter.split(',')
-			for ( var i=0; i<filters.length; i++ ) {
-				selector = ".facet a[ckan-facet=" + filters[i].slice(1) + "]";
+			filters = hashOptions.filter.split('.')
+			for ( var i=1; i<filters.length; i++ ) {
+				selector = ".facet a[ckan-facet=" + filters[i] + "]";
 				$(selector).addClass("active");
 			}
 		}
@@ -43,7 +45,7 @@ $( document ).ready( function() {
 
 	toggleFacetToFilter = function (eventObject) {
 		var filter = $(eventObject.currentTarget).attr('ckan-filter');
-		var facet = "." + $(eventObject.currentTarget).attr('ckan-facet');
+		var facet = $(eventObject.currentTarget).attr('ckan-facet');
 		var index = facets[filter].indexOf(facet);
 		if ( index < 0) {
 			facets[filter].push(facet);

@@ -26,30 +26,40 @@ extras
   Extra info passed into the add/remove params to make the url
 
 #}
-{% with items = h.get_facet_items_dict(name) %}
-  <section class="{{name}} module module-narrow module-shallow">
-    <h2 class="filter module-heading">
-      <i class="icon-medium icon-filter"></i>
-      {{ title or h.get_facet_title(name) }}
-      <a href="#" ckan-filter="{{name}}" class="action">{{ _('Clear All') }}</a>
-    </h2>
-    {% if items %}
-      <nav>
-        <ul class="facet unstyled nav nav-simple nav-facet">
-          {% for item in items %}
-            {% set href = h.remove_url_param(name, item.name, extras=extras) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras) %}
-            {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
+
+{% if name == 'groups' %}
+  {% set items = h.groups_available() %}
+{% else %}
+  {% set items =  h.get_facet_items_dict(name) %}
+{% endif %}
+
+<section class="module module-narrow module-shallow">
+  <h2 class="filter module-heading">
+    <i class="icon-medium icon-filter"></i>
+    {{ title or h.get_facet_title(name) }}
+    <a href="#" ckan-filter="{{name}}" class="action">{{ _('Clear All') }}</a>
+  </h2>
+  {% if items %}
+    <nav>
+      <ul class="{{name}} facet unstyled nav nav-simple nav-facet">
+        {% for item in items %}
+          {% if name == 'groups' %}
+            {% set count = "(%s)" % item %}
+            {% set label = h.group_name_to_title(item.name) %}
+          {% else %}
             {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-              <li class="nav-item{% if item.active %} active{% endif %}">
-                <a href="#" ckan-filter="{{name}}" ckan-facet="{{item.name}}">
-                  <span>{{ label }} {{ count }}</span>
-                </a>
-              </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    {% else %}
-      <p class="module-content empty">{{ _('There are no filters for this search') }}</p>
-    {% endif %}
-  </section>
-{% endwith %}
+            {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
+          {% endif %}
+            <li class="nav-item">
+              <a href="#" ckan-filter="{{name}}" ckan-facet="{{item.name}}">
+                <span>{{ label }} {{ count }}</span>
+              </a>
+            </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% else %}
+    <p class="module-content empty">{{ _('There are no filters for this search') }}</p>
+  {% endif %}
+</section>
+
