@@ -25,9 +25,42 @@
 {% endblock %}
 
 {% block secondary_content %}
+
+{# FACETADO DE GRUPOS #}
+{# 
+  
+{% with items = h.get_facet_items_dict('groups') %}
+  <section>
+    <h2 class="filter">
+      {{ h.get_facet_title('groups') }}
+      <a href="#" ckan-filter="groups" class="action">{{ _('Clear All') }}</a>
+    </h2>
+    {% if items %}
+      <nav>
+        <ul class="facet">
+          {% for item in items %}
+            {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
+            {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
+              <li class="nav-item{% if item.active %} active{% endif %}">
+                <a href="#" ckan-filter="{{'groups'}}" ckan-facet="{{item.name}}">
+                  <span>{{ label }} {{ count }}</span>
+                </a>
+              </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% else %}
+      <p>{{ _('There are no filters for this search') }}</p>
+    {% endif %}
+  </section>
+{% endwith %}
+
+ #}
+
   {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
   {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
   {{ h.snippet('snippets/facet_list.html', title='Groups', name='groups') }}
+
 {% endblock %}
 
 {%- block scripts %}

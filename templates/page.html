@@ -38,17 +38,19 @@
             </div>
           {% endblock %}
 
+          {% block secondary %}
+            <aside class="secondary">
+              {% block secondary_content %}{% endblock %}
+            </aside>
+          {% endblock %}
+
           {% block primary %}
             <div class="primary">
               {% block primary_content %}{% endblock %}
             </div>
           {% endblock %}
 
-          {% block secondary %}
-            <aside class="secondary">
-              {% block secondary_content %}{% endblock %}
-            </aside>
-          {% endblock %}
+
         {% endblock %}
       </div>
     </div>

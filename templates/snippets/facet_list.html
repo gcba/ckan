@@ -27,7 +27,7 @@ extras
 
 #}
 {% with items = h.get_facet_items_dict(name) %}
-  <section class=" module module-narrow module-shallow">
+  <section class="{{name}} module module-narrow module-shallow">
     <h2 class="filter module-heading">
       <i class="icon-medium icon-filter"></i>
       {{ title or h.get_facet_title(name) }}
