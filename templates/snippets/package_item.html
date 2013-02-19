@@ -18,17 +18,18 @@ Example:
 {% set title = package.title or package.name %}
 {% set notes = h.markdown_extract(package.notes, extract_length=truncate) %}
 
-{% set tag_items = items or h.get_facet_items_dict('tags') %}
-{% set format_items = items or h.get_facet_items_dict('res_format') %}
-{% set group_items = items or h.get_facet_items_dict('groups') %}
+{% set tag_items = package.tags %}
+{% set format_items = h.dict_list_reduce(package.resources, 'format') %}
+{% set group_items = package.groups %}
 
 <li class="{{ item_class or "dataset-item" }} 
-    {% for item in tag_items %}{{ item.name }} {% endfor %}
-    {% for item in format_items %}{{ item.name }} {% endfor %}
-    {% for item in group_items %}{{ item.name }} {% endfor %}
+   {% for item in tag_items %}{{ item.name }} {% endfor %}
+    {% for item in format_items %}{{ item }} {% endfor %}
+    {% for item in group_items %}{{ item.name }}{% endfor %} 
     ">
   <div class="dataset-content">
     <h3 class="dataset-heading">
+
       {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
       {% if package.get(state, '').startswith('draft') %}
         <span class="label label-info">{{ _('Draft') }}</span>
