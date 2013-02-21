@@ -30,17 +30,17 @@
       {% resource g.main_css[6:] %}
       <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
       <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-      <link href="css/main.css" rel="stylesheet" media="screen">
+      <link href="/css/main.css" rel="stylesheet" media="screen">
     {% endblock %}
 
     {% block head_extras %} {{ g.template_head_end | safe }} {% endblock %}
 
 
 
-    <script type="text/javascript" src="base/vendor/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="/base/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
+    <script type="text/javascript" src="/js/jquery.easing.js"></script>
+    <script type="text/javascript" src="/js/header.js"></script>
     {%- block custom_styles %}
       {%- if g.site_custom_css -%}
       <style>
