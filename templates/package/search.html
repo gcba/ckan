@@ -6,38 +6,46 @@
 
 {% block secondary_content %}
 
+<div class="nav-secondary">
+<nav>
+  <ul>
+    <li><a class="beat-me" href=""><span class="awe-large awe-signal"></span><span class="awe-group-text">Actividad Económica</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-picture"></span><span class="awe-group-text">Administración Pública y Normativa</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-envelope"></span><span class="awe-group-text">Arte, Cultura y Recreación</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-calendar"></span><span class="awe-group-text">Educación</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-th"></span><span class="awe-group-text">Infraestructura y Obras Públicas</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-signal"></span><span class="awe-group-text">Medio Ambiente y Meteorología</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-calendar"></span><span class="awe-group-text">Movilidad, Tráfico y Transporte</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-lightbulb"></span><span class="awe-group-text">Salud y Servicios Sociales</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-cloud-upload"></span><span class="awe-group-text">Seguridad y Justicia</span></a></li>
+    <li><a class="beat-me" href=""><span class="awe-large awe-sitemap"></span><span class="awe-group-text">Urbanismo y Territorio</span></a></li>
+  </ul>
+</nav>
+</div>
+
 {# FACETADO DE GRUPOS #}
-{# 
-  
-{% with items = h.get_facet_items_dict('groups') %}
-  <section>
-    <h2 class="filter">
-      {{ h.get_facet_title('groups') }}
-      <a href="#" ckan-filter="groups" class="action">{{ _('Clear All') }}</a>
-    </h2>
-    {% if items %}
-      <nav>
-        <ul class="facet">
-          {% for item in items %}
-            {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
-            {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-              <li class="nav-item{% if item.active %} active{% endif %}">
-                <a href="#" ckan-filter="{{'groups'}}" ckan-facet="{{item.name}}">
-                  <span>{{ label }} {{ count }}</span>
-                </a>
-              </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    {% else %}
-      <p>{{ _('There are no filters for this search') }}</p>
-    {% endif %}
-  </section>
-{% endwith %}
-
- #}
 
 
+
+
+
+
+{% endblock %}
+
+{% block primary_content %}
+
+<div class="content">
+  <!-- Page container -->
+  <div class="page-header">
+      <h1><span class="awe-sitemap"></span> Conjuntos de datos<small>Seleccioná por grupos, tags o formato.</small></h1>
+    </div>
+  <div class="page-container">
+    
+
+
+
+          
+  {{ h.snippet('snippets/facet_list.html', title='Groups', name='groups') }}
 
 
 
@@ -45,13 +53,8 @@
 
   {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
   {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
-  {{ h.snippet('snippets/facet_list.html', title='Groups', name='groups') }}
 
 
-
-{% endblock %}
-
-{% block primary_content %}
   <section class="module">
     <div class="module-content">
       <form id="dataset-search" class="dataset-search clearfix" method="get" data-module="select-switch">
@@ -71,6 +74,13 @@
       {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
     </div>
   </section>
+
+
+  </div>
+  <!-- /Page container -->
+</div>
+
+
 {% endblock %}
 
 
