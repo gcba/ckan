@@ -27,11 +27,8 @@ extras
 
 #}
 
-{% if name == 'groups' %}
-  {% set items = h.groups_available() %}
-{% else %}
   {% set items =  h.get_facet_items_dict(name) %}
-{% endif %}
+
 
 <section class="module module-narrow module-shallow">
   <h2 class="filter module-heading">
@@ -43,13 +40,8 @@ extras
     <nav>
       <ul class="{{name}} facet unstyled nav nav-simple nav-facet">
         {% for item in items %}
-          {% if name == 'groups' %}
-            {% set count = "(%s)" % item %}
-            {% set label = h.group_name_to_title(item.name) %}
-          {% else %}
             {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
             {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
-          {% endif %}
             <li class="nav-item">
               <a href="#" ckan-filter="{{name}}" ckan-facet="{{item.name}}">
                 <span>{{ label }} {{ count }}</span>
