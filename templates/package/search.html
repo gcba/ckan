@@ -11,31 +11,36 @@
 {# FACETADO DE GRUPOS #}
 <nav>
   <ul class="groups facet">
-    {% set items = h.groups_available() %}
+    {% set items = h.get_facet_items_dict('groups') %}
      {% for item in items %}
     <li class="{{item.name}}">
       <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.name}}">
         <span class="awe-large awe-signal"></span>
-        <span class="awe-group-text">{{h.group_name_to_title(item.name)}}</span>
+        <span class="awe-group-text">item.display_name</span>
       </a>
     </li>
     {% endfor %}
   </ul>
 </nav>
 
+{# FACETADO DE GRUPOS #}
+{# <nav>
+  <ul class="groups facet">
+     {% for item in c.search_facets.groups.items() %}
+        {{ item }}
+    {% endfor %}
+  </ul>
+</nav> #}
+
 </div>
+
+
 
 {% endblock %}
 
 {% block primary_content %}
 
-<div class="content">
-  <!-- Page container -->
-  <div class="page-header">
-      <h1><span class="awe-sitemap"></span> Conjuntos de datos<small>Seleccioná por grupos, tags o formato.</small></h1>
-    </div>
-  <div class="page-container">
-    
+
 
   {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
   {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
@@ -62,9 +67,7 @@
   </section>
 
 
-  </div>
-  <!-- /Page container -->
-</div>
+
 
 
 {% endblock %}

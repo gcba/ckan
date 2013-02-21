@@ -48,7 +48,16 @@
 
             {% block primary %}
               <div class="primary">
-                {% block primary_content %}{% endblock %}
+                <div class="content">
+                  <!-- Page container -->
+                  <div class="page-header">
+                      <h1><span class="awe-sitemap"></span> Conjuntos de datos<small>Seleccioná por grupos, tags o formato.</small></h1>
+                    </div>
+                  <div class="page-container">
+                    {% block primary_content %}{% endblock %}
+                  </div>
+                  <!-- /Page container -->
+                </div>
               </div>
             {% endblock %}
 
