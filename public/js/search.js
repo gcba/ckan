@@ -26,6 +26,7 @@ $( document ).ready( function() {
 
 	filterDatasets = function() {
 		var hashOptions = $.deparam.fragment();
+		$(".facet").removeClass("active");
 		if (hashOptions.filter) {
 			filters = hashOptions.filter.split('.')
 			for ( var i=1; i<filters.length; i++ ) {
