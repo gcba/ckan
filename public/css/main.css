@@ -77,9 +77,13 @@ a:hover {
   float: left;
   display: block;
   position: relative;
-  margin-right: 10px;
+  margin-right: 18px;
   margin-top: 10px;
 }
+
+.nav-secondary li:first-child {
+  margin-right: 20px;
+ }
 .nav-secondary li:last-child {
   margin-right: 0;
 }
