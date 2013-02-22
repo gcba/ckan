@@ -10,8 +10,9 @@ $( document ).ready( function() {
 		'res_format': [],
 		'groups': []
 	}
+	var query_str;
 
-	pushFilterUrl = function() {
+	pushUrl = function() {
 		filter_array = []
 		if ( facets['tags'].length > 0)
 			filter_array.push(facets['tags'].join('.'));
@@ -22,6 +23,9 @@ $( document ).ready( function() {
 
 		filter_str = filter_array.length > 0 ? "." + filter_array.join('.'): "";
 		$.bbq.pushState(  $.param( { filter: filter_str } ));
+		if (query_str) {
+			$.bbq.pushState( $.param( { query: query_str}));
+		}
 	};
 
 	filterDatasets = function() {
@@ -34,13 +38,20 @@ $( document ).ready( function() {
 				$(selector).addClass("active");
 			}
 		}
+		if (hashOptions.query) {
+			if (!hashOptions.filter) {
+				hashOptions.filter = "";
+			}
+			hashOptions.filter += ":contains('" + hashOptions.query + "')"
+			$('#search').val(hashOptions.query);
+		}
 		$('.datasets').isotope( hashOptions );
 	}
 
 	clearFilter = function (eventObject) {
 		var filter = $(eventObject.currentTarget).attr('ckan-filter');
 		facets[filter] = []
-		pushFilterUrl();
+		pushUrl();
 		return false;
 	}
 
@@ -53,13 +64,25 @@ $( document ).ready( function() {
 		} else {
 			facets[filter].splice(index, 1);
 		}
-		pushFilterUrl();
+		pushUrl();
 		return false;
+	}
+
+	toggleQuery = function(eventObject) {
+		kwd = $(this).val().toLowerCase();
+		if ( (kwd != '') && (kwd.length >= 2) ) { 
+			query_str = kwd;
+		} else {
+			query_str = null
+		}
+		pushUrl();
+		return true;
 	}
 
 	$(window).bind( 'hashchange', filterDatasets).trigger('hashchange');
 	$('.filter a').click(clearFilter);
 	$('.facet a').click(toggleFacetToFilter);
+	$('#search').keyup(toggleQuery) ;
 
 	$('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();
