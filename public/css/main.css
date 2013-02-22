@@ -53,6 +53,14 @@ a:hover {
 }
 
 
+/* 
+
+BASADO EN HACKDASH
+Por Dan Z.
+
+*/
+
+
 
 .well {
   min-height:                                           20px;
@@ -77,6 +85,136 @@ a:hover {
   -o-transition: all 0.1s ease-in-out;
   /* Standard */
   transition: all 0.1s ease-in-out;
+}
+
+.well .cover {
+  background: #000;
+}
+
+.well .cover img{
+  opacity: 0.8;
+        /* Firefox */
+  -moz-transition: all 0.2s ease-in-out;
+  /* WebKit */
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Opera */
+  -o-transition: all 0.2s ease-in-out;
+  /* Standard */
+  transition: all 0.2s ease-in-out;
+}
+
+
+.well:hover .cover img {
+  opacity: 1
+}
+
+
+#projects .well:hover {
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+    top:-2px;
+
+}
+
+.well .avatar {
+  width:32px;
+  height: 32px;
+
+}
+.modal .well {
+  margin: 0
+}
+.well-content {
+  padding:15px;
+}
+.well-content img {
+  border-radius: 50px;
+  width: 48px;
+  height: 48px;
+
+}
+
+.well-content img:hover {
+  box-shadow: 0 0 6px #999;
+}
+
+.well h3 {
+  margin:0 0 10px 0;
+  font-size:             16pt;
+  font-weight:            700;
+  color:                 #000;
+  line-height:           20pt;
+  text-align:            left;
+}
+
+.well p > a:hover {
+  text-decoration: none;
+}
+
+
+.well p {
+  color:#777;
+  margin:0 0 10px 0; 
+}
+
+
+
+
+.well .row-fluid {
+  border-top:#EEE 1px solid;
+}
+
+[data-icon]::before {
+font-family:              'Entypo';
+color:                        #000;
+font-weight:        400 !important;
+content:           attr(data-icon);
+text-transform:               none;
+position:                 relative;
+top:                           3px;
+font-size:                    30px;
+line-height:                     0;
+}
+
+
+.project .well {
+  border-top:10px solid #000;
+}
+
+.project.prototyping .well { border-top-color:#ff5f8c;}
+.project.releasing .well { border-top-color:#77db45;}
+.project.wireframing .well { border-top-color:#55c5ff;}
+.project.reasearching .well { border-top-color:#fffd58;}
+.project.brainstorming .well { border-top-color:#ff5a00;}
+
+
+h1,h2,h3,h4,h5,h6,p {
+  font-family: 'Lato', sans-serif;
+}
+
+.activity {
+  padding: 6px;
+  display: inline-block;
+  border-right: 1px solid #EEE;
+  text-align: center;
+  margin:0!important;
+}
+
+.activity span {
+
+  opacity: 0.2;
+  /* Firefox */
+  -moz-transition: all 0.3s ease;
+  /* WebKit */
+  -webkit-transition: all 0.3s ease;
+  /* Opera */
+  -o-transition: all 0.3s ease;
+  /* Standard */
+  transition: all 0.3s ease;
+}
+
+.activity span:hover {
+  opacity: 0.5;
 }
 
 /* Secondary navigation */
