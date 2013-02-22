@@ -40,12 +40,43 @@
 
 {% block primary_content %}
 
+<div class="navbar">
+  <div class="navbar-inner">
+       
+        <ul class="nav">
+          <li class="dropdown">
+
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Tags <strong class="caret"></strong></a>
+
+            <div class="dropdown-menu" style="padding: 20px; padding-bottom: 0px;">
+              
+                  {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
 
 
-  {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
-  {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
+            </div>
+          </li>
+        </ul>
+
+          <ul class="nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Formats <strong class="caret"></strong></a>
+            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+              
+               {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
 
 
+            </div>
+          </li>
+        </ul>
+
+  </div>
+  <!--/.navbar-inner -->
+</div>
+<!--/.navbar -->
+
+
+
+{{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
   <section class="module">
     <div class="module-content">
       <form id="dataset-search" class="dataset-search clearfix" method="get" data-module="select-switch">
@@ -62,7 +93,7 @@
             {{ _('All datasets') }}
         </strong>
      </div>
-      {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
+      
     </div>
   </section>
 

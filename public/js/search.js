@@ -26,7 +26,7 @@ $( document ).ready( function() {
 
 	filterDatasets = function() {
 		var hashOptions = $.deparam.fragment();
-		$(".facet").removeClass("active");
+		$(".facet a").removeClass("active");
 		if (hashOptions.filter) {
 			filters = hashOptions.filter.split('.')
 			for ( var i=1; i<filters.length; i++ ) {
@@ -60,5 +60,10 @@ $( document ).ready( function() {
 	$(window).bind( 'hashchange', filterDatasets).trigger('hashchange');
 	$('.filter a').click(clearFilter);
 	$('.facet a').click(toggleFacetToFilter);
+
+	$('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+        });
+
 });
 
