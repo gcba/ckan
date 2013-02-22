@@ -12,4 +12,9 @@ $( document ).ready( function() {
 		     timeout: 1000, // number = milliseconds delay before onMouseOut    
 		     out: hideHeader // function = onMouseOut callback (REQUIRED)    
 		});
+
+	$('.branding-data form').submit(function(eventObject) {
+		event.preventDefault();
+		location.href = "dataset#query=" + $('#search').val();
+	});
 });

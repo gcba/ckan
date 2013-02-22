@@ -179,9 +179,10 @@
 
 
 {%- block scripts %}
-<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="js/jquery.ba-bbq.min.js"></script>
-<script type="text/javascript" src="js/search.js"></script>
+{{ super() }}
+<script type="text/javascript" src="/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="/js/jquery.ba-bbq.min.js"></script>
+<script type="text/javascript" src="/js/search.js"></script>
 {% endblock -%}
 
 {%- block custom_styles %}
