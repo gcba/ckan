@@ -11,26 +11,18 @@
 {# FACETADO DE GRUPOS #}
 <nav>
   <ul class="groups facet">
-    {% set items = h.get_facet_items_dict('groups') %}
-     {% for item in items %}
-    <li class="{{item.name}}">
-      <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.name}}">
-        <span class="awe-large awe-signal"></span>
-        <span class="awe-group-text">item.display_name</span>
-      </a>
-    </li>
+     {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
+     {% if not item.is_organization %}
+      <li class="{{item.0.name}}">
+        <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
+          <span class="awe-large awe-signal"></span>
+          <span class="awe-group-text">{{item.0.title}}</span>
+        </a>
+      </li>
+    {% endif %}
     {% endfor %}
   </ul>
 </nav>
-
-{# FACETADO DE GRUPOS #}
-{# <nav>
-  <ul class="groups facet">
-     {% for item in c.search_facets.groups.items() %}
-        {{ item }}
-    {% endfor %}
-  </ul>
-</nav> #}
 
 </div>
 
