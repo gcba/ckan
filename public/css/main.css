@@ -52,6 +52,9 @@ a:hover {
   transition: all 0.3s ease;
 }
 
+.datasets {
+  list-style: none;
+}
 
 /* 
 
@@ -63,7 +66,7 @@ Por Dan Z.
 
 
 .well {
-  min-height:                                           20px;
+  min-height:                                           190px;
   margin-bottom:                                        30px;
   background-color:                       #ffffff !important;
   border:                                  1px solid #e4e4e4;
@@ -140,7 +143,7 @@ Por Dan Z.
 
 .well h3 {
   margin:0 0 10px 0;
-  font-size:             16pt;
+  font-size:             15px;
   font-weight:            700;
   color:                 #000;
   line-height:           20pt;
@@ -188,16 +191,13 @@ line-height:                     0;
 .project.brainstorming .well { border-top-color:#ff5a00;}
 
 
-h1,h2,h3,h4,h5,h6,p {
-  font-family: 'Lato', sans-serif;
-}
-
 .activity {
   padding: 6px;
   display: inline-block;
   border-right: 1px solid #EEE;
   text-align: center;
   margin:0!important;
+  background: none;
 }
 
 .activity span {
