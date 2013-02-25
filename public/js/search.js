@@ -1,5 +1,10 @@
 $( document ).ready( function() {
 
+	$.expr[':'].contains = function(a, i, m) {
+	  return $(a).text().toUpperCase()
+	      .indexOf(m[3].toUpperCase()) >= 0;
+	};
+
   	$('.datasets').isotope({
 		itemSelector : '.dataset',
 		layoutMode : 'fitRows'
@@ -10,7 +15,7 @@ $( document ).ready( function() {
 		'res_format': [],
 		'groups': []
 	}
-	var query_str;
+	var query_str = "";
 
 	pushUrl = function() {
 		filter_array = []
@@ -23,9 +28,8 @@ $( document ).ready( function() {
 
 		filter_str = filter_array.length > 0 ? "." + filter_array.join('.'): "";
 		$.bbq.pushState(  $.param( { filter: filter_str } ));
-		if (query_str) {
-			$.bbq.pushState( $.param( { query: query_str}));
-		}
+		$.bbq.pushState( $.param( { query: query_str}));
+
 	};
 
 	filterDatasets = function() {
@@ -69,11 +73,11 @@ $( document ).ready( function() {
 	}
 
 	toggleQuery = function(eventObject) {
-		kwd = $(this).val().toLowerCase();
+		kwd = $(this).val();
 		if ( (kwd != '') && (kwd.length >= 2) ) { 
 			query_str = kwd;
 		} else {
-			query_str = null
+			query_str = "";
 		}
 		pushUrl();
 		return true;
