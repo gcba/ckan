@@ -31,7 +31,7 @@ Example:
    {% for item in tag_items %}{{ item.name }} {% endfor %}
     {% for item in format_items %}{{ item }} {% endfor %}
     {% for item in group_items %}{{ item.name }}{% endfor %} 
-     project span5">
+     project span4">
 
 
   <div class="well">
@@ -58,11 +58,11 @@ Example:
       <span class="banner">Popular</span>
     {% endif %}
     {% if notes %}
-    <p>
+    
      
-      <div>{{ notes|urlize }}</div>
+      <div><p>{{ notes|urlize }}  </p></div>
 
-         </p>
+       
      
     {% else %}
       <p class="empty">{{ _("This dataset has no description") }}</p>
