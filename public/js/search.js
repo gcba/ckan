@@ -7,7 +7,21 @@ $( document ).ready( function() {
 
   	$('.datasets').isotope({
 		itemSelector : '.dataset',
-		layoutMode : 'fitRows'
+		layoutMode : 'fitRows',
+		getSortData : {
+		    total_count : function ( $elem ) {
+		    	return parseInt( $elem.find('.total-view-count').text(), 10 )
+		    },
+		    recent_count : function ( $elem ) {
+		    	return parseInt( $elem.find('.recent-view-count').text(), 10 )
+		    },
+		    title : function ( $elem ) {
+		      return $elem.find('.title').text();
+		    },
+		    last_modified: function ($elem) {
+		    	return $elem.find('.last-modified').text();
+		    }
+	  	}
 	});
 
 	var facets = {
@@ -16,6 +30,7 @@ $( document ).ready( function() {
 		'groups': []
 	}
 	var query_str = "";
+	var sort_str="original-order";
 
 	pushUrl = function() {
 		filter_array = []
@@ -27,8 +42,9 @@ $( document ).ready( function() {
 			filter_array.push(facets['groups'].join('.'));
 
 		filter_str = filter_array.length > 0 ? "." + filter_array.join('.'): "";
-		$.bbq.pushState(  $.param( { filter: filter_str } ));
+		$.bbq.pushState( $.param( { filter: filter_str } ));
 		$.bbq.pushState( $.param( { query: query_str}));
+		$.bbq.pushState( $.param( { sort: sort_str } ));
 
 	};
 
@@ -49,7 +65,11 @@ $( document ).ready( function() {
 			hashOptions.filter += ":contains('" + hashOptions.query + "')"
 			$('#search').val(hashOptions.query);
 		}
-		$('.datasets').isotope( hashOptions );
+		$('.datasets').isotope( {
+			filter: hashOptions.filter,
+			sortBy : hashOptions.sort 
+		});
+
 	}
 
 	clearFilter = function (eventObject) {
@@ -83,10 +103,16 @@ $( document ).ready( function() {
 		return true;
 	}
 
+	toggleSort = function(eventObject) {
+		sort_str = $(this).val();
+		pushUrl();
+	}
+
 	$(window).bind( 'hashchange', filterDatasets).trigger('hashchange');
 	$('.filter a').click(clearFilter);
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
+	$('#field-order-by').change(toggleSort);
 
 	$('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();

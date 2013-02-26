@@ -29,36 +29,29 @@
 
 <div class="row">
   <div class="span4">
-    
-              
-                  {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
-
-              
-              
-
+      {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
   </div>
   <div class="span4">
      {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
-
   </div>
-
-
-<div class="span4">
-  
-
+  <div class="span4">
     <div class="module-content">
       <form id="dataset-search" class="dataset-search clearfix" method="get" data-module="select-switch">
-
-        {{ h.snippet('snippets/sort_by.html', sort=c.sort_by_selected) }}
+        <span class="form-select control-group control-order-by">
+          <label for="field-order-by">{{ _('Order by') }}</label>
+          <select id="field-order-by" name="sort">
+            <option value="title">{{ _('Name Ascending') }}</option>
+            <option value="last_modified">{{ _('Last Modified') }}</option>
+            <option value="recent_count">{{ _('Popular') }}</option>
+            <option value="total_count">{{ _('Most Viewed') }}</option>
+            <option value="random">{{ _('Random') }}</option>
+            <option value="original-order">{{ _('Original Order') }}</option>
+          </select>
+        </span>
         <div id="dataset-search-ext"></div>
       </form>
-      
     </div>
-
-
-</div>
-
-
+  </div>
 </div>
 
 
