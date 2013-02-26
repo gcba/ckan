@@ -85,7 +85,7 @@ $( document ).ready( function() {
 
 	$(window).bind( 'hashchange', filterDatasets).trigger('hashchange');
 	$('.filter a').click(clearFilter);
-	$('.facet a').click(toggleFacetToFilter);
+	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 
 	$('.dropdown-menu').find('form').click(function (e) {
