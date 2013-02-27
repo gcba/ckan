@@ -128,7 +128,8 @@ $( document ).ready( function() {
 
 	clearFilter = function (eventObject) {
 		var filter = $(eventObject.currentTarget).attr('ckan-filter');
-		facets[filter] = []
+		facets[filter] = [];
+		$('[data-toggle="dropdown"]').parent().removeClass('open');
 		pushUrl();
 		return false;
 	}
@@ -166,7 +167,7 @@ $( document ).ready( function() {
 	}
 
 	$(window).bind( 'hashchange', filterDatasets).trigger('hashchange');
-	$('.filter a').click(clearFilter);
+	$('a[ckan-clear]').click(clearFilter);
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('a[ckan-sort]').click(toggleSort);
