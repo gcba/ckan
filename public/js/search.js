@@ -53,7 +53,7 @@ $( document ).ready( function() {
 		$($('.btn-group [ckan-facet]').parent()).show();
 	}
 
-	clearGroups = function() {
+	cleanGroups = function() {
 		$('.groups li a').removeClass("active");
 	}
 
@@ -89,6 +89,7 @@ $( document ).ready( function() {
 		var format_count = 0;
 		var group_count = 0;
 		cleanTagFormat();
+		cleanGroups();
 		facets['tags'] = []
 		if (hashOptions.tags) {
 			var filters = hashOptions.tags.split('.')
