@@ -7,55 +7,58 @@
 {% block secondary_content %}
 
 <div class="nav-secondary">
-
 {# FACETADO DE GRUPOS #}
-<nav>
-  <ul class="groups facet">
-     {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
-     {% if not item.is_organization %}
-      <li class="{{item.0.name}}">
-        <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
-          <span class="awe-large awe-signal"></span>
-          <span class="awe-group-text">{{item.0.title}}</span>
-        </a>
-      </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
-
-
+  <nav>
+    <ul class="groups facet">
+       {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
+       {% if not item.is_organization %}
+        <li class="{{item.0.name}}">
+          <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
+            <span class="awe-large awe-signal"></span>
+            <span class="awe-group-text">{{item.0.title}}</span>
+          </a>
+        </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
 </div>
 
-<div class="row">
-  <div class="span4">
-      {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
-  </div>
-  <div class="span4">
-     {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
-  </div>
-  <div class="span4">
-    <div class="module-content">
-      <form id="dataset-search" class="dataset-search clearfix" method="get" data-module="select-switch">
-        <span class="form-select control-group control-order-by">
-          <label for="field-order-by">{{ _('Order by') }}</label>
-          <select id="field-order-by" name="sort">
-            <option value="title">{{ _('Name Ascending') }}</option>
-            <option value="last_modified">{{ _('Last Modified') }}</option>
-            <option value="recent_count">{{ _('Popular') }}</option>
-            <option value="total_count">{{ _('Most Viewed') }}</option>
-            <option value="random">{{ _('Random') }}</option>
-            <option value="original-order">{{ _('Original Order') }}</option>
-          </select>
-        </span>
-        <div id="dataset-search-ext"></div>
-      </form>
+<div class="cointaner nav-tags-formats">
+  <div class="row">
+    <div class="span6 line">
+
+      <div class="tags tags-block">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>Seguridad</p>
+        </div>
+
+      <div class="tags tags-block">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>Información Geográfica</p>
+      </div>
+
+      <div class="tags tags-block">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>Gastos</p>
+      </div>
+
+      <div class="tags tags-block">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>Presupuesto</p>
+      </div>
+
+      <div class="tags tags-block">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>Economía</p>
+      </div>
+
+      <div class="tags tags-block tags-format">
+        <button type="button" class="close" data-dismiss="alert">×</button><p>csv</p>
+      </div>
+
     </div>
+    <div class="span6 line pull-right"></div>
+  </div>
+  <div class="row">
+    <div class="span12 tags-status"><p>2 tags y 1 formato seleccionado.</p></div>
   </div>
 </div>
-
-
-
 
 
 {% endblock %}
@@ -66,10 +69,6 @@
 
 
 <div id="projects" class="row projects">
-
-
-  
-
 
 {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
 
