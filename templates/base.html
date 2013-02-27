@@ -6,9 +6,14 @@
 <!--[if IE 8]> <html lang="{{ lang }}" class="ie ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="{{ lang }}" class="ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="{{ lang }}"> <!--<![endif]-->
+
+
 {%- endblock -%}
 
   <head{% block headtag %}{% endblock %}>
+   <!--[if lte ie 8]><script type="text/javascript" src="/fanstatic/vendor/:version:2013-01-30T16:06:08.01/html5.min.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="/base/vendor/select2/select2.min.css" />
+<!--[if ie 7]><link rel="stylesheet" type="text/css" href="/fanstatic/vendor/:version:2013-01-30T16:06:08.01/font-awesome/css/font-awesome-ie7.min.css" /><![endif]-->
     {%- block meta -%}
       <meta charset="utf-8" />
       {% block meta_generator %}<meta name="generator" content="ckan {{ c.__version__ }}" />{% endblock %}
@@ -53,6 +58,51 @@
     {%- block page %}{% endblock -%}
 
     {%- block scripts %} 
+    <script>document.getElementsByTagName('html')[0].className += ' js';</script>
+    <script type="text/javascript" src="/base/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-transition.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-collapse.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-modal.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-alert.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-tab.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-button.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-tooltip.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-popover.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/bootstrap/js/bootstrap-dropdown.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/jed.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/select2/select2.min.js"></script>
+    <script type="text/javascript" src="/base/vendor/html5.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.inherit.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.proxy-all.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.url-helpers.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.date-helpers.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.slug.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.slug-preview.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.truncator.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/plugins/jquery.form-warning.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/sandbox.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/module.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/pubsub.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/client.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/notify.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/i18n.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/main.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/select-switch.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/slug-preview.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/basic-form.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/confirm-action.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/api-info.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/autocomplete.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/custom-fields.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/related-item.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/data-viewer.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/resource-form.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/resource-upload-field.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/follow.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/popover-context.min.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/activity-stream.js"></script>
+    <script type="text/javascript" src="/base/javascript/modules/dashboard.min.js"></script>  
+    <script type="text/javascript" src="/base/javascript/tracking.min.js"></script>
     {% endblock -%}
 
     {% block body_extras -%} {{ g.template_footer_end | safe }} {%- endblock %}
