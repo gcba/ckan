@@ -28,7 +28,28 @@
   <div class="row">
     <div class="span6 line inner">
     </div>
-    <div class="span6 line pull-right"></div>
+    <div class="span2 line ">
+       {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
+    </div>
+    <div class="span2 line">
+       {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
+    </div>
+    <div class="span2 line">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          Sort
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+          <li><a href="#" ckan-sort="title" tabindex="-1" > {{ _('Name Ascending') }}</a></li>
+          <li><a href="#" ckan-sort="last_modified" tabindex="-1" > {{ _('Last Modified') }}</a></li>
+          <li><a href="#" ckan-sort="total_count" tabindex="-1" > {{ _('Popular') }}</a></li>
+          <li><a href="#" ckan-sort="random" tabindex="-1" > {{ _('Random') }}</a></li>
+        <li class="divider"></li>
+        <li> <a href="#" ckan-sort="original-order" class="action">{{ _('Original Order') }}</a></li>
+      </ul>
+      </div>
+    </div>
   </div>
   <div class="row info">
     <div class="span12 tags-status"><p></p></div>

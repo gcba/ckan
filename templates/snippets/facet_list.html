@@ -27,31 +27,24 @@ extras
 
 #}
 
-  {% set items =  h.get_facet_items_dict(name) %}
+{% set items =  h.get_facet_items_dict(name) %}
+<div class="btn-group" ckan-filter="{{name}}">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    {{title}}
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+  {% for item in items %}
+      <li>
+        <a href="#" tabindex="-1" ckan-filter="{{name}}" ckan-facet="{{item.name}}"> {{ item.display_name }} </a>
+      </li>
+  {% endfor %}
+  <li class="divider"></li>
+  <li> <a href="#" ckan-filter="{{name}}" class="action">{{ _('Clear All') }}</a></li>
+</ul>
+</div>
 
 
-<section class="module module-narrow module-shallow">
-  <h2 class="filter module-heading">
-    <i class="icon-medium icon-filter"></i>
-    {{ title or h.get_facet_title(name) }}
-    <a href="#" ckan-filter="{{name}}" class="action">{{ _('Clear All') }}</a>
-  </h2>
-  {% if items %}
-    <nav>
-      <ul class="{{name}} facet unstyled nav nav-simple nav-facet">
-        {% for item in items %}
-            {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-            {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
-            <li class="nav-item">
-              <a href="#" ckan-filter="{{name}}" ckan-facet="{{item.name}}">
-                <span>{{ label }} {{ count }}</span>
-              </a>
-            </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  {% else %}
-    <p class="module-content empty">{{ _('There are no filters for this search') }}</p>
-  {% endif %}
-</section>
+
+
 
