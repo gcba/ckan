@@ -33,40 +33,96 @@ $( document ).ready( function() {
 	var sort_str="original-order";
 
 	pushUrl = function() {
-		filter_array = []
-		if ( facets['tags'].length > 0)
-			filter_array.push(facets['tags'].join('.'));
-		if ( facets['res_format'].length > 0)
-			filter_array.push(facets['res_format'].join('.'));
-		if ( facets['groups'].length > 0)
-			filter_array.push(facets['groups'].join('.'));
-
-		filter_str = filter_array.length > 0 ? "." + filter_array.join('.'): "";
-		$.bbq.pushState( $.param( { filter: filter_str } ));
-		$.bbq.pushState( $.param( { query: query_str}));
-		$.bbq.pushState( $.param( { sort: sort_str } ));
-
+		$.bbq.pushState( $.param( { 
+			tags: facets['tags'].length > 0 ? "." + facets['tags'].join('.'): "",
+			groups: facets['groups'].length > 0 ? "." + facets['res_format'].join('.'): "",
+			res_format: facets['res_format'].length > 0 ? "." + facets['res_format'].join('.'): "",
+			query: query_str,
+			sort: sort_str
+		} ));
 	};
+
+	pushTagFormat = function(tag, type){
+		$('.nav-tags-formats .inner').append('<div ckan-filter="'+ type + '" ckan-facet="' + tag + '" class="tags tags-block"><button type="button" class="close" data-dismiss="alert">×</button><p>'+tag+'</p></div> ');
+		$('.nav-tags-formats .inner [ckan-facet="' + tag + '"]').click(toggleFacetToFilter);
+	}
+
+	popTagFormat = function(tag, type) {
+		$('.nav-tags-formats .inner [ckan-facet="'+ tag +  '"]').remove();
+	}
+
+	cleanTagFormat = function() {
+		$('.nav-tags-formats .inner').empty();
+	}
+
+	updateFilterMessage = function (tag_count, format_count, group_count) {
+		final_str = "";
+		if (tag_count > 0 ) {
+			final_str = tag_count + (tag_count > 1 ? " tags" : " tag");
+		}
+		if (format_count > 0 ) {
+			var format_str = format_count + (format_count > 1 ? " formatos" : " formato");
+			final_str += final_str.length > 0 ? ", " + format_str : format_str
+		}
+		if (group_count > 0 ) {
+			var group_str = group_count + (group_count > 1 ? " grupos" : " grupo");
+			final_str += final_str.length > 0 ? " y " + group_str : group_str;
+		}
+		if (final_str.length > 0 ){
+			final_str += " en selección."
+		} else {
+			final_str += "Todos los datasets."
+		}
+		$('.nav-tags-formats .info p').text(final_str);
+	}
 
 	filterDatasets = function() {
 		var hashOptions = $.deparam.fragment();
-		$(".facet a").removeClass("active");
-		if (hashOptions.filter) {
-			filters = hashOptions.filter.split('.')
+		var filter = "";
+		var tag_count = 0;
+		var format_count = 0;
+		var group_count = 0;
+		cleanTagFormat();
+		facets['tags'] = []
+		if (hashOptions.tags) {
+			var filters = hashOptions.tags.split('.')
 			for ( var i=1; i<filters.length; i++ ) {
-				selector = ".facet a[ckan-facet=" + filters[i] + "]";
-				$(selector).addClass("active");
+				pushTagFormat(filters[i], 'tags');
+				facets['tags'].push(filters[i]);
 			}
+			tag_count = filters.length - 1;
+			filter += hashOptions.tags;
+		}		
+		facets['res_format'] = []
+		if (hashOptions.res_format) {
+			var filters = hashOptions.res_format.split('.')
+			for ( var i=1; i<filters.length; i++ ) {
+				pushTagFormat(filters[i], 'res_format');
+				facets['res_format'].push(filters[i]);
+			}
+			format_count = filters.length - 1;
+			filter += hashOptions.res_format;
 		}
+		facets['groups'] = []
+		if (hashOptions.groups) {
+			var filters = hashOptions.groups.split('.')
+			for ( var i=1; i<filters.length; i++ ) {
+				facets['groups'].push(filters[i]);
+				
+			}
+			group_count = filters.length - 1;
+			filter += hashOptions.groups;
+		}
+		updateFilterMessage(tag_count, format_count, group_count);
 		if (hashOptions.query) {
 			if (!hashOptions.filter) {
 				hashOptions.filter = "";
 			}
-			hashOptions.filter += ":contains('" + hashOptions.query + "')"
+			filter += ":contains('" + hashOptions.query + "')"
 			$('#search').val(hashOptions.query);
 		}
 		$('.datasets').isotope( {
-			filter: hashOptions.filter,
+			filter: filter,
 			sortBy : hashOptions.sort 
 		});
 
@@ -113,10 +169,7 @@ $( document ).ready( function() {
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('#field-order-by').change(toggleSort);
-
-	$('.dropdown-menu').find('form').click(function (e) {
-        e.stopPropagation();
-        });
+	$('.dropdown-menu').find('form').click(function (e){e.stopPropagation();});
 
 });
 

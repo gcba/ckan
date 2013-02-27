@@ -26,37 +26,12 @@
 
 <div class="cointaner nav-tags-formats">
   <div class="row">
-    <div class="span6 line">
-
-      <div class="tags tags-block">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>Seguridad</p>
-        </div>
-
-      <div class="tags tags-block">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>Información Geográfica</p>
-      </div>
-
-      <div class="tags tags-block">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>Gastos</p>
-      </div>
-
-      <div class="tags tags-block">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>Presupuesto</p>
-      </div>
-
-      <div class="tags tags-block">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>Economía</p>
-      </div>
-
-      <div class="tags tags-block tags-format">
-        <button type="button" class="close" data-dismiss="alert">×</button><p>csv</p>
-      </div>
-
+    <div class="span6 line inner">
     </div>
     <div class="span6 line pull-right"></div>
   </div>
-  <div class="row">
-    <div class="span12 tags-status"><p>2 tags y 1 formato seleccionado.</p></div>
+  <div class="row info">
+    <div class="span12 tags-status"><p></p></div>
   </div>
 </div>
 
@@ -64,20 +39,9 @@
 {% endblock %}
 
 {% block primary_content %}
-
-
-
-
 <div id="projects" class="row projects">
-
 {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
-
 </div>
-
-
-
-
-
 {% endblock %}
 
 
