@@ -14,8 +14,8 @@
        {% if not item.is_organization %}
         <li class="{{item.0.name}}">
           <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
-            <span class="awe-large awe-signal"></span>
-            <span class="awe-group-text">{{item.0.title}}</span>
+            <span aria-hidden="true" class="icon-{{item.0.name}}"></span>
+            
           </a>
         </li>
       {% endif %}
