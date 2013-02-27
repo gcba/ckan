@@ -35,7 +35,7 @@ $( document ).ready( function() {
 	pushUrl = function() {
 		$.bbq.pushState( $.param( { 
 			tags: facets['tags'].length > 0 ? "." + facets['tags'].join('.'): "",
-			groups: facets['groups'].length > 0 ? "." + facets['res_format'].join('.'): "",
+			groups: facets['groups'].length > 0 ? "." + facets['groups'].join('.'): "",
 			res_format: facets['res_format'].length > 0 ? "." + facets['res_format'].join('.'): "",
 			query: query_str,
 			sort: sort_str
@@ -51,6 +51,14 @@ $( document ).ready( function() {
 	cleanTagFormat = function() {
 		$('.nav-tags-formats .inner').empty();
 		$($('.btn-group [ckan-facet]').parent()).show();
+	}
+
+	clearGroups = function() {
+		$('.groups li a').removeClass("active");
+	}
+
+	activeGroup = function(group) {
+		$('.groups .' + group + ' a').addClass('active')
 	}
 
 	updateFilterMessage = function (tag_count, format_count, group_count) {
@@ -106,7 +114,7 @@ $( document ).ready( function() {
 			var filters = hashOptions.groups.split('.')
 			for ( var i=1; i<filters.length; i++ ) {
 				facets['groups'].push(filters[i]);
-				
+				activeGroup(filters[i]);
 			}
 			group_count = filters.length - 1;
 			filter += hashOptions.groups;
