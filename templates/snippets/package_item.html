@@ -22,11 +22,6 @@ Example:
 {% set format_items = h.dict_list_reduce(package.resources, 'format') %}
 {% set group_items = package.groups %}
 
-
-
-
-
-
 <li class="{{ item_class or "dataset-item" }} {% for item in tag_items %}{{ item.name }} {% endfor %} {% for item in format_items %}{{ item }} {% endfor %} {% for item in group_items %}{{ item.name }}{% endfor %} project">
 
 
@@ -61,12 +56,13 @@ Example:
       <div><p>{{ notes|urlize }}  </p></div>
 
 
-
+    {% if package.tracking_summary %}
       <span class="total-view-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.tracking_summary.total}}">
 
         Cantidad de vistas.
       
       </span>
+      {% endif %}
       <span class="last-modified" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.metadata_modified}}">
 
         Cantidad de vistas.
