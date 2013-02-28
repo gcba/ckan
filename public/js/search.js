@@ -10,6 +10,8 @@ $( document ).ready( function() {
   	$('.datasets').isotope({
 		itemSelector : '.dataset',
 		layoutMode : 'fitRows',
+		masonry: {columnWidth: 267
+		},
 		getSortData : {
 		    total_count : function ( $elem ) {
 		    	return parseInt( $elem.find('.total-view-count').text(), 10 )
