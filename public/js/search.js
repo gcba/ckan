@@ -5,6 +5,8 @@ $( document ).ready( function() {
 	      .indexOf(m[3].toUpperCase()) >= 0;
 	};
 
+	$('.total-view-count, .last-modified').tooltip();
+
   	$('.datasets').isotope({
 		itemSelector : '.dataset',
 		layoutMode : 'fitRows',
@@ -68,18 +70,18 @@ $( document ).ready( function() {
 		}
 		if (format_count > 0 ) {
 			var format_str = format_count + (format_count > 1 ? " formatos" : " formato");
-			final_str += final_str.length > 0 ? " | " + format_str : format_str
+			final_str += final_str.length > 0 ? ", " + format_str : format_str
 		}
 		if (group_count > 0 ) {
 			var group_str = group_count + (group_count > 1 ? " grupos" : " grupo");
-			final_str += final_str.length > 0 ? " | " + group_str : group_str;
+			final_str += final_str.length > 0 ? ", " + group_str : group_str;
 		}
 		if (final_str.length > 0 ){
-			final_str += " en selección."
+			final_str = "Seleccionaste <strong>" + final_str +"</strong>."
 		} else {
-			final_str += "Todos los datasets."
+			final_str += "Estás viendo todos los datasets."
 		}
-		$('.nav-tags-formats .info p').text(final_str);
+		$('.nav-tags-formats .info p').html(final_str);
 	}
 
 	filterDatasets = function() {

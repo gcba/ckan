@@ -29,18 +29,18 @@ extras
 
 {% set items =  h.get_facet_items_dict(name) %}
 <div class="btn-group" ckan-filter="{{name}}">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+  <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
     {{title}}
     <span class="caret"></span>
-  </a>
+  </button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
   {% for item in items %}
       <li>
         <a href="#" tabindex="-1" ckan-filter="{{name}}" ckan-facet="{{item.name}}"> {{ item.display_name }} </a>
       </li>
   {% endfor %}
-  <li class="divider"></li>
-  <li> <a href="#" ckan-filter="{{name}}" ckan-clear="true" class="action">{{ _('Clear All') }}</a></li>
+      <li class="divider"></li>
+      <li><a href="#" ckan-filter="{{name}}" ckan-clear="true" class="action">{{ _('Clear All') }}</a></li>
 </ul>
 </div>
 

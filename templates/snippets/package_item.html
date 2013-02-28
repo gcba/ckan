@@ -60,9 +60,18 @@ Example:
      
       <div><p>{{ notes|urlize }}  </p></div>
 
-      <span class="total-view-count">{{package.tracking_summary.total}}</span>
-      <span class="recent-view-count">{{package.tracking_summary.recent}}</span>
-      <span class="last-modified">{{package.metadata_modified}}</span>
+
+
+      <span class="total-view-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.tracking_summary.total}}">
+
+        Cantidad de vistas.
+      
+      </span>
+      <span class="last-modified" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.metadata_modified}}">
+
+        Cantidad de vistas.
+
+      </span>
        
      
     {% else %}
