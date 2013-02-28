@@ -49,9 +49,9 @@ a:hover,a:focus{color:#ffe200;text-decoration:none}
 .navbar-search{padding-top:15px}
 .navbar-search .search-query,.navbar-search .search-query:focus,.navbar-search .search-query.focused{padding:15px 10px;font-size:15px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 .branding-data .description{position:relative;z-index:11;margin-top:5px}
-.branding-data h4{position:relative;padding-left:5px;font-weight:normal;font-size:11px;line-height:14px;display:block;heade color:white;padding-top:0;z-index:11}
+.branding-data h4, .branding-data h6{position:relative;padding-left:5px;font-weight:normal;font-size:11px;line-height:14px;display:block;heade color:white;padding-top:0;z-index:11}
 .info-dataviz-container {position:absolute;width:100%;left:0;width:100%;top:300px;bottom: 0;}
-.info-dataviz{position: absolute;bottom:10px;right:10px;margin-top:110px;background-color:rgba(255,255,255,0.1);display:block;z-index:11;color:#b0b0b0;padding:5px 15px;border:1px solid #666}
+.info-dataviz{position: absolute;bottom:30px;right:5%;margin-top:110px;background-color:rgba(255,255,255,0.1);display:block;z-index:11;color:#b0b0b0;padding:5px 15px;border:1px solid #666}
 .info-dataviz h5{font-size:14px;line-height:10px;color:#00ccbe}
 .info-dataviz p{font-size:11px;line-height:13px;color:#cacaca}
 .info-dataviz small{display:block;font-size:10px;clear:both;color:#f1ebeb}
@@ -806,4 +806,11 @@ outline: 0;
 }
 .content .hero-unit {
   margin-bottom: 0;
+}
+
+.full-screen {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
 }
