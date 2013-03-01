@@ -22,7 +22,7 @@ Example:
 {% set format_items = h.dict_list_reduce(package.resources, 'format') %}
 {% set group_items = package.groups %}
 
-<li class="{{ item_class or "dataset-item" }} {% for item in tag_items %}{{ item.name }} {% endfor %} {% for item in format_items %}{{ item }} {% endfor %} {% for item in group_items %}{{ item.name }}{% endfor %} project">
+<li class="{{ item_class or "dataset-item" }} {% for item in tag_items %}{{ item.name |lower}} {% endfor %} {% for item in format_items %}{{ item |lower}} {% endfor %} {% for item in group_items %}{{ item.name |lower}}{% endfor %} project">
 
 
   <div class="well">
@@ -85,7 +85,7 @@ Example:
     <ul class="dataset-resources unstyled">
       {% for resource in h.dict_list_reduce(package.resources, 'format') %}
         <li>
-          <a href="#" ckan-filter="res_format" ckan-facet="{{resource}}" class="label" data-format="{{ resource.lower() }}">
+          <a href="#" ckan-filter="res_format" ckan-facet="{{resource|lower}}" class="label" data-format="{{ resource|lower }}">
             <span>{{ resource|lower }}</span>
           </a>
         </li>
