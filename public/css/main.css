@@ -64,8 +64,11 @@ textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type=
 [role=main] .primary{float:none;margin-left:0;width:100%}
 [role=main] .secondary{width:100%;margin-left:0;float:none}
 .primary>:last-child,.secondary>:last-child{margin-bottom:0}
-.hero{background:url("../../../base/images/background-tile.png")}
-.hero:after{background-color:rgba(0,0,0,0.09);background-image:-moz-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0));background-image:-ms-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0));background-image:-webkit-gradient(linear,0 0,0 100%,from(rgba(0,0,0,0.15)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0));background-image:-o-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0));background-image:linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0));background-repeat:repeat-x;background-color:transparent;top:7px;bottom:auto;height:5px}
+.hero{background-image: none;}
+.hero:after {
+  background: none;
+}
+
 select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{height:auto!important}
 a:hover {
   -webkit-transition: all 0.3s ease;
@@ -77,6 +80,39 @@ a:hover {
 .datasets {
   list-style: none;
 }
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 80px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.jumbotron .lead {
+  font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  width: 450px;
+  margin: 0 auto;
+  line-height: 1.25;
+
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
 
 /* 
 
@@ -505,63 +541,49 @@ outline: 0;
 .icon-arte-cultura-y-recreacion:before {
   content: "\21";
 }
-.icon-bill:before {
+.icon-educacion:before {
   content: "\22";
 }
-.icon-educacion:before {
-  content: "\23";
-}
-.icon-stats:before {
-  content: "\24";
-}
 .icon-seguridad-y-justicia:before {
-  content: "\25";
+  content: "\32";
+  font-size: 35px;
 }
 .icon-medio-ambiente-y-meteorologia:before {
-  content: "\26";
-}
-.icon-plus-sign:before {
-  content: "\27";
-}
-.icon-layers:before {
-  content: "\28";
-}
-.icon-plus:before {
-  content: "\29";
-}
-.icon-shield:before {
-  content: "\2a";
-}
-.icon-bus:before {
-  content: "\2b";
+  content: "\31";
 }
 .icon-infraestructura-y-obras-publicas:before {
   content: "\2c";
 }
 .icon-vimeo:before {
-  content: "\2d";
+  content: "\27";
 }
 .icon-twitter:before {
-  content: "\2e";
-}
-.icon-github:before {
-  content: "\2f";
-}
-.icon-urbanismo-y-territorio:before {
-  content: "\30";
-}
-.icon-actividad-economicas:before {
-  content: "\31";
-}
-.icon-salud-y-servicios-sociales:before {
-  content: "\32";
-}
-.icon-administracion-publica-y-normativa:before {
   content: "\33";
 }
-.icon-movilidad-trafico-y-transporte:before {
-  content: "\34";
+.icon-github:before {
+  content: "\28";
 }
+.icon-urbanismo-y-territorio:before {
+  content: "\26";
+}
+.icon-actividad-economicas:before {
+  content: "\2a";
+  font-size: 35px;
+}
+.icon-salud-y-servicios-sociales:before {
+  content: "\2b";
+}
+.icon-administracion-publica-y-normativa:before {
+  content: "\2c";
+}
+.icon-movilidad-trafico-y-transporte:before {
+  content: "\2d";
+}
+
+span.icon-seguridad-y-justicia, span.icon-actividad-economicas {
+  margin: 1px auto 0 !important;
+}
+
 /* Main content container */
 .content {
   margin: 0 -1px;

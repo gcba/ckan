@@ -60,8 +60,14 @@
 {% endblock %}
 
 {% block primary_content %}
-<div id="projects" class="row projects">
-{{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
+<div class="content">
+                  <!-- Page container -->
+                  <div class="page-container">
+                  <div id="projects" class="row projects">
+                  {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='datasets', item_class="dataset") }}
+                  </div>
+                  </div>
+  <!-- /Page container -->
 </div>
 {% endblock %}
 
