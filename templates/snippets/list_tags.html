@@ -1,0 +1,5 @@
+{% for item in h.get_facet_items_dict('tags') %}
+  <div ckan-filter="tags" ckan-facet="{{item.name}}" class="tags tags-block" style="display:none"
+  	<button type="button" class="close" data-dismiss="alert">×</button><p>{{item.display_name}}</p>
+  </div>
+{% endfor %}

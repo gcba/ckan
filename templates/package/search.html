@@ -2,59 +2,34 @@
 
 {% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
 
-
-
 {% block secondary_content %}
-
-<div class="nav-secondary">
-{# FACETADO DE GRUPOS #}
-  <nav>
-    <ul class="groups facet">
-       {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
-       {% if not item.is_organization %}
-        <li class="{{item.0.name}}">
-          <a class="beat-me" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
-            <span aria-hidden="true" class="icon-{{item.0.name}}"></span>
-            
-          </a>
-        </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
-</div>
-
-<div class="cointaner nav-tags-formats">
+<div class="container">
   <div class="row">
-    <div class="span6 line inner">
+    <div class="span9">
+      <div class="facet groups">{% include 'snippets/facet_group.html' %}</div>
     </div>
-    <div class="span2 line ">
-       {{ h.snippet('snippets/facet_list.html', title='Tags', name='tags') }}
+    <div class="span3">
+      <div class="pull-right facet sort">{% include 'snippets/facet_sort.html' %}</div>
+      <div class="pull-right facet tags">{% include 'snippets/facet_tags.html' %}</div>
+      <div class="pull-right facet formats">{% include 'snippets/facet_formats.html' %}</div>
     </div>
-    <div class="span2 line">
-       {{ h.snippet('snippets/facet_list.html', title='Formats', name='res_format') }}
+  </div>
+ 
+<div class="row">
+    <div class="span12 tagbox line inner">
+      {% include 'snippets/list_tags.html' %}
+      {% include 'snippets/list_formats.html' %}
+      {% include 'snippets/list_groups.html' %}
     </div>
-    <div class="span2 line">
-      <div class="btn-group">
-        <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
-          Sort
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          <li><a href="#" ckan-sort="title" tabindex="-1" > {{ _('Name Ascending') }}</a></li>
-          <li><a href="#" ckan-sort="last_modified" tabindex="-1" > {{ _('Last Modified') }}</a></li>
-          <li><a href="#" ckan-sort="total_count" tabindex="-1" > {{ _('Popular') }}</a></li>
-          <li><a href="#" ckan-sort="random" tabindex="-1" > {{ _('Random') }}</a></li>
-        <li class="divider"></li>
-        <li> <a href="#" ckan-sort="original-order" class="action">{{ _('Original Order') }}</a></li>
-      </ul>
-      </div>
-    </div>
+
   </div>
   <div class="row info">
     <div class="span12 tags-status"><p></p></div>
   </div>
+
 </div>
+
+
 
 
 {% endblock %}
