@@ -371,6 +371,9 @@ Search Widget
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ffe5e5e5', GradientType=0);
 }
 
+.tags-status a {
+  color: #535353;
+}
 
 
 

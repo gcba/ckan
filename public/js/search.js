@@ -49,26 +49,56 @@ function updateMessage() {
 		group_count = filters.length - 1;
 	}
 
-	final_str = "";
-	if (tag_count > 0 ) {
-		final_str = tag_count + (tag_count > 1 ? " tags" : " tag");
-	}
-	if (format_count > 0 ) {
-		var format_str = format_count + (format_count > 1 ? " formatos" : " formato");
-		final_str += final_str.length > 0 ? ", " + format_str : format_str
-	}
-	if (group_count > 0 ) {
-		var group_str = group_count + (group_count > 1 ? " grupos" : " grupo");
-		final_str += final_str.length > 0 ? ", " + group_str : group_str;
-	}
-	var total = $('.dataset').length;
-	var cantidad = total - $('.dataset.isotope-hidden').length;
-	if (final_str.length > 0 ){
-		final_str = "Seleccionaste <strong>" + final_str +"</strong>. Viendo <strong>" + cantidad + "</strong> datasets de un total de <strong>" + total +"</strong>."
+	if (tag_count == 0 && format_count == 0 && group_count == 0 && 
+		(!hashOptions.query || hashOptions.query.length == 0) &&
+		 (!hashOptions.sort || hashOptions.sort.length == 0 || hashOptions.sort == 'original-order') ) {
+		$('.tags-status .title').text('Estás viendo todos los datasets.');
+		$('.tags-status .selection').hide();
+		$('.tags-status .filter').hide();
+		$('.tags-status .sort').hide();
+		$('.tags-status small').hide();
 	} else {
-		final_str += "Estás viendo todos los datasets. "
+		var total = $('.dataset').length;
+		$('.tags-status small').show();
+		var cantidad = total - $('.dataset.isotope-hidden').length;
+		$('.tags-status .title').html("Viendo <strong>" + cantidad + "</strong> datasets de un total de <strong>" + total +"</strong>. ");
+		if ( tag_count > 0 || group_count > 0 || format_count > 0 ){
+			$('.tags-status .selection').show();
+			if (tag_count > 0 ) {
+				final_str = tag_count + (tag_count > 1 ? " tags" : " tag");
+				$('.tags-status .tags a').html(final_str);
+			} else {
+				$('.tags-status .tags a').html('');
+			}
+			if (format_count > 0 ) {
+				var format_str = format_count + (format_count > 1 ? " formatos" : " formato");
+				$('.tags-status .res_format a').html(tag_count > 0 ? "" + format_str : format_str);
+			} else {
+				$('.tags-status .res_format a').html('');
+			}
+			if (group_count > 0 ) {
+				var group_str = group_count + (group_count > 1 ? " grupos" : " grupo");
+				$('.tags-status .groups a').html(tag_count > 0 || format_count > 0 ? "" + group_str : group_str);
+			} else {
+				$('.tags-status .groups a').html('');
+			}
+		}
+		else {
+			$('.tags-status .selection').hide();
+		}
+		if (hashOptions.sort && hashOptions.sort.length > 0 && hashOptions.sort != 'original-order') {
+			$('.tags-status .sort').show()
+			$('.tags-status .sort a').html($('.facet.sort ul li a[ckan-sort="' + hashOptions.sort+'"]').text());
+		} else {
+			$('.tags-status .sort').hide();
+		}
+		if (hashOptions.query && hashOptions.query.length > 0 ) {
+			$('.tags-status .filter').show();
+			$('.tags-status .filter a').text(hashOptions.query);
+		} else {
+			$('.tags-status .filter').hide();
+		}
 	}
-	$('.tags-status p').html(final_str);
 }
 
 function filterDatasets() {
@@ -95,31 +125,62 @@ function filterDatasets() {
 	});
 }
 
-function toggleTagBox(ele){
-	$('.tagbox [ckan-facet="'+ele+'"]').toggle();
+function showTagBox(ele){
+	$('.tagbox [ckan-facet="'+ele+'"]').show();
 }
 
-function toggleDropdown(ele) {
-	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).toggle();
+function showDropdown(ele) {
+	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).show();
 }
 
-function toggleGroupBar(ele) {
-	$('.groups .' + ele + ' a').toggleClass('active');
+function showGroupBar(ele) {
+	obj = $('.groups .' + ele + ' a');
+	if ( !obj.hasClass('active') )
+		obj.addClass('active');
 }
 
-function toggleGroup(ele) {
-	toggleTagBox(ele);
-	toggleGroupBar(ele);
+function hideTagBox(ele){
+	$('.tagbox [ckan-facet="'+ele+'"]').hide();
 }
 
-function toggleTag(ele){
-	toggleTagBox(ele);
-	toggleDropdown(ele);
+function hideDropdown(ele) {
+	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).hide();
 }
 
-function toggleFormat(ele){
-	toggleTagBox(ele);
-	toggleDropdown(ele);
+function hideGroupBar(ele) {
+	obj = $('.groups .' + ele + ' a');
+	if ( obj.hasClass('active') )
+		obj.removeClass('active');
+}
+
+function showGroup(ele) {
+	showTagBox(ele);
+	showGroupBar(ele);
+}
+
+function showTag(ele){
+	showTagBox(ele);
+	hideDropdown(ele);
+}
+
+function showFormat(ele){
+	showTagBox(ele);
+	hideDropdown(ele);
+}
+
+function hideGroup(ele) {
+	hideTagBox(ele);
+	hideGroupBar(ele);
+}
+
+function hideTag(ele){
+	hideTagBox(ele);
+	showDropdown(ele);
+}
+
+function hideFormat(ele){
+	hideTagBox(ele);
+	showDropdown(ele);
 }
 
 function toggleQueryText(ele){
@@ -129,30 +190,50 @@ function toggleQueryText(ele){
 function toggleFacets() {
 	var hashOptions = $.deparam.fragment();
 	
+	var filters;
+
+	filters = [];
 	if (hashOptions.tags) {
-		var filters = hashOptions.tags.split('.')
+		filters = hashOptions.tags.split('.')
 		for ( var i=1; i<filters.length; i++ ) {
-			toggleTag(filters[i]);
+			showTag(filters[i]);
 		}
-	}		
+	} 
+	$('.tagbox [ckan-filter="tags"]').each( function(index, element) {
+		obj = $(element);
+		facet = obj.attr('ckan-facet')
+		if ( $.inArray(facet, filters) < 0 )
+			hideTag(facet)
+	});
 
+	filters = [];
 	if (hashOptions.res_format) {
-		var filters = hashOptions.res_format.split('.')
+		filters = hashOptions.res_format.split('.')
 		for ( var i=1; i<filters.length; i++ ) {
-			toggleFormat(filters[i])
+			showFormat(filters[i])
 		}
 	}
+	$('.tagbox [ckan-filter="res_format"]').each( function(index, element) {
+		obj = $(element);
+		facet = obj.attr('ckan-facet')
+		if ( $.inArray(facet, filters) < 0)
+			hideFormat(facet);
+	});
 
+	filters = [];
 	if (hashOptions.groups) {
-		var filters = hashOptions.groups.split('.')
+		filters = hashOptions.groups.split('.')
 		for ( var i=1; i<filters.length; i++ ) {
-			toggleGroup(filters[i])
+			showGroup(filters[i])
 		}
 	}
+	$('.tagbox [ckan-filter="groups"]').each( function(index, element) {
+		obj = $(element);
+		facet = obj.attr('ckan-facet')
+		if ( $.inArray(facet, filters) < 0 )
+			hideGroup(facet);
+	});
 
-	if (hashOptions.query) {
-		toggleQueryText(hashOptions.query);
-	}
 }
 
 function clearTagBox(filter){
@@ -177,10 +258,14 @@ function clearFilter(eventObject) {
 		case 'res_format':
 			$.bbq.pushState( $.param( {res_format: ""} ));
 			break;
+		case 'query':
+			$.bbq.pushState( $.param( {query: ""} ));
+			$('#search').val('');
+			break;
+		case 'sort':
+			$.bbq.pushState( $.param( {sort: "original-order"} ));
+			break;
 	}
-	updateMessage();
-	closeDropdowns();
-	filterDatasets();
 	return false;
 }
 
@@ -246,22 +331,16 @@ function toggleFacetToFilter(eventObject) {
 
 	switch(filter){
 		case 'groups':
-			toggleGroup(facet)
 			toggleUrlGroup(facet)
 			break;
 		case 'tags':
-			toggleTag(facet)
 			toggleUrlTag(facet)
 			break;
 		case 'res_format':
-			toggleFormat(facet)
 			toggleUrlFormat(facet)
 			break;
 	}
 
-	closeDropdowns();
-	filterDatasets();
-	updateMessage();
 	return false;
 }
 
@@ -269,34 +348,27 @@ function closeDropdowns() {
 	$('[data-toggle="dropdown"]').parent().removeClass('open');
 }
 
-function toggleUrlQuery(query) {
-	$.bbq.pushState( $.param( { 
-		query: query
-	} ));
-}
-
 function toggleQuery(eventObject) {
 	kwd = $(this).val();
-	toggleQueryText(kwd);
-	toggleUrlQuery(kwd);
-	updateMessage();
-	filterDatasets();
-	return true;
-}
-
-function toggleUrlSort(sort) {
 	$.bbq.pushState( $.param( { 
-		sort: sort
+		query: kwd
 	} ));
+	return true;
 }
 
 function toggleSort(eventObject) {
 	sort_str = $(eventObject.currentTarget).attr('ckan-sort');
-	toggleUrlSort(sort_str);
-	filterDatasets();
-	closeDropdowns();
-	updateMessage();
+	$.bbq.pushState( $.param( { 
+		sort: sort_str
+	} ));
 	return false;
+}
+
+function checkUrl() {
+	closeDropdowns();
+	toggleFacets();
+  	filterDatasets();
+  	updateMessage();
 }
 
 $( document ).ready( function() {
@@ -304,12 +376,7 @@ $( document ).ready( function() {
 
 	initSearch();
   	initIsotope();
-  	toggleFacets();
-  	filterDatasets();
-  	updateMessage();
-
-  	
-
+  	$(window).bind( 'hashchange', checkUrl).trigger('hashchange');
 	$('a[ckan-clear]').click(clearFilter);
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
