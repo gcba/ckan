@@ -224,6 +224,7 @@ Por Dan Z.
 
 
 .well p {
+  font-size: 12px;
   color:#777;
 }
 
@@ -251,19 +252,6 @@ width: 267px;
        -o-transition-property:         top, left, opacity;
           transition-property:         transform, opacity;
 }
-
-[data-icon]::before {
-font-family:              'Entypo';
-color:                        #000;
-font-weight:        400 !important;
-content:           attr(data-icon);
-text-transform:               none;
-position:                 relative;
-top:                           3px;
-font-size:                    30px;
-line-height:                     0;
-}
-
 
 
 .content .page-container [class*="span"] :first-child {
@@ -437,24 +425,37 @@ Search Widget
 .facet.groups ul li a {
   display: block;
   text-align: center;
-  padding: 5px;
   background-color: #f3f3f3;
   color: #949599;
   width: 40px;
-  height: 30px;
+  height: 40px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-}
 
-.facet.groups ul li a span{
-  display: block;
-  font-size: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  
+  text-decoration: none;
+  
+  font-size: 30px;
   font-weight: normal;
   line-height: normal;
-  margin: 2px auto 0;
+
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  width: 40px;
+  height: 40px;
+
+  border: #999999 3px solid;
+  -webkit-transition: all .2s ease-in-out;
+
+  padding: 12px;
+
+ }
+
+.facet.groups ul li a span{
+  margin: 5px;
 }
 
 .facet.groups ul li a:hover,
@@ -516,12 +517,6 @@ TAGS
 }
 
 
-
-.awe-group-text {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
 .nav-secondary.inverse a {
   background-color: #33363b;
@@ -591,7 +586,7 @@ TAGS
 }
 .icon-seguridad-y-justicia:before {
   content: "\30";
-  font-size: 35px;
+  font-size: 45px;
 }
 .icon-medio-ambiente-y-meteorologia:before {
   content: "\2f";
@@ -645,8 +640,8 @@ TAGS
   font-size: 70px;
 }
 
-span.icon-seguridad-y-justicia, span.icon-actividad-economicas {
-  margin: 6px auto 0 !important;
+.icon-seguridad-y-justicia, .icon-actividad-economicas {
+  margin: 0px auto 0 !important;
 }
 
 .nav-home {
