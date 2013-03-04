@@ -147,6 +147,44 @@ a.label{
   margin-top: 28px;
 }
 
+.featured {
+  background-color: #F9F2E7;
+  min-height: 400px;
+}
+
+.featured h2 {
+  display: block;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 70px 10px 100px;
+}
+
+.featured ul {
+  list-style: none;
+  margin: 0;
+  font-size: 12px;
+}
+
+.featured li {
+  line-height: 18px;
+}
+
+.featured li:last-child {
+  margin-bottom: 20px;
+}
+
+.news-feed .span5, .news-feed .span10 {
+  margin-top: 10px;
+  display: block;
+  background-color: grey; 
+  padding: 15px;
+  min-height: 200px;
+}
+
+.news-feed .span10 {
+  margin-top: 30px;
+}
 
 /* 
 
