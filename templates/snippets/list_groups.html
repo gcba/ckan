@@ -1,5 +1,5 @@
 {% for item in h.dict_list_reduce(c.page.items, 'groups') %}
-  <a href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}" data-format="{{item.0.name|lower}}" class="label" style="display:none">
+  <a href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}" data-format="{{item.0.name|lower}}" class="label">
     <span class="close">x</span>
     <span>{{item.0.name|lower}}</span> 
   </a>

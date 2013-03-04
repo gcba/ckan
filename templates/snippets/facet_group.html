@@ -3,11 +3,15 @@
      {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
        {% if not item.is_organization %}
         <li class="{{item.0.name}}">
-          <a class="" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}">
+
+          <a class="" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}"
+             data-toggle="tooltip" title="" data-original-title="{{item.0.title}}">
             <span aria-hidden="true" class="icon-{{item.0.name}}"></span>
           </a>
         </li>
       {% endif %}
     {% endfor %}
+    <!-- ... -->
+    <li class="stretch"></li>
   </ul>
 </nav>

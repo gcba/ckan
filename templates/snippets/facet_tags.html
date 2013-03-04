@@ -5,7 +5,7 @@
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
     {% for item in h.get_facet_items_dict('tags') %}
       <li>
-        <a href="#" tabindex="-1" ckan-filter="tags" ckan-facet="{{item.name}}"> {{ item.display_name }} </a>
+        <a href="#" tabindex="-1" ckan-filter="tags" ckan-facet="{{item.name.replace(" ", "-")|lower}}"> {{ item.display_name }} </a>
       </li>
     {% endfor %}
       <li class="divider"></li>

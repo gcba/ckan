@@ -126,7 +126,7 @@ function filterDatasets() {
 }
 
 function showTagBox(ele){
-	$('.tagbox [ckan-facet="'+ele+'"]').show();
+	$('.tagbox .all [ckan-facet="'+ele+'"]').appendTo('.tagbox .visible');
 }
 
 function showDropdown(ele) {
@@ -140,7 +140,7 @@ function showGroupBar(ele) {
 }
 
 function hideTagBox(ele){
-	$('.tagbox [ckan-facet="'+ele+'"]').hide();
+	$('.tagbox .visible [ckan-facet="'+ele+'"]').appendTo('.tagbox .all');
 }
 
 function hideDropdown(ele) {
@@ -237,7 +237,7 @@ function toggleFacets() {
 }
 
 function clearTagBox(filter){
-	$('.tagbox [ckan-filter="'+filter+'"]').hide();
+	$('.tagbox [ckan-filter="'+filter+'"]').appendTo('.tagbox .all');
 }
 
 function clearDropdown(filter) {
@@ -381,6 +381,7 @@ $( document ).ready( function() {
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('a[ckan-sort]').click(toggleSort);	
+	$('.facet.groups ul li a').tooltip();
 
 });
 

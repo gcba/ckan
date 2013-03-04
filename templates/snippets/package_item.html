@@ -22,7 +22,10 @@ Example:
 {% set format_items = h.dict_list_reduce(package.resources, 'format') %}
 {% set group_items = package.groups %}
 
-<li class="{{ item_class or "dataset-item" }} {% for item in tag_items %}{{ item.name |lower}} {% endfor %} {% for item in format_items %}{{ item |lower}} {% endfor %} {% for item in group_items %}{{ item.name |lower}}{% endfor %} project">
+<li class="{{ item_class or 'dataset-item' }} 
+{% for item in tag_items %}{{ item.name.replace(' ', '-') |lower}} {% endfor %} 
+{% for item in format_items %}{{ item |lower}} {% endfor %} 
+{% for item in group_items %}{{ item.name |lower}}{% endfor %} project">
 
 
   <div class="well">
