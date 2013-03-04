@@ -426,8 +426,7 @@ Search Widget
 }
 
 .facet.groups ul li a {
-  background-color: #f3f3f3;
-  color: #949599;
+  background-color: #efefef;
   color: #DDD;
   width: 40px;
   height: 40px;
@@ -438,8 +437,7 @@ Search Widget
  }
 
 .facet.groups ul li a span{
-  
-
+  margin: 0 auto;
 }
 
 .facet.groups ul li a:hover,
@@ -590,24 +588,20 @@ TAGS
   content: "\2c";
 }
 
-.icon-dataset:before {
-  content: "\30";
-  font-size: 70px;
-}
 
 .icon-dataset:before {
   content: "\2e";
-  font-size: 70px;
+  font-size: 50px;
 }
 
 .icon-apps:before {
   content: "\2d";
-  font-size: 70px;
+  font-size: 50px;
 }
 
 .icon-labs:before {
   content: "\34";
-  font-size: 70px;
+  font-size: 50px;
 }
 
 .icon-seguridad-y-justicia, .icon-actividad-economicas {
@@ -617,7 +611,10 @@ TAGS
 .nav-home {
   display: block;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  margin-top: -45px;
 }
 
 .nav-home a {
@@ -631,10 +628,10 @@ TAGS
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  width: 140px;
-  height: 140px;
+  width: 70px;
+  height: 70px;
 
-  border: #999999 7px solid;
+  border: #999999 5px solid;
   -webkit-transition: all .2s ease-in-out;
 
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -643,10 +640,10 @@ TAGS
 }
 .nav-home a span {
   display: block;
-  font-size: 28px;
+  font-size: 15px;
   font-weight: normal;
   line-height: normal;
-  margin: 34px 0px 30px 34px;
+  margin: 10px 0 10px 10px;
 }
 .nav-home a:hover,
 .nav-home a.active {
@@ -655,15 +652,24 @@ TAGS
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);*/
 
+border: #353535 5px solid;
 
-
-color: #646464;
+color: #353535;
 outline: 0;
 }
 
+.nav-home h3 {
+  font-size: 20px;
+  line-height: 15px;
+}
+
 .nav-home p {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px; 
   width: 160px;
   margin: 0 auto;
+
 }
 
 /* Main content container */
@@ -922,5 +928,27 @@ outline: 0;
   z-index: 100;
 }
 
+.main:after, .main:before, [role=main]:after, [role=main]:before {
+content: "";
+position: absolute;
+left: 0;
+right: 0;
+height: 7px;
+background: none;
+border: none;
+}
 
+
+.site-footer {
+  position: relative;
+  *zoom: 1;
+  color: #ffffff;
+  padding: 5px 10px 3px;
+  min-height: 200px;
+  background-color: #353535;
+  background-image: none;
+  filter: none;
+  font-size: 12px;
+  padding: 20px 0;
+}
 

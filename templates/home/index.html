@@ -8,49 +8,10 @@
 
 {% block primary_content %}
 <div class="container">
-  <div class="row">
-    <div class="span12">
-    Aca va un cuadrado con noticias
-    </div>
-  </div>
-  <div class="content">
-  <div class="row">
-      {{ h.snippet('snippets/package_list.html', packages=c.datasets, list_class='datasets', item_class="dataset") }}
-  </div>
-  </div>
 </div>
 {% endblock %}
 
 {% block secondary_content %}
-<div class="container">
-  <div class="jumbotron">
-          <h1>Buenos Aires Data</h1>
-          <p class="lead">Bienvenidos al nuevo portal de datos de la iniciativa de datos públicos, transparencia e innovación de la Ciudad Autónoma de Buenos Aires.</p>
-  </div>
-  <div class="row-fluid nav-home">
-    <div class="span3 offset1">
-      <a href="#">
-            <span aria-hidden="true" class="icon-dataset"></span>      
-      </a>
-      <h3>Datasets</h3>     
-      <p>Conocé y reutilizá los datos generados por ciudad de Buenos Aires.</p>
-    </div>
-    <div class="span2 offset1">
-      <a href="#">
-            <span aria-hidden="true" class="icon-apps"></span>      
-      </a>
-      <h3>Aplicaciones</h3>
-      <p>Aplicaciones creadas en base a datasets de nuestro catálogo.</p>
-   </div>
-    <div class="span3 offset1">
-      <a href="#">
-            <span aria-hidden="true" class="icon-labs"></span>      
-      </a>
-      <h3>Laboratorio</h3>
-      <p>Prototipos, visualizaciones y proyectos open-source.</p>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {# Remove the toolbar. #}
