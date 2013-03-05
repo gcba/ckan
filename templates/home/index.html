@@ -51,4 +51,38 @@
 
 
 {# Remove the toolbar. #}
-{% block toolbar %}{% endblock %}
+{% block toolbar %}
+
+<div id="feeds"> 
+
+</div> 
+{% endblock %}
+
+
+{%- block scripts %}
+{{ super() }}
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="http://data.buenosaires.gob.ar/js/jquery.gfeed.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://raw.github.com/davidklaw/jquery-atom-feed-parser/master/public/js/vendor/jquery.jgfeed-min.js"></script>
+<script type="text/javascript" >
+$( document ).ready( function() {
+  $.jGFeed('http://digital.buenosaires.gob.ar/feed/',
+  function(feeds){
+    // Check for errors
+    if(!feeds){
+      // there was an error
+      return false;
+    }
+    // do whatever you want with feeds here
+    for(var i=0; i<feeds.entries.length; i++){
+      var entry = feeds.entries[i];
+      // entryy title
+      entry.title;
+    }
+  }, 10);
+});
+</script>
+
+{% endblock -%}
