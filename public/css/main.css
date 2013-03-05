@@ -430,7 +430,11 @@ Search Widget
   color: #535353;
 }
 
-
+.toolbar {
+margin-top: 0px;
+margin-bottom: 0px;
+padding: 5px 0;
+}
 
 .facet {
   margin-left: 5px;
@@ -442,7 +446,8 @@ Search Widget
   text-align: justify;
   list-style-type: none;
   height: 35px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
+  padding: 12px 0px;
 }
 
 .facet.groups ul li {
@@ -493,7 +498,24 @@ margin-top: 2px;
 
 /*
 
-TAGS
+PACKAGE 
+
+*/
+
+.module {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none ;
+  box-shadow: none;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/*
+
+Actividad
 
 */
 
@@ -502,14 +524,31 @@ TAGS
   padding: 6px;
   display: inline-block;
   border-right: 1px solid #EEE;
-  text-align: center;
+  text-align: left;
+  font-size: 10px;
   margin:0!important;
   background: none;
 }
 
+.activity .item {
+  position: relative;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+.activity .item a {
+color: red;
+}
+
+.activity .item p {
+font-size: 10px;
+line-height: 1.5;
+margin: 5px 0 0 0;
+}
+
 .activity span {
 
-  opacity: 0.2;
+  opacity: 0.5;
   /* Firefox */
   -moz-transition: all 0.3s ease;
   /* WebKit */
@@ -538,19 +577,11 @@ TAGS
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-.beat-me {
-  /*
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -2px 0 rgba(0, 0, 0, 0.13) inset, 0 0 0px rgba(255, 255, 255, 0.3) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
-  */
-}
+/*
 
-.beat-me {
-  /*box-shadow: inset 0 1px 0 rgba(255,255,255,0.8),0 1px 1px rgba(0,0,0,0.25);
-  background-image: -webkit-linear-gradient(top,transparent,rgba(0,0,0,0.05));
-  background-image: -moz-linear-gradient(top,transparent,rgba(0,0,0,0.05));*/
-}
+FONTS
+
+*/
 
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */

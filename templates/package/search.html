@@ -2,47 +2,40 @@
 
 {% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
 
+{% block toolbar_groups %}
+<div class="facet groups">{% include 'snippets/facet_group.html'  %}</div> 
+{% endblock %}
+
+{% block actions_content %}
+  <li class="facet tags">{% include 'snippets/facet_tags.html' %}</li>
+  <li class="facet formats">{% include 'snippets/facet_formats.html' %}</li>
+  <li class="facet sort">{% include 'snippets/facet_sort.html' %}</li>
+{% endblock %}
+
+{% block tagbox %}
+  <div class="visible"></div>
+  <div class="all"  style="display:none">
+    {% include 'snippets/list_tags.html' %}
+    {% include 'snippets/list_formats.html' %}
+    {% include 'snippets/list_groups.html' %}
+  </div>
+{% endblock %}
+
+{% block toolbar_information %}
+  <p>
+    <span class="title"></span>
+    <span class="selection">Seleccionaste 
+      <strong class="tags"><a href="#" ckan-filter="tags" ckan-clear="true"></a></strong>
+      <strong class="res_format"><a href="#" ckan-filter="res_format" ckan-clear="true"></a></strong>
+      <strong class="groups"><a href="#" ckan-filter="groups" ckan-clear="true"></a></strong>
+    </span>
+    <span class="filter">Filtrado por el termino <strong><a href="#" ckan-filter="query" ckan-clear="true"></a></strong>.</span>
+    <span class="sort">Ordenados por <strong><a href="#" ckan-filter="sort" ckan-clear="true"></a></strong>.</span>
+    <small>Click para borrar el filtro</small>
+  </p>
+{% endblock %}
+
 {% block secondary_content %}
-<div class="container">
-  <div class="row">
-    <div class="span9">
-      <div class="facet groups">{% include 'snippets/facet_group.html' %}</div>
-    </div>
-    <div class="span3">
-      <div class="pull-right facet sort">{% include 'snippets/facet_sort.html' %}</div>
-      <div class="pull-right facet tags">{% include 'snippets/facet_tags.html' %}</div>
-      <div class="pull-right facet formats">{% include 'snippets/facet_formats.html' %}</div>
-    </div>
-  </div>
- 
-<div class="row">
-    <div class="span12 tagbox line inner">
-      <div class="visible"></div>
-      <div class="all"  style="display:none">
-        {% include 'snippets/list_tags.html' %}
-        {% include 'snippets/list_formats.html' %}
-        {% include 'snippets/list_groups.html' %}
-      </div>
-    </div>
-    
-  </div>
-  <div class="row info">
-    <div class="span12 tags-status"><p>
-      <span class="title"></span>
-      <span class="selection">Seleccionaste 
-        <strong class="tags"><a href="#" ckan-filter="tags" ckan-clear="true"></a></strong>
-        <strong class="res_format"><a href="#" ckan-filter="res_format" ckan-clear="true"></a></strong>
-        <strong class="groups"><a href="#" ckan-filter="groups" ckan-clear="true"></a></strong>
-      </span>
-      <span class="filter">Filtrado por el termino <strong><a href="#" ckan-filter="query" ckan-clear="true"></a></strong>.</span>
-      <span class="sort">Ordenados por <strong><a href="#" ckan-filter="sort" ckan-clear="true"></a></strong>.</span>
-      <small>Click para borrar el filtro</small>
-    </p></div>
-  </div>
-
-</div>
-
-
 
 
 {% endblock %}

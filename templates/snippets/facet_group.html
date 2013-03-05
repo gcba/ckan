@@ -1,15 +1,16 @@
 <nav>
   <ul>
-     {% for item in h.dict_list_reduce(c.page.items, 'groups')  %}
-       {% if not item.is_organization %}
-        <li class="{{item.0.name}}">
 
-          <a class="" href="#" ckan-filter="groups" ckan-facet="{{item.0.name}}"
-             data-toggle="tooltip" title="" data-original-title="{{item.0.title}}">
-            <span aria-hidden="true" class="icon-{{item.0.name}}"></span>
+     {% for item in h.groups_all()  %}
+      <li>
+          <a {% if c.pkg_dict %}{% for group in c.pkg_dict.groups %}{% if item == group.name %}class="active"{% endif %}{% endfor %}{% endif %}
+             href="/dataset/#groups=.{{item}}"
+             ckan-filter="groups" ckan-facet="{{item}}"
+
+             data-toggle="tooltip" title="" data-original-title="{{h.group_name_to_title(item)}}">
+            <span aria-hidden="true" class="icon-{{item}}"></span>
           </a>
         </li>
-      {% endif %}
     {% endfor %}
     <!-- ... -->
     <li class="stretch"></li>

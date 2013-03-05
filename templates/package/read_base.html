@@ -1,0 +1,86 @@
+{% extends "page.html" %}
+
+{% set package = c.pkg %}
+{% set pkg = c.pkg_dict %}
+
+
+{% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
+
+{% block toolbar_groups %}
+<div class="facet groups">{% include 'snippets/facet_group.html'  %}</div> 
+{% endblock %}
+
+{% block actions_content %}
+  {# NOTE: Not implemented in stage 1 #}
+  {# <li>{% link_for _('History'), controller='package', action='history', id=pkg.name, class_='btn', icon='undo' %}</li> #}
+  {% if h.check_access('package_update', {'id':pkg.id }) %}
+    <li>{% link_for _('Edit'), controller='package', action='edit', id=pkg.name, class_='btn btn-primary', icon='wrench' %}</li>
+  {% endif %}
+  <li>{{ h.follow_button('dataset', pkg.id) }}</li>
+{% endblock %}
+
+
+{% block tagbox %}
+  <div class="visible">
+    {% for item in pkg.tags %}
+    <a href="/dataset/#tags=.{{item.name.replace(" ", "-")|lower}}" ckan-filter="tags" ckan-facet="{{item.name.replace(" ", "-")|lower}}" class="label">
+      <span>{{item.display_name|lower}}</span> 
+    </a>
+    {% endfor %}
+    {% for item in h.dict_list_reduce(pkg.resources, 'format') %}  
+    <a href="/dataset/#res_format=.{{item|lower}}" ckan-filter="res_format" ckan-facet="{{item|lower}}" class="label">
+        <span>{{item|lower}}</span> 
+      </a>
+    {% endfor %}
+
+    {% for item in pkg.groups %}
+      <a href="/dataset/#groups=.{{item.name|lower}}" ckan-filter="groups" ckan-facet="{{item.name}}" data-format="{{item.name|lower}}" class="label">
+        <span>{{item.name|lower}}</span> 
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block toolbar_information %}
+<h1>
+  {{ pkg.title or pkg.name }}
+  {% if pkg.state.startswith('draft') %}
+      [{{ _('Draft') }}]
+  {% endif %}
+</h1>
+{% endblock %}
+
+{% block primary_content %}
+  {% block package_revision_info %}
+    {% if c.pkg_revision_id %}
+      <div class="module info">
+        <p class="module-content">
+          {% set timestamp = h.render_datetime(c.pkg_revision_timestamp, with_hours=True) %}
+          {% set url =  h.url(controller='package', action='read', id=pkg.name) %}
+
+          {% if c.pkg_revision_not_latest %}
+            {% trans timestamp=timestamp, url=url %}This is an old revision of this dataset, as edited at {{ timestamp }}. It may differ significantly from the <a href="{{ url }}">current revision</a>.{% endtrans %}
+          {% else %}
+            {% trans timestamp=timestamp %}This is the current revision of this dataset, as edited at {{ timestamp }}.{% endtrans %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  
+    {% block primary_content_inner %}{% endblock %}
+ 
+{% endblock %}
+
+{% block secondary_content %}
+
+{% endblock %}
+
+
+{%- block scripts %}
+{{ super() }}
+<script type="text/javascript" >
+  $('.facet.groups ul li a').tooltip();
+</script>
+{% endblock -%}

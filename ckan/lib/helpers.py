@@ -1244,6 +1244,13 @@ def groups_available():
     data_dict = {'available_only': True}
     return logic.get_action('group_list_authz')(context, data_dict)
 
+def groups_all():
+    ''' return all groups '''
+    import ckan.logic as logic
+    context = {'model': model, 'session': model.Session,
+               'user': c.user or c.author}
+    data_dict = {'available_only': True}
+    return logic.get_action('group_list')(context, data_dict)
 
 def organizations_available(permission='edit_group'):
     ''' return a list of available organizations '''
@@ -1490,6 +1497,7 @@ __allowed_functions__ = [
            'remove_url_param',
            'add_url_param',
            'groups_available',
+           'groups_all',
            'organizations_available',
            'user_in_org_or_group',
            'dashboard_activity_stream',

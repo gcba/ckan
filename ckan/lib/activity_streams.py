@@ -13,40 +13,44 @@ import ckan.logic as logic
 # etc.
 
 def get_snippet_actor(activity, detail):
-    return literal('''<span class="actor" data-module="popover-context" data-module-type="user" data-module-id="%s">%s</span>'''
-        % (activity['user_id'], h.linked_user(activity['user_id'], 0, 30))
-        )
+    return literal("")
 
 def get_snippet_user(activity, detail):
-    return literal('''<span data-module="popover-context" data-module-type="user" data-module-id="%s">%s</span>'''
-        % (activity['object_id'], h.linked_user(activity['object_id'], 0, 20))
-        )
+    return literal("")
 
 def get_snippet_dataset(activity, detail):
     data = activity['data']
     link = h.dataset_link(data.get('package') or data.get('dataset'))
-    return literal('''<span data-module="popover-context" data-module-type="dataset" data-module-id="%s">%s</span>'''
-        % (activity['object_id'], link)
+    return literal('''<span data-module-type="dataset" >%s</span>'''
+        % (link)
         )
 
 def get_snippet_tag(activity, detail):
-    return h.tag_link(detail['data']['tag'])
+    tag = detail['data']['tag']['name']
+    link = "<a href='/dataset/#tags=.%s'>%s</a>" % (tag.lower().replace(" ", "-"), tag)
+    return literal('''<span data-module-type="tag" >%s</span>'''
+        % (link)
+        )
 
 def get_snippet_group(activity, detail):
-    link = h.group_link(activity['data']['group'])
-    return literal('''<span data-module="popover-context" data-module-type="group" data-module-id="%s">%s</span>'''
-        % (activity['object_id'], link)
+    group = detail['data']['group']
+    link = "<a href='/dataset/#groups=.%s'>%s</a>" % (group, group)
+    return literal('''<span data-module-type="group" >%s</span>'''
+        % (link)
         )
 
 def get_snippet_organization(activity, detail):
-    return h.organization_link(activity['data']['group'])
+    return "Organization"
 
 def get_snippet_extra(activity, detail):
     return '"%s"' % detail['data']['package_extra']['key']
 
 def get_snippet_resource(activity, detail):
-    return h.resource_link(detail['data']['resource'],
+    link = h.resource_link(detail['data']['resource'],
                            activity['data']['package']['id'])
+    return literal('''<span data-module-type="resource" >%s</span>'''
+        % (link)
+        )
 
 def get_snippet_related_item(activity, detail):
     return h.related_item_link(activity['data']['related'])

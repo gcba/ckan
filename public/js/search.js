@@ -134,7 +134,7 @@ function showDropdown(ele) {
 }
 
 function showGroupBar(ele) {
-	obj = $('.groups .' + ele + ' a');
+	obj = $('.groups [ckan-facet="' + ele + '"]');
 	if ( !obj.hasClass('active') )
 		obj.addClass('active');
 }
@@ -148,7 +148,7 @@ function hideDropdown(ele) {
 }
 
 function hideGroupBar(ele) {
-	obj = $('.groups .' + ele + ' a');
+	obj = $('.groups [ckan-facet="' + ele + '"]');
 	if ( obj.hasClass('active') )
 		obj.removeClass('active');
 }
