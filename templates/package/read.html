@@ -19,9 +19,13 @@
           {% endif %}
         </section>
       {% endblock %}
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span8">
 
       <section id="dataset-resources" class="resources module-content">
-        <h3>Data and Resources</h3>
+
         {% if pkg.resources %}
           <ul class="resource-list">
             {% for resource in pkg.resources %}
@@ -37,6 +41,8 @@
           </p>
         {% endif %}
       </section>
+    </div>
+    <div class="span4">
 
       {% block package_additional_info %}
         {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
@@ -47,6 +53,7 @@
   <div class="row-fluid">
     <div class="span8">
       <section class="module-content">
+        <hr/>
         <h2 class="hide-heading">{{ _('Related Media for {dataset}').format(dataset=h.dataset_display_name(c.pkg)) }}</h2>
         {% if c.pkg.related %}
           {% snippet "related/snippets/related_list.html", related_items=c.pkg.related, pkg_id=c.pkg.name, id=c.pkg.id %}
@@ -61,6 +68,7 @@
     </div>
     <div class="span4">
       <section class="module-content">
+        <hr/>
         <h1 class="hide-heading">{{ _('Activity Stream') }}</h1>
         {{ c.package_activity_stream }}
       </section>

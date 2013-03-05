@@ -114,6 +114,10 @@ a.label{
   font-size: 12px;
   font-weight: bold;
 }
+a.download-link {
+  color: grey;
+  font-size: 10px;
+}
 
 /* Main marketing message and sign up button */
 .jumbotron {
@@ -575,6 +579,44 @@ margin: 5px 0 0 0;
   background-color: #f3f3f3;
   color: #6F6F72;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.related-item a {
+  color: black;
+}
+
+
+
+.related-item .media-image  { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+.related-item .media-image img {
+  opacity: 0.4;
+}
+
+.related-item .media-image img:hover {
+  opacity: 0.1;
+}
+
+
+.related-item .media-image h3 { 
+   position: absolute; 
+   top: 10px; 
+   left: 5px; 
+   width: 100%; 
+}
+
+.related-item .media-image h3 a { 
+  text-decoration: none;
+}
+
+.related-item .media-image p { 
+   position: absolute; 
+   top: 30px; 
+   left: 5px; 
+   width: 80%; 
 }
 
 /*
