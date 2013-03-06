@@ -958,6 +958,10 @@ FONTS
   text-decoration: none;
 
 }
+
+
+
+
 .nav-home a span {
   display: block;
   font-size: 15px;
@@ -965,6 +969,8 @@ FONTS
   line-height: normal;
   margin: 10px 0 10px 10px;
 }
+
+
 .nav-home a:hover,
 .nav-home a.active {
 /*  text-decoration: none;
@@ -976,6 +982,12 @@ border: #262e39 3px solid;
 
 color: #262e39;
 outline: 0;
+}
+
+.nav-home a span.icon-dataset {
+
+border-color: #3498db !important;
+
 }
 
 .nav-home h3 {
@@ -990,6 +1002,11 @@ outline: 0;
   width: 160px;
   margin: 0 auto;
 
+}
+
+.nav-home .icon-dataset {
+
+  color: #3498db;
 }
 
 /* Main content container */
