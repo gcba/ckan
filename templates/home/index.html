@@ -9,8 +9,8 @@
 <div class="featured">
   <div class="container">
     <div class="row-fluid">
-      <div class="span8">
-        <h2>Conocé la nueva versión de Buenos Aires Data.</h2>
+      <div class="span6">
+        <h2>Un nueva versión de Buenos Aires Data.</h2>
         <ul>
           <li>Acceso programático via RESTful API a los conjuntos de datos.</li>
           <li>Visualización de los conjuntos de datos en formato de lista, gráficos y mapas interactivos.</li>
@@ -19,7 +19,7 @@
           <li>Nuevo modo de acceder y filtrar los datasets.</li>
         </ul>
       </div>
-      <div class="span4"></div>
+      <div class="span6"><img src="/img/home.png" alt="" class="home" /></div>
     </div>
   </div>
 </div>
@@ -31,21 +31,31 @@
 
 {% block secondary_content %}
 
-<div class="container news-feed">
-  <div class="row-fluid">
-    <div class="span5 offset1">
-        <h5>BAHackaton</h5>
-        <p>Usá tu creatividad, cambiá la ciudad. <br>48hs. para pushear código sobre problemas reales.</p>
+<div class="row nav-home">
+    <div class="span3 offset1">
+      <a href="/dataset">
+            <span aria-hidden="true" class="icon-dataset"></span>      
+      </a>
+      <h3>Datasets</h3>     
+      <p>Conocé y reutilizá los datos generados por ciudad de Buenos Aires.</p>
     </div>
-    <div class="span5">
-        <h5>Mejor en Bici</h5>
-        <p>Agregamos formatos de datos nuevos.</p>
+    <div class="span3">
+      <a href="#">
+            <span aria-hidden="true" class="icon-apps"></span>      
+      </a>
+      <h3>Aplicaciones</h3>
+      <p>Aplicaciones creadas en base a datasets de nuestro catálogo.</p>
+   </div>
+    <div class="span3">
+      <a href="#">
+            <span aria-hidden="true" class="icon-labs"></span>      
+      </a>
+      <h3>Laboratorio</h3>
+      <p>Prototipos, visualizaciones y proyectos open-source.</p>
     </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span10 offset1"></div>
-  </div>
 </div>
+
+
 
 {% endblock %}
 

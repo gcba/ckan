@@ -2,10 +2,12 @@ $( document ).ready( function() {
 	var showHeader = function (eventObject) {
 		brandingObj = $(eventObject.target.parentNode.parentNode.parentNode.parentNode.parentNode);
 		topHeader = $('.header-gcba')
+		subtitle = $('.title h4');
 
 		$('.branding-data .navbar-search').hide();
 		brandingObj.addClass('full-screen');
 		topHeader.hide(250);
+		subtitle.hide(50);
 		brandingObj.animate({height:'100%'},1000, 'easeInOutQuart');
 
 		
@@ -19,9 +21,11 @@ $( document ).ready( function() {
 	var hideHeader = function(eventObject) {
 		brandingObj = $(eventObject.target.parentNode.parentNode.parentNode.parentNode.parentNode);
 		topHeader = $('.header-gcba')
+		subtitle = $('.title h4');
 
 		brandingObj.animate({"height":95},1000, 'easeInOutQuart');
 		topHeader.show(250);
+		subtitle.show(50);
 		brandingObj.removeClass('full-screen');
 		$('.branding-data .navbar-search').show();
 		
