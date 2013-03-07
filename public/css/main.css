@@ -590,6 +590,19 @@ Search Widget
   margin: 2px 0px 0px 5px;
 }
 
+.toolbar .btn {
+  border-color: #b7b7b7;
+
+  line-height: 15px;
+  height: 40px;
+}
+
+.toolbar .actions .btn-group li {
+display: block;
+margin-right: 5px;
+}
+
+
 .dropdown-menu>li>a{
   font-size: 11px;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
