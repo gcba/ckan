@@ -40,6 +40,11 @@ Example:
       <a href="{{h.url_for(controller='package', action='read', id=package.name)}}" class="title"> 
         {{h.truncate(title, truncate_title)}}   
       </a>
+      {% for item in group_items %}
+      <a href="#" ckan-filter="groups" ckan-facet="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right">
+        <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
+      </a>
+        {% endfor %}
 
       {% if package.get(state, '').startswith('draft') %}
         <span class="label label-info">{{ _('Draft') }}</span>
@@ -56,47 +61,30 @@ Example:
     {% if notes %}
     
      
-      <p>{{ notes|urlize }}  </p>
+      <p>{{ notes|urlize }}</p>
+      <p class="date last-modified">Actualizado hace <a href="#" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.time_ago_in_words_from_str(package.metadata_modified, 'hour') }}</a> </p>
 
-
-    {% if package.tracking_summary %}
-      <span class="total-view-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.tracking_summary.total}}">
-
-        Cantidad de vistas.
-      
-      </span>
+      {% if package.resources and not hide_resources %}
+       <p><a href="#" tabindex="-1" ckan-filter="res_format" 
+        ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+       {{h.dict_list_reduce(package.resources, 'format')|length}} formatos</a></p>        
       {% endif %}
-      <span class="last-modified" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{package.metadata_modified}}">
 
-        Cantidad de vistas.
-
-      </span>
-       
+      <p><a href="#" tabindex="-1" ckan-filter="tags" 
+        ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+       {{package.tags|length}} tags</a></p>        
      
     {% else %}
       <p class="empty">{{ _("This dataset has no description") }}</p>
     {% endif %}
   </div>
 
+
+
+
   </div>
  
 
-
-     <div class="row-fluid">
-        
-           {% if package.resources and not hide_resources %}
-    <ul class="dataset-resources unstyled">
-      {% for resource in h.dict_list_reduce(package.resources, 'format') %}
-        <li>
-          <a href="#" ckan-filter="res_format" ckan-facet="{{resource|lower}}" class="label" data-format="{{ resource|lower }}">
-            <span>{{ resource|lower }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-     </div>
   </div>
 
 

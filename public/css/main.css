@@ -26,7 +26,7 @@ html{-webkit-font-smoothing:antialiased}
 
 body{color:#535353;font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif}
 a{color:#fff;text-decoration:underline}
-a:hover,a:focus{color:#ffe603;text-decoration:none}
+a:hover,a:focus{color:#e4e4e4;text-decoration:none}
 [role=main], .main {
 position: relative;
 padding-top: 25px;
@@ -469,10 +469,16 @@ Por Dan Z.
   text-decoration: none;
 }
 
+
+
 .well p > a:hover {
   text-decoration: none;
+  color: #bbb;
 }
 
+.well p > a{
+  color: #ddd;
+}
 
 .well p {
   font-size: 12px;
@@ -617,6 +623,7 @@ margin-right: 0px;
   padding-top: 4px;
   padding-bottom: 4px;
   text-decoration: none;
+  text-align: right;
 
 }
 
@@ -1349,6 +1356,9 @@ border: none;
   padding: 20px 0;
 }
 
+.site-footer a {
+  color: #ffbd04;
+}
 .footer-gcba .logo-invertido{float:left;width:172px;height:33px;background:url(/img/logo-invertido.png)}
 .footer-gcba h2.slogan{float:right;margin-top:-4px;font-size:15px;letter-spacing:-1px; color: #fff}
 

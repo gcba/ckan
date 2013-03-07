@@ -15,7 +15,7 @@ function initIsotope() {
 		      return $elem.find('.title').text();
 		    },
 		    last_modified: function ($elem) {
-		    	return $elem.find('.last-modified').text();
+		    	return $elem.find('.last-modified a').attr('ckan-modified');
 		    }
 	  	}
 	});
