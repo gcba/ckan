@@ -72,11 +72,11 @@
 
 <div class="container twitter">
 
-<div class="span6 offset2">
-    <p>Usá tu creatividad, cambiá la ciudad. <br>48hs. para pushear código sobre problemas reales. Sed sagittis eros hendrerit purus scelerisque blandit. Fusce congue convallis leo, at scelerisque lorem posuere eu. Ut a diam in mi posuere.</p>
-    <span>@gcbadata</span>
+  <div class="span6 offset2">
+      <p></p>
+      <span>@gcbadata</span>
+    </div>
   </div>
-</div>
 
 
 
@@ -103,6 +103,16 @@
   <script type="text/javascript" src="https://raw.github.com/davidklaw/jquery-atom-feed-parser/master/public/js/vendor/jquery.jgfeed-min.js"></script>
 <script type="text/javascript" >
 $( document ).ready( function() {
+  $.ajax({
+    url: 'http://api.twitter.com/1/statuses/user_timeline/GCBAdata.json?count=1&include_rts=1',
+      cache: false,
+      dataType: "jsonp",
+      success: function(data) {
+        var tweet = data[0];
+        $(".twitter p").html(tweet.text);
+        //parsearResults(results);
+      }
+    });    
   $.jGFeed('http://digital.buenosaires.gob.ar/feed/',
   function(feeds){
     // Check for errors
