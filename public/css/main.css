@@ -634,7 +634,7 @@ Search Widget
 background-color: #262e39;
 margin-top: 0px;
 margin-bottom: 0px;
-padding: 5px 0;
+padding: 10px 0 0 0;
 }
 
 .facet {
@@ -644,15 +644,30 @@ padding: 5px 0;
 .facet.groups ul {
   list-style: none;
   font-size: 12px;
-  text-align: justify;
+  text-align: left;
   list-style-type: none;
   height: 35px;
-  margin-bottom: 0px;
-  padding: 12px 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .facet.groups nav ul li {
-  display: inline
+  display: inline;
+  text-align: left;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.facet.groups nav ul li:first-child {
+
+  margin-left: 0;
+
+}
+
+.facet.groups nav ul li:last-child {
+
+  margin-right: 0;
+
 }
 
 .facet.groups nav ul li.stretch {
