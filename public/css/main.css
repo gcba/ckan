@@ -597,6 +597,11 @@ Search Widget
   height: 40px;
 }
 
+.toolbar .actions .btn-group li {
+display: block;
+margin-right: 5px;
+}
+
 
 .dropdown-menu>li>a{
   font-size: 11px;
