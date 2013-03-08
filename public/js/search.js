@@ -1,3 +1,22 @@
+var from = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç",
+    to   = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",
+    mapping = {};
+ 
+for(var i = 0, j = from.length; i < j; i++ )
+  mapping[ from.charAt( i ) ] = to.charAt( i );
+
+function normalize(str) {
+      var ret = [];
+      for( var i = 0, j = str.length; i < j; i++ ) {
+          var c = str.charAt( i );
+          if( mapping.hasOwnProperty( str.charAt( i ) ) )
+              ret.push( mapping[ c ] );
+          else
+              ret.push( c );
+      }
+      return ret.join( '' );
+}
+
 function initIsotope() {
 	$('.datasets').isotope({
 		itemSelector : '.dataset',
@@ -23,8 +42,8 @@ function initIsotope() {
 
 function initSearch() {
 	$.expr[':'].contains = function(a, i, m) {
-	  return $(a).text().toUpperCase()
-	      .indexOf(m[3].toUpperCase()) >= 0;
+	  return normalize($(a).text().toUpperCase())
+	      .indexOf(normalize(m[3].toUpperCase())) >= 0;
 	};
 }
 
