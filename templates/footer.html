@@ -2,24 +2,41 @@
   <div class="container">
     {% block footer_content %}
     
-    <div class="row">
+    <div class="row-fluid">
       <div class="span5 offset3">
         <span class="footer-info">
           <p>Desarrollado por la Dirección General de Información y Gobierno Abierto en conjunto con la Dirección de Gobierno Electrónico.</p>
           <p>Gobierno de la Ciudad Autónoma de Buenos Aires.<br>Año 2013.</p>
         </span>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span1 offset3 text-left">
+        <a href="/recursos">Recursos</a>
+      </div>
+      <div class="span3 text-center">
+        <a href="/tyc">Terminos y Condiciones</a>
+      </div>
+      <div class="span1 text-right">
+        <a href="/faq">Faq</a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span5 offset3">
         <span class="footer-creditos">
           <p>Desarrollado con:<br><a href="http://ckan.org/" target="_blank" class="ckan">CKAN 2.5</a></p>
         </span>
       </div>
     </div>
-
-    <div class="footer-gcba">
-          <div class="container">
-            <a href="http://buenosaires.gob.ar" target="_blank"><div class="logo-invertido"></div></a>
-            <a href="http://www.buenosaires.gob.ar/modernizacion" target="_blank"><h2 class="slogan">Ministerio de Modernización</h2></a>
-          </div>
+    <div class="row-fluid footer-gcba">
+      <div class="span3">
+        <a href="http://buenosaires.gob.ar" target="_blank"><div class="logo-invertido"></div></a>
+      </div>
+      <div class=" span3 offset6 text-right">
+        <a href="http://www.buenosaires.gob.ar/modernizacion" target="_blank"><h2 class="slogan">Ministerio de Modernización</h2></a>
+      </div>
     </div>
+
 
     {% endblock %}
   </div>
