@@ -25,8 +25,11 @@ html{-webkit-font-smoothing:antialiased}
 
 
 body{color:#535353;font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif}
-a{color:#fff;text-decoration:underline}
+header a{color:#fff;text-decoration:none}
 a:hover,a:focus{color:#e4e4e4;text-decoration:none}
+.text-center {text-align: center; }
+.text-left {text-align: left; }
+.text-right {text-align: right; }
 [role=main], .main {
 position: relative;
 padding-top: 25px;
@@ -89,7 +92,7 @@ border:none;
 .navbar1 h3{line-height:50px}
 .branding-data{padding-top:10px;padding-bottom:10px;background-color:black;display:block;vertical-align:middle;position:relative;height:95px;overflow:hidden}
 .branding-data h1{position:relative;color:white;padding-top:20px;font-size:45px;letter-spacing:-1px;line-height:16px;text-align:left;z-index:11;}
-.branding-data h1 a {text-decoration: none;}
+.branding-data h1 a {text-decoration: }
 .navbar-search{padding-top:15px}
 .navbar-search .search-query,.navbar-search .search-query:focus,.navbar-search .search-query.focused{padding:15px 10px;font-size:15px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 .branding-data .description{position:relative;z-index:11;margin-top:5px}
@@ -530,6 +533,10 @@ width: 267px;
   top: 7px;
   font-size: 14px;
   padding: 8px;
+}
+
+.dataset-metadata p {
+  display: inline-block;
 }
 
 /*
@@ -1376,7 +1383,7 @@ border: none;
   *zoom: 1;
   color: #ffffff;
   padding: 5px 10px 3px;
-  min-height: 200px;
+  height: inherit;
   background-color: #333333;
   background-image: none;
   filter: none;
@@ -1424,3 +1431,4 @@ border: none;
   background-position: center;
   background-repeat: no-repeat;
 }
+

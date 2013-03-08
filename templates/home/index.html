@@ -126,7 +126,8 @@ $( document ).ready( function() {
       obj = $('.news-feed .news-item.dummy').clone().appendTo('.news-feed')
       obj.removeClass('dummy');
       obj.find('.ribbon-type').html(entry.categories[0]);
-      obj.find('.ribbon-date').html(entry.publishedDate);
+      var parsedDate = Date.parseExact(entry.publishedDate, "ddd, dd MMM yyyy hh:mm:ss zzz");
+      obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yy"));
       obj.find('h5').html(entry.title);
       obj.find('p').html(entry.contentSnippet);
       obj.show();
