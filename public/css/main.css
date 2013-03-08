@@ -462,8 +462,10 @@ Por Dan Z.
   font-size:             15px;
   font-weight:            700;
   color:                 #000;
-  line-height:           18px;
+  line-height:           16px;
   text-align:            left;
+  max-width: 210px;
+
 }
 
 .well a {
@@ -483,6 +485,7 @@ Por Dan Z.
 
 .well p {
   font-size: 12px;
+  line-height: 14px;
   color:#777;
 }
 
@@ -519,6 +522,14 @@ width: 267px;
 .content .page-container [class*="span"] {
   margin-left: 0px;
   margin-bottom: 0px;
+}
+
+.group-icon {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  font-size: 14px;
+  padding: 8px;
 }
 
 /*
@@ -760,6 +771,8 @@ http://localhost:5000/dataset/#res_format=.json
 .facet .btn-group {
 margin-top: 2px;
 }
+
+
 
 .tooltip {line-height: 1;}
 .tooltip.top {margin-top: 0px;padding: 5px 0;}
@@ -1016,14 +1029,19 @@ FONTS
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
 
-  border: #999999 5px solid;
   -webkit-transition: all .1s ease-in-out;
 
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   text-decoration: none;
+
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
 
 }
 
@@ -1035,7 +1053,7 @@ FONTS
   font-size: 15px;
   font-weight: normal;
   line-height: normal;
-  margin: 10px 0 10px 10px;
+  margin: 20px 0 10px 20px;
 }
 
 
@@ -1046,16 +1064,25 @@ FONTS
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);*/
 
-border: #262e39 3px solid;
 
+margin-top: -5px;
 color: #262e39;
 outline: 0;
+
+background-color: #262e39;
+
 }
 
-.nav-home a span.icon-dataset {
+.nav-home .dataset {
+  background-color: #3498db;
+}
 
-border-color: #3498db !important;
+.nav-home .apps {
+  background-color: #EB6841;
+}
 
+.nav-home .labs {
+  background-color: #1abc9c;
 }
 
 .nav-home h3 {
@@ -1072,9 +1099,9 @@ border-color: #3498db !important;
 
 }
 
-.nav-home .icon-dataset {
+.nav-home .icon-dataset, .nav-home .icon-apps, .nav-home .icon-labs {
 
-  color: #3498db;
+  color: #ffffff;
 }
 
 /* Main content container */

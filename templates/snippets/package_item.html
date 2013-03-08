@@ -41,7 +41,7 @@ Example:
         {{h.truncate(title, truncate_title)}}   
       </a>
       {% for item in group_items %}
-      <a href="#" ckan-filter="groups" ckan-facet="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right">
+      <a href="#" ckan-filter="groups" ckan-facet="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
         <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
       </a>
         {% endfor %}
@@ -58,21 +58,21 @@ Example:
     {% if banner %}
       <span class="banner">Popular</span>
     {% endif %}
-    {% if notes %}
     
-     
-      <p>{{ notes|urlize }}</p>
-      <p class="date last-modified">Actualizado hace <a href="#" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.time_ago_in_words_from_str(package.metadata_modified, 'hour') }}</a> </p>
+
+      <p class="date last-modified">Actualizado hace <a href="#" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.time_ago_in_words_from_str(package.metadata_modified, 'hour') }}</a></p>
 
       {% if package.resources and not hide_resources %}
-       <p><a href="#" tabindex="-1" ckan-filter="res_format" 
-        ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
-       {{h.dict_list_reduce(package.resources, 'format')|length}} formatos</a></p>        
+       <p><a href="#" tabindex="-1" ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{h.dict_list_reduce(package.resources, 'format')|length}} formatos</a></p>        
       {% endif %}
 
-      <p><a href="#" tabindex="-1" ckan-filter="tags" 
-        ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
-       {{package.tags|length}} tags</a></p>        
+      <p><a href="#" tabindex="-1" ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{{package.tags|length}} tags</a></p>
+     
+  {% if notes %}
+      
+       
+      <p>{{ notes|urlize }}</p>
+
      
     {% else %}
       <p class="empty">{{ _("This dataset has no description") }}</p>
