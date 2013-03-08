@@ -509,7 +509,7 @@ width: 267px;
 }
 
 .isotope .project {
-  cursor: pointer;
+
   -webkit-transition-property: -webkit-transform, opacity;
      -moz-transition-property:    -moz-transform, opacity;
       -ms-transition-property:     -ms-transform, opacity;
