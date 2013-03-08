@@ -39,6 +39,6 @@ $( document ).ready( function() {
 
 	$('.branding-data form').submit(function(eventObject) {
 		event.preventDefault();
-		location.href = "dataset#query=" + $('#search').val();
+		location.href = "/dataset#query=" + $('#search').val();
 	});
 });
