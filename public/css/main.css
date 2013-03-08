@@ -1360,7 +1360,7 @@ border: none;
   color: #ffbd04;
 }
 .footer-gcba .logo-invertido{float:left;width:172px;height:33px;background:url(/img/logo-invertido.png)}
-.footer-gcba h2.slogan{float:right;margin-top:-4px;font-size:15px;letter-spacing:-1px; color: #fff}
+.footer-gcba h2.slogan{float:right;margin-top:-4px;margin-bottom:0px;font-size:15px;letter-spacing:-1px; color: #fff}
 
 .footer-info {
   display: block;
