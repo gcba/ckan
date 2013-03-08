@@ -88,7 +88,8 @@ border:none;
 .navbar1{color:black;line-height:50px;background-color:#f9dd00}
 .navbar1 h3{line-height:50px}
 .branding-data{padding-top:10px;padding-bottom:10px;background-color:black;display:block;vertical-align:middle;position:relative;height:95px;overflow:hidden}
-.branding-data h1{position:relative;color:white;padding-top:20px;font-size:45px;letter-spacing:-1px;line-height:16px;text-align:left;z-index:11}
+.branding-data h1{position:relative;color:white;padding-top:20px;font-size:45px;letter-spacing:-1px;line-height:16px;text-align:left;z-index:11;}
+.branding-data h1 a {text-decoration: none;}
 .navbar-search{padding-top:15px}
 .navbar-search .search-query,.navbar-search .search-query:focus,.navbar-search .search-query.focused{padding:15px 10px;font-size:15px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 .branding-data .description{position:relative;z-index:11;margin-top:5px}
