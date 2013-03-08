@@ -73,13 +73,13 @@ Example:
 
     <span class="dataset-metadata">
 
-      <p class="date last-modified">Actualizado a las <a href="#" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.snippet('snippets/date.html', date_str=package.metadata_modified) }}</a> </p>
+      <p class="date last-modified"><a href="#" class="label" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.snippet('snippets/date.html', date_str=package.metadata_modified) }}</a></p>
 
       {% if package.resources and not hide_resources %}
-       <p><a href="#" tabindex="-1" ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{{h.dict_list_reduce(package.resources, 'format')|length}} formatos</a></p>        
+       <p><a href="#" tabindex="-1"  class="label" ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{{h.dict_list_reduce(package.resources, 'format')|length}} formatos</a></p>        
       {% endif %}
 
-      <p><a href="#" tabindex="-1" ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{{package.tags|length}} tags</a></p>
+      <p><a href="#" tabindex="-1" class="label" ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">{{package.tags|length}} tags</a></p>
      
     </span>
 

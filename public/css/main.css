@@ -535,8 +535,27 @@ width: 267px;
   padding: 8px;
 }
 
+.dataset-metadata {
+  margin-top: 10px;
+}
+
 .dataset-metadata p {
-  display: inline-block;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.dataset-metadata a.label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #bdc3c7;
+  margin: 0;
+  background-color: #ecf0f1;
+  text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.dataset-metadata a.label:hover {
+  color: #7f8c8d;
+  background-color: #95a5a6;
 }
 
 /*
