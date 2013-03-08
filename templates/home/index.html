@@ -127,7 +127,7 @@ $( document ).ready( function() {
       obj.removeClass('dummy');
       obj.find('.ribbon-type').html(entry.categories[0]);
       var parsedDate = Date.parseExact(entry.publishedDate, "ddd, dd MMM yyyy hh:mm:ss zzz");
-      obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yyyy"));
+      obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yy"));
       obj.find('h5').html(entry.title);
       obj.find('p').html(entry.contentSnippet);
       obj.show();
