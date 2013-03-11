@@ -1,5 +1,7 @@
 {% extends "package/read_base.html" %}
 
+{# Extensión de la vista del dataset #}
+
 {% set pkg = c.pkg_dict %}
 
 {% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
@@ -25,9 +27,15 @@
     <div class="span8">
 
       <section id="dataset-resources" class="resources module-content">
-
+      
         {% if pkg.resources %}
+        <h4>Recursos disponibles</h4>
           <ul class="resource-list">
+
+
+
+
+
             {% for resource in pkg.resources %}
               {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %}
             {% endfor %}
@@ -45,6 +53,7 @@
     <div class="span4">
 
       {% block package_additional_info %}
+      <h4>Información adicional</h4>
         {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
       {% endblock %}
     </div>    

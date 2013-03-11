@@ -1,5 +1,7 @@
 {% extends "page.html" %}
 
+{# Vista base del dataset #}
+
 {% set package = c.pkg %}
 {% set pkg = c.pkg_dict %}
 
@@ -42,15 +44,31 @@
 {% endblock %}
 
 {% block toolbar_information %}
-<h1>
-  {{ pkg.title or pkg.name }}
-  {% if pkg.state.startswith('draft') %}
-      [{{ _('Draft') }}]
-  {% endif %}
-</h1>
+<p>
+    <span class="title">Viendo <strong>1</strong> datasets de un total de <strong>34</strong>. </span>
+    <span class="selection" style="display: inline;">Seleccionaste 
+      <strong class="tags"><a href="#" ckan-filter="tags" ckan-clear="true"></a></strong>
+      <strong class="res_format"><a href="#" ckan-filter="res_format" ckan-clear="true"></a></strong>
+      <strong class="groups"><a href="#" ckan-filter="groups" ckan-clear="true">1 grupo</a></strong>
+    </span>
+    <span class="filter" style="display: none;">Filtrado por el termino <strong><a href="#" ckan-filter="query" ckan-clear="true"></a></strong>.</span>
+    <span class="sort" style="display: none;">Ordenados por <strong><a href="#" ckan-filter="sort" ckan-clear="true"></a></strong>.</span>
+    <small style="display: inline;">Click para borrar el filtro</small>
+  </p>
 {% endblock %}
 
+
+
 {% block primary_content %}
+<div class="content">
+    <!-- Page container -->
+    <div class="page-container">
+      <h1>
+        {{ pkg.title or pkg.name }}
+        {% if pkg.state.startswith('draft') %}
+            [{{ _('Draft') }}]
+        {% endif %}
+      </h1>
   {% block package_revision_info %}
     {% if c.pkg_revision_id %}
       <div class="module info">
@@ -70,7 +88,8 @@
 
   
     {% block primary_content_inner %}{% endblock %}
- 
+     </div>
+</div>
 {% endblock %}
 
 {% block secondary_content %}

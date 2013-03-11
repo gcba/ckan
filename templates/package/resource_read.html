@@ -1,5 +1,7 @@
 {% extends "page.html" %}
 
+{# Vista del recurso de un dataset #}
+
 {% set pkg = c.pkg_dict %}
 {% set res = c.resource %}
 
@@ -66,6 +68,9 @@
                 <p class="empty">{{ _('There is no description for this resource') }}</p>
               {% endif %}
               {% if not res.description and c.package.notes %}
+
+                  
+
                 <h3>{{ _('From the dataset abstract') }}</h3>
                 <blockquote>{{ h.markdown_extract(c.package.get('notes')) }}</blockquote>
                 <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
