@@ -46,23 +46,27 @@
 {% block toolbar_information %}
 <p>
     <span class="selection" style="display: inline;">
-      {% if pkg.tags|length > 0 %}
-        <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
-          {{ pkg.tags|length }}
-          {% if pkg.tags|length > 1%}tags{% else %}tag{% endif %}
-        </a></strong>
-      {% endif %}
+      {% set tags_count=pkg.tags|length %}
       {% set formats=h.dict_list_reduce(pkg.resources, 'format') %}
-      {% if formats|length > 0 %}
-        <strong class="res_format"><a href="/dataset#res_format=.{{h.dict_list_reduce(pkg.resources, 'format')|join('.')|lower}}" ckan-filter="res_format">
-          {{ formats|length }}
-          {% if formats|length > 1%}formatos{% else %}formato{% endif %}
+      {% set formats_count=formats|length %}
+      {% set groups_count=pkg.groups|length %}
+      {% if tags_count > 0 %}
+        <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
+          {{ tags_count }}
+          {% if tags_count > 1%}tags{% else %}tag{% endif %}{% if formats_count > 0 %}{% if groups_count > 0 %},{% else %}y{% endif %}{% else %}{% if groups_count > 0 %}y{% endif %}{% endif %}
         </a></strong>
       {% endif %}
-      {% if pkg.groups|length > 0 %}
+      {% if formats_count > 0 %}
+        <strong class="res_format"><a href="/dataset#res_format=.{{formats|join('.')|lower}}" ckan-filter="res_format">
+          {{ formats_count }}
+          {% if formats_count > 1%}formatos{% else %}formato{% endif %}
+          {% if groups_count > 0 %}y{% endif %}
+        </a></strong>
+      {% endif %}
+      {% if groups_count > 0 %}
         <strong class="groups"><a href="/dataset#groups=.{{ pkg.groups|join('.', attribute='name')|lower }}" ckan-filter="groups">
-          {{ pkg.groups|length }}
-          {% if pkg.groups|length > 1%}grupos{% else %}grupo{% endif %}
+          {{ groups_count }}
+          {% if groups_count > 1%}grupos{% else %}grupo{% endif %}
         </a></strong>
       {% endif %}
     </span>

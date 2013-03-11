@@ -86,14 +86,36 @@ function updateMessage() {
 			if (tag_count > 0 ) {
 				final_str = tag_count + (tag_count > 1 ? " tags" : " tag");
 				$('.tags-status .tags a').html(final_str);
+				if (format_count > 0) {
+					if (group_count > 0) {
+						$('.tags-status .tag-union').html(',')
+					} else {
+						$('.tags-status .tag-union').html(' y')
+					}
+				}
+				else {
+					if (group_count > 0) {
+						$('.tags-status .tag-union').html(' y')
+					} else {
+						$('.tags-status .tag-union').html('')
+					}
+				}
 			} else {
 				$('.tags-status .tags a').html('');
+				$('.tags-status .tag-union').html('')
 			}
+
 			if (format_count > 0 ) {
 				var format_str = format_count + (format_count > 1 ? " formatos" : " formato");
 				$('.tags-status .res_format a').html(tag_count > 0 ? "" + format_str : format_str);
+				if ( group_count > 0 ) {
+					$('.tags-status .format-union').html('y')
+				} else {
+					$('.tags-status .format-union').html('')
+				}
 			} else {
 				$('.tags-status .res_format a').html('');
+				$('.tags-status .format-union').html('')
 			}
 			if (group_count > 0 ) {
 				var group_str = group_count + (group_count > 1 ? " grupos" : " grupo");
