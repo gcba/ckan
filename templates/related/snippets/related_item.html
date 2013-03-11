@@ -14,7 +14,15 @@ Example:
 'application':'/base/images/placeholder-application.png'
 } %}
 <li class="related-item media-item  media-vertical{% if first %} first{% endif %}{% if last %} last{% endif %}" data-module="related-item">
-  
+  <div class="well">
+    <div class="cover shadow"> </div>
+    <div class="well-content">
+
+       
+
+
+
+
   <a href="{{ related.url }}">
    {#  <img class="image-normal"
       src="{{ related.image_url or placeholder_map[related.type] or '/base/images/placeholder-image.png' }}" alt="{{ related.title }}" /> #}
@@ -34,6 +42,10 @@ Example:
         {% if related.description %} {{ h.render_markdown(related.description) }}{% endif %}
         </p>
   </a>
+
+
+
+
   <div class="media-content">
       
     
@@ -41,4 +53,11 @@ Example:
       {{ h.nav_link(_('Edit'), controller='related', action='edit', id=pkg_id, related_id=related.id, class_='btn btn-small') }}
     {% endif %}
   </div>
+
+  </div>
+
+  </div>
+
+
+
 </li>
