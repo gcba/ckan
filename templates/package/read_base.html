@@ -45,15 +45,28 @@
 
 {% block toolbar_information %}
 <p>
-    <span class="title">Viendo <strong>1</strong> datasets de un total de <strong>34</strong>. </span>
-    <span class="selection" style="display: inline;">Seleccionaste 
-      <strong class="tags"><a href="#" ckan-filter="tags" ckan-clear="true"></a></strong>
-      <strong class="res_format"><a href="#" ckan-filter="res_format" ckan-clear="true"></a></strong>
-      <strong class="groups"><a href="#" ckan-filter="groups" ckan-clear="true">1 grupo</a></strong>
+    <span class="selection" style="display: inline;">
+      {% if pkg.tags|length > 0 %}
+        <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
+          {{ pkg.tags|length }}
+          {% if pkg.tags|length > 1%}tags{% else %}tag{% endif %}
+        </a></strong>
+      {% endif %}
+      {% set formats=h.dict_list_reduce(pkg.resources, 'format') %}
+      {% if formats|length > 0 %}
+        <strong class="res_format"><a href="/dataset#res_format=.{{h.dict_list_reduce(pkg.resources, 'format')|join('.')|lower}}" ckan-filter="res_format">
+          {{ formats|length }}
+          {% if formats|length > 1%}formatos{% else %}formato{% endif %}
+        </a></strong>
+      {% endif %}
+      {% if pkg.groups|length > 0 %}
+        <strong class="groups"><a href="/dataset#groups=.{{ pkg.groups|join('.', attribute='name')|lower }}" ckan-filter="groups">
+          {{ pkg.groups|length }}
+          {% if pkg.groups|length > 1%}grupos{% else %}grupo{% endif %}
+        </a></strong>
+      {% endif %}
     </span>
-    <span class="filter" style="display: none;">Filtrado por el termino <strong><a href="#" ckan-filter="query" ckan-clear="true"></a></strong>.</span>
-    <span class="sort" style="display: none;">Ordenados por <strong><a href="#" ckan-filter="sort" ckan-clear="true"></a></strong>.</span>
-    <small style="display: inline;">Click para borrar el filtro</small>
+    <small style="display: inline;">Click para buscar por los mismos filtros.</small>
   </p>
 {% endblock %}
 
