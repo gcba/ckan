@@ -570,7 +570,7 @@ Vista Dataset
   font-family: "Helvetica Neue","Helvetica", sans-serif;
   padding-top: 0px;
   padding-right: 30px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
   padding-left: 0px;
 }
 
@@ -585,12 +585,92 @@ Vista Dataset
 .module-content h4 {
   display: block;
   padding-bottom: 20px;
-  margin-bottom: 20px; 
-  border-bottom: 1px solid red;
+  margin-bottom: 40px; 
+  border-bottom: 1px solid #34495e;
+}
+
+.resource-list {
+  margin: 0;
+  list-style: none;
+  margin: 0px;
 }
 
 .resource-item {
+  position: relative;
+  padding: 10px 110px 10px 60px;
+  margin-bottom: 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.resource-item:hover {
+  background-color: #efefef;
+}
+.resource-item .heading {
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+}
+.resource-item .format-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.resource-item .description {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.resource-item .btn-group {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+.dataset-resource-form .dataset-form-resource-types {
+  margin-bottom: 5px;
+}
+.dataset-form-resource-types .ckan-icon {
+  position: relative;
+  top: 3px;
+}
+.dataset-form-resource-types .radio {
+  font-weight: normal;
+  padding-left: 0;
+  padding-right: 18px;
+}
+.dataset-form-resource-types label {
+  position: relative;
+}
+.dataset-form-resource-types input[type=radio]:checked + label {
+  font-weight: bold;
+}
+.dataset-form-resource-types input[type=radio]:checked + label:after {
+  *margin-right: .3em;
+  display: inline-block;
+  vertical-align: text-bottom;
+  position: relative;
+  top: 2px;
+  background-image: url("../../../base/images/sprite-ckan-icons.png");
+  background-repeat: no-repeat;
+  background-position: 16px 16px;
+  width: 16px;
+  height: 16px;
+  background-position: -192px 0;
+  display: block;
+  content: "";
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: -12px;
+}
 
+.banner-related {
+  width: 80px;
+  color: #ffffff;
+  background: #707070;
+  padding: 1px 20px;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /*

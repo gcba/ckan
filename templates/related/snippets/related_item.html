@@ -15,10 +15,10 @@ Example:
 } %}
 <li class="related-item media-item  media-vertical{% if first %} first{% endif %}{% if last %} last{% endif %}" data-module="related-item">
   
-  <a class="media-image" href="{{ related.url }}">
-    <img class="image-normal"
-      src="{{ related.image_url or placeholder_map[related.type] or '/base/images/placeholder-image.png' }}" alt="{{ related.title }}" />
-    <span class="banner">
+  <a href="{{ related.url }}">
+   {#  <img class="image-normal"
+      src="{{ related.image_url or placeholder_map[related.type] or '/base/images/placeholder-image.png' }}" alt="{{ related.title }}" /> #}
+    <span class="dataset-metadata">
       {%- if related.type == 'application' -%}
         app
       {%- elif related.type == 'visualization' -%}

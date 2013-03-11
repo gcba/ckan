@@ -52,10 +52,13 @@
     </div>
     <div class="span4">
 
+     <section class="resources module-content">
       {% block package_additional_info %}
+     
       <h4>Información adicional</h4>
         {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
       {% endblock %}
+      </section>
     </div>    
 
   </div>
@@ -63,7 +66,7 @@
     <div class="span8">
       <section class="module-content">
         <hr/>
-        <h2 class="hide-heading">{{ _('Related Media for {dataset}').format(dataset=h.dataset_display_name(c.pkg)) }}</h2>
+        <h4>{{ _('Related Media for {dataset}').format(dataset=h.dataset_display_name(c.pkg)) }}</h4>
         {% if c.pkg.related %}
           {% snippet "related/snippets/related_list.html", related_items=c.pkg.related, pkg_id=c.pkg.name, id=c.pkg.id %}
         {% else %}
@@ -78,7 +81,7 @@
     <div class="span4">
       <section class="module-content">
         <hr/>
-        <h1 class="hide-heading">{{ _('Activity Stream') }}</h1>
+        <h4>{{ _('Activity Stream') }}</h4>
         {{ c.package_activity_stream }}
       </section>
     </div>

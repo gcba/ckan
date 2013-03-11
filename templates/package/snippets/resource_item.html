@@ -5,15 +5,16 @@
     {{ h.resource_display_name(res) | truncate(50) }}<span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
     {{ h.popular('views', res.tracking_summary.total, min=10) }}
   </a> 
-  <a class="download-link resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+  <span class="badge badge-info pull-right"><a class="download-link resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
     {% if res.resource_type in ('listing', 'service') %} 
-      ({{ _('View') }})
+      {{ _('View') }}
     {% elif  res.resource_type == 'api' %}
-      ({{ _('API Endpoint') }})
+      {{ _('API Endpoint') }}
     {% else %}
-      ({{ _('Download') }})
+      {{ _('Download') }}
     {% endif %}
-    </a>
+    </a></span>
+
   {% endblock %}
   <p class="description">
     {% if res.description %}
