@@ -45,12 +45,12 @@
         </tr>
       {% endif %}
 
-      {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
+     {#  {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
         <tr>
           <th class="dataset-label">{{ _("State") }}</th>
           <td class="dataset-details">{{ pkg_dict.state }}</td>
         </tr>
-      {% endif %}
+      {% endif %} #}
 
       {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}

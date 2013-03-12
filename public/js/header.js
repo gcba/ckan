@@ -44,6 +44,6 @@ $( document ).ready( function() {
 
 	$(".menu-gcba .social li a").click(function() {
 		var url_base = $(this).attr("url-base");
-		$(this).attr("href", url_base	 + $(location).attr('href'));
+		$(this).attr("href", url_base + encodeURIComponent($(location).attr('href')));
 	});
 });
