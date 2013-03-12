@@ -4545,7 +4545,7 @@ ul.icons li .icon-large:before {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
+  background-color: none;
   margin-bottom: 20px;
 }
 .module-heading {
@@ -4586,7 +4586,7 @@ ul.icons li .icon-large:before {
   text-decoration: underline;
 }
 .module-content {
-  padding: 0 25px;
+  padding: 0 0 0 25px;
   margin: 20px 0;
 }
 .module-content:first-child {

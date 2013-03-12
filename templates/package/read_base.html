@@ -86,6 +86,8 @@
 <div class="content dataset">
     <!-- Page container -->
     <div class="page-container">
+      <div class="row-fluid">
+        <div class="span12">
       <h1 class="dataset-header">
         <a href="{{h.url_for(controller='package', action='read', id=pkg.name)}}">{{ pkg.title or pkg.name }}</a>
         {% if c.resource %}/
@@ -112,10 +114,9 @@
       </span>
 
       {% endif %}
-        
+
       </h1>
 
- 
 
   {% block package_revision_info %}
     {% if c.pkg_revision_id %}
@@ -129,13 +130,17 @@
           {% else %}
             {% trans timestamp=timestamp %}This is the current revision of this dataset, as edited at {{ timestamp }}.{% endtrans %}
           {% endif %}
-        </div>
+        </p>
       </div>
     {% endif %}
   {% endblock %}
 
+  </div>
   
+      </div>
     {% block primary_content_inner %}{% endblock %}
+
+
      </div>
 </div>
 {% endblock %}
