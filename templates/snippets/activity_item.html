@@ -2,9 +2,9 @@
 	{% if activity.is_new %}
 	<span class="new" title="{{ _('New activity item') }}">{{ _('New activity item') }}</span>
 	{% endif %}
-	<i class="icon-{{ activity.icon }}"></i>
+	
 	<p>
-		{{ h.literal(activity.msg.format(**activity.data)) }}
+		{{ h.literal(activity.msg.format(**activity.data))|trim|capitalize }}
 		<span class="date">{{ h.snippet('snippets/date.html', date_str=activity.timestamp)  }}</span>
 	</p>
 </li>
