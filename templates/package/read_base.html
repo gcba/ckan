@@ -83,16 +83,24 @@
 
 
 {% block primary_content %}
-<div class="content">
+<div class="content dataset">
     <!-- Page container -->
     <div class="page-container">
-      <h1>
+      <h1 class="dataset-header">
         <a href="{{h.url_for(controller='package', action='read', id=pkg.name)}}">{{ pkg.title or pkg.name }}</a>
         {% if c.resource %}/
           <a href="{{h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id)}}">
             {{  h.resource_display_name(res) }}
           </a>
-          <a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
+          
+        {% endif %}
+        {% if pkg.state.startswith('draft') %}
+            [{{ _('Draft') }}]
+        {% endif %}
+
+    {%if c.resource %}
+
+      <span class="resource-item-view"><a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
             {% if res.resource_type in ('listing', 'service') %} 
               {{ _('View') }}
             {% elif  res.resource_type == 'api' %}
@@ -101,11 +109,14 @@
               {{ _('Download') }}
             {% endif %}
           </a>
-        {% endif %}
-        {% if pkg.state.startswith('draft') %}
-            [{{ _('Draft') }}]
-        {% endif %}
+      </span>
+
+      {% endif %}
+        
       </h1>
+
+ 
+
   {% block package_revision_info %}
     {% if c.pkg_revision_id %}
       <div class="module info">

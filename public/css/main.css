@@ -566,6 +566,24 @@ Vista Dataset
 
 */
 
+h1.dataset-header > a {
+  color: #666666;
+}
+
+h1.dataset-header > a:hover {
+  text-decoration: underline;
+}
+
+.dataset-header {
+  position: relative;
+}
+
+.resource-item-view {
+  position: absolute;
+  right: 20px;
+}
+
+
 .module-content {
   font-family: "Helvetica Neue","Helvetica", sans-serif;
   padding-top: 0px;
@@ -684,7 +702,7 @@ a.heading:hover {
   text-transform: uppercase;
 }
 
-.resource-item [class^="icon-"], .resource-item [class*=" icon-"] {
+.resource-item [class^="icon-"], .resource-item [class*=" icon-"], .resource-item-view [class^="icon-"], .resource-item-view [class*=" icon-"] {
 display: inline-block;
 width: 14px;
 height: 14px;
@@ -694,6 +712,7 @@ background-image: none;
 background-position: 14px 14px;
 background-repeat: no-repeat;
 margin-top: 1px;}
+
 
 .btn-mini {
 padding: 2px 6px;
