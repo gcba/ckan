@@ -4545,7 +4545,7 @@ ul.icons li .icon-large:before {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: none;
+  background-color: #ffffff;
   margin-bottom: 20px;
 }
 .module-heading {
