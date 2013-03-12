@@ -1,4 +1,4 @@
-{% extends "page.html" %}
+{% extends "package/read_base.html" %}
 
 {# Vista del recurso de un dataset #}
 
@@ -7,53 +7,7 @@
 
 {% block subtitle %}{{ h.dataset_display_name(c.package) }} - {{ h.resource_display_name(res) }}{% endblock %}
 
-{% block toolbar_groups %}
-<div class="facet groups">{% include 'snippets/facet_group.html'  %}</div> 
-{% endblock %}
-
-{% block actions_content %}
-  {% if h.check_access('package_update', {'id':pkg.id }) %}
-    <li>{% link_for _('Edit Resource'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}</li>
-  {% endif %}
-
-  
-
-  {% if 'datastore' in g.plugins %}
-    <li>{% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=c.datastore_api %}</li>
-  {% endif %}
-{% endblock %}
-
-
-{% block tagbox %}
-  <div class="visible">
-    {% for item in pkg.tags %}
-    <a href="/dataset/#tags=.{{item.name.replace(" ", "-")|lower}}" ckan-filter="tags" ckan-facet="{{item.name.replace(" ", "-")|lower}}" class="label">
-      <span>{{item.display_name|lower}}</span> 
-    </a>
-    {% endfor %}
-    {% for item in h.dict_list_reduce(pkg.resources, 'format') %}  
-    <a href="/dataset/#res_format=.{{item|lower}}" ckan-filter="res_format" ckan-facet="{{item|lower}}" class="label">
-        <span>{{item|lower}}</span> 
-      </a>
-    {% endfor %}
-
-    {% for item in pkg.groups %}
-      <a href="/dataset/#groups=.{{item.name|lower}}" ckan-filter="groups" ckan-facet="{{item.name}}" data-format="{{item.name|lower}}" class="label">
-        <span>{{item.name|lower}}</span> 
-      </a>
-    {% endfor %}
-  </div>
-{% endblock %}
-
-{% block toolbar_information %}
-<h1>
-  {% link_for h.dataset_display_name(c.package)|truncate(15), controller='package', action='read', id=c.package.get('name') %} / {{ h.resource_display_name(res)|truncate(30) }}
-</h1>
-{% endblock %}
-
-
-{% block primary_content %}
-
+{% block primary_content_inner %}
 
 <div class="container">
   <div class="row-fluid">
@@ -79,19 +33,6 @@
           {{ h.resource_preview(c.resource, c.package.id) }}
         {% endblock %}
 
-        {% if res.url %}
-      <li>
-        <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
-          {% if res.resource_type in ('listing', 'service') %}
-            <i class="icon-eye-open"></i> {{ _('View') }}
-          {% elif  res.resource_type == 'api' %}
-            <i class="icon-key"></i> {{ _('API Endpoint') }}
-          {% else %}
-            <i class="icon-download"></i> {{ _('Download') }}
-          {%endif %}
-        </a>
-      </li>
-    {% endif %}
       </section>
       
 

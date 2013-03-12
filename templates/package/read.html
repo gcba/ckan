@@ -27,15 +27,9 @@
     <div class="span8">
 
       <section id="dataset-resources" class="resources module-content">
-      
         {% if pkg.resources %}
         <h4>Recursos disponibles</h4>
           <ul class="resource-list">
-
-
-
-
-
             {% for resource in pkg.resources %}
               {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %}
             {% endfor %}

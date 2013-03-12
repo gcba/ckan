@@ -4,6 +4,15 @@
 
 {% set package = c.pkg %}
 {% set pkg = c.pkg_dict %}
+{% set tags_count=pkg.tags|length %}
+{% if c.resource %}
+  {% set formats=[c.resource.format] %}
+  {% set formats_count=1 %}
+{% else %}
+  {% set formats=h.dict_list_reduce(pkg.resources, 'format') %}
+  {% set formats_count=formats|length %}
+{% endif %}
+{% set groups_count=pkg.groups|length %}
 
 
 {% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
@@ -29,7 +38,7 @@
       <span>{{item.display_name|lower}}</span> 
     </a>
     {% endfor %}
-    {% for item in h.dict_list_reduce(pkg.resources, 'format') %}  
+    {% for item in formats %}  
     <a href="/dataset#res_format=.{{item|lower}}" ckan-filter="res_format" ckan-facet="{{item|lower}}" class="label">
         <span>{{item|lower}}</span> 
       </a>
@@ -46,10 +55,7 @@
 {% block toolbar_information %}
 <p>
     <span class="selection" style="display: inline;">
-      {% set tags_count=pkg.tags|length %}
-      {% set formats=h.dict_list_reduce(pkg.resources, 'format') %}
-      {% set formats_count=formats|length %}
-      {% set groups_count=pkg.groups|length %}
+      
       {% if tags_count > 0 %}
         <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
           {{ tags_count }}
@@ -81,7 +87,21 @@
     <!-- Page container -->
     <div class="page-container">
       <h1>
-        {{ pkg.title or pkg.name }}
+        <a href="{{h.url_for(controller='package', action='read', id=pkg.name)}}">{{ pkg.title or pkg.name }}</a>
+        {% if c.resource %}/
+          <a href="{{h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id)}}">
+            {{  h.resource_display_name(res) }}
+          </a>
+          <a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
+            {% if res.resource_type in ('listing', 'service') %} 
+              {{ _('View') }}
+            {% elif  res.resource_type == 'api' %}
+              {{ _('API Endpoint') }}
+            {% else %}
+              {{ _('Download') }}
+            {% endif %}
+          </a>
+        {% endif %}
         {% if pkg.state.startswith('draft') %}
             [{{ _('Draft') }}]
         {% endif %}
