@@ -14,6 +14,11 @@ html{-webkit-font-smoothing:antialiased}
   font-style: normal;
 }
 
+a:hover,
+a:active , a:focus{
+  outline: none !important;
+}
+
 [data-icon]:before {
   font-family: 'icomoon';
   content: attr(data-icon);
@@ -243,6 +248,54 @@ a:hover, a {
   height: 38px;
   background-position: -384px -62px;
 }
+
+
+.dataset-metadata {
+  margin-top: 10px;
+}
+
+.dataset-metadata p {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.dataset-metadata a.label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #bdc3c7;
+  margin: 0;
+  background-color: #ecf0f1;
+  text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.dataset-metadata a.label:hover {
+  color: #ffffff;
+  background-color: #95a5a6;
+}
+
+.dataset-metadata a.label-format {
+  color: white !important;
+  background-color: #D94709;
+  background-color: rgba(217, 71, 9,0.5) !important;
+}
+
+.dataset-metadata a.label-format:hover {
+  background-color: #D94709;
+  background-color: rgba(217, 71, 9,1) !important;
+}
+
+.dataset-metadata a.label-tags {
+  color: white !important;
+  background-color: #601286;
+  background-color: rgba(96, 18, 134,0.5) !important;
+}
+
+.dataset-metadata a.label-tags:hover {
+  background-color: #601286;
+  background-color: rgba(96, 18, 134,1) !important;
+}
+
+
 
 .table {
   font-size: 12px;
@@ -636,28 +689,6 @@ width: 267px;
   padding: 8px;
 }
 
-.dataset-metadata {
-  margin-top: 10px;
-}
-
-.dataset-metadata p {
-    display: inline-block;
-    margin-bottom: 0px;
-}
-
-.dataset-metadata a.label {
-  font-size: 10px;
-  font-weight: bold;
-  color: #bdc3c7;
-  margin: 0;
-  background-color: #ecf0f1;
-  text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
-}
-
-.dataset-metadata a.label:hover {
-  color: #ffffff;
-  background-color: #95a5a6;
-}
 
 
 
