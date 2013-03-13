@@ -13,12 +13,11 @@
             <div class="container">
               <div class="row">
                 <div class="span12"> 
-                  <div >
+                  <div>
                     <nav>
-                      <ul class="">
+                      <ul>
                         {% include 'snippets/facet_group.html'  %}
                         {% block actions %}<li class="action"><ul> {% block actions_content %} {% endblock %} </ul></li>{% endblock %}
-                        <!-- ... -->
                         <li class="stretch"></li>
                       </ul>
                     </nav> 
@@ -30,11 +29,11 @@
           </div>
           <div class="information">
             <div class="container">
-              <div class="row info">
+              <div class="row-fluid info">
                 <div class="span6 tags-status">
                   {% block toolbar_information %}{% endblock %}
                 </div>
-                <div class="span6 tagbox line inner">
+                <div class="span6 tagbox">
                   {% block tagbox %} {% endblock %} 
                 </div>
               </div>

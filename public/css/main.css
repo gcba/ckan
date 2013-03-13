@@ -35,12 +35,18 @@ a:hover,a:focus{color:#e4e4e4;text-decoration:none}
 .text-center {text-align: center; }
 .text-left {text-align: left; }
 .text-right {text-align: right; }
-[role=main], .main {
+
+[role=main], .main, .information {
 position: relative;
-padding-top: 25px;
+padding-top: 0px;
 padding-bottom: 25px;
 background-color: #efefef;
 }
+
+.information {
+  padding: 30px 0;
+}
+
 .main:after, .main:before, [role=main]:after, [role=main]:before {
 content: "";
 position: absolute;

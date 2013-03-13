@@ -55,7 +55,7 @@
 
 {% block toolbar_information %}
 <p>
-    <span class="selection" style="display: inline;">
+    <span class="selection" style="display: block;">
       
       {% if tags_count > 0 %}
         <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
