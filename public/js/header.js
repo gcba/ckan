@@ -1,6 +1,6 @@
 $( document ).ready( function() {
 	var showHeader = function (eventObject) {
-		brandingObj = $(eventObject.target.parentNode.parentNode.parentNode.parentNode.parentNode);
+		brandingObj = $('.branding-data');
 		topHeader = $('.header-gcba')
 		subtitle = $('.title h4');
 
@@ -19,7 +19,7 @@ $( document ).ready( function() {
 	$('.branding-data .hideviz').hide();
 
 	var hideHeader = function(eventObject) {
-		brandingObj = $(eventObject.target.parentNode.parentNode.parentNode.parentNode.parentNode);
+		brandingObj = $('.branding-data');
 		topHeader = $('.header-gcba')
 		subtitle = $('.title h4');
 

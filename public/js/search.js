@@ -175,7 +175,7 @@ function showDropdown(ele) {
 }
 
 function showGroupBar(ele) {
-	obj = $('.groups [ckan-facet="' + ele + '"]');
+	obj = $('.group [ckan-facet="' + ele + '"]');
 	if ( !obj.hasClass('active') )
 		obj.addClass('active');
 }
@@ -189,7 +189,7 @@ function hideDropdown(ele) {
 }
 
 function hideGroupBar(ele) {
-	obj = $('.groups [ckan-facet="' + ele + '"]');
+	obj = $('.group [ckan-facet="' + ele + '"]');
 	if ( obj.hasClass('active') )
 		obj.removeClass('active');
 }
@@ -304,6 +304,13 @@ function clearFilter(eventObject) {
 			$('#search').val('');
 			break;
 		case 'sort':
+			$.bbq.pushState( $.param( {sort: "original-order"} ));
+			break;
+		case 'all':
+			$.bbq.pushState( $.param( {groups: ""} ));
+			$.bbq.pushState( $.param( {tags: ""} ));
+			$.bbq.pushState( $.param( {res_format: ""} ));
+			$.bbq.pushState( $.param( {query: ""} ));
 			$.bbq.pushState( $.param( {sort: "original-order"} ));
 			break;
 	}
@@ -422,7 +429,7 @@ $( document ).ready( function() {
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('a[ckan-sort]').click(toggleSort);	
-	$('.facet.groups ul li a span').tooltip();
+	$('.toolbar nav li.group span').tooltip();
 
 });
 
