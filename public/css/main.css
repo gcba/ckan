@@ -977,7 +977,7 @@ margin: 2px 1px 0px 6px;
   float: right;
 }
 
-.toolbar .btn {
+.toolbar .facet .btn {
   border-color: #b7b7b7;
 
   line-height: 15px;
@@ -1081,6 +1081,11 @@ padding: 30px 0 20px 0;
   margin-right: 0;
 }
 
+.toolbar nav > ul li{
+  display: inline;
+  text-align: left; 
+}
+
 .toolbar nav > ul li.group{
   display: inline;
   text-align: left; 
@@ -1097,27 +1102,27 @@ padding: 30px 0 20px 0;
   text-align: left; 
 }
 
-.toolbar nav li.action > ul {
+.toolbar nav > ul > li > ul {
   display: inline-block;
   text-align: right;
 }
 
-.toolbar nav li.action > ul > li {
+.toolbar nav > ul > li  > ul > li {
   display: inline;
   text-align: left; 
 }
 
-.toolbar nav li.action > ul > li button{
+.toolbar nav > ul > li  > ul > li button{
   margin-top: -25px;
   
 }
 
-.toolbar nav li.action > ul > li ul.dropdown-menu{
+.toolbar nav > ul > li  > ul > li ul.dropdown-menu{
   right: 0;
   left: auto; 
 }
 
-.toolbar nav li.action > ul > li ul.dropdown-menu a {
+.toolbar nav > ul > li  > ul > li ul.dropdown-menu a {
   color: black;
 }
 
