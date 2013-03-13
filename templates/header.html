@@ -23,14 +23,19 @@
             <h1><a href="/">Buenos Aires Data</a></h1>
             <h4>Iniciativa de datos públicos, transparencia e innovación de
 la Ciudad Autónoma de Buenos Aires.</h4>
-            <h6><a href="#" class="viewviz">Ver visualización</a></h6>
-            <h6><a href="#" class="hideviz">Cerrar visualización</a></h6>
+            
           </div>
 
           <div class="span4 description">
+            <div class="row">
               <form class="navbar-search pull-right" action="dataset#" method="get">
                 <input id="search" type="text" class="search-query span3" name="query" placeholder="{{ _('Buscar') }}" />
               </form>
+            </div>
+            <div class="row">
+              <h6 class="pull-right"><a href="#" class="viewviz">Explorar visualización<i class="icon-viz"></i></a></h6>
+              <h6 class="pull-right"><a href="#" class="hideviz">Cerrar exploración <i class="icon-viz"></i></a></h6>
+            </div>
           </div>
 
 

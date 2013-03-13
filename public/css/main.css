@@ -1295,7 +1295,7 @@ FONTS
 .icon-twitter:before, .icon-github:before, .icon-urbanismo-y-territorio:before,
 .icon-actividad-economicas:before, .icon-salud-y-servicios-sociales:before,
 .icon-administracion-publica-y-normativa:before, .icon-movilidad-trafico-y-transporte:before,
-.icon-dataset:before, .icon-apps:before, .icon-labs:before {
+.icon-dataset:before, .icon-apps:before, .icon-labs:before, .icon-viz:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -1346,6 +1346,14 @@ FONTS
 .icon-movilidad-trafico-y-transporte:before {
   content: "\2c";
 }
+
+.icon-viz:before {
+  content: "\35";
+  font-size: 16px;
+  line-height: 9px;
+  margin-left: 4px;
+}
+
 
 
 .icon-dataset:before {
@@ -1691,6 +1699,28 @@ background-color: #262e39;
 .content .page-header .loading {
   float: right;
 }
+
+.description h6 a {
+  margin-right: 10px;
+  color: #ffffff;
+  color: rgba(255,255,255,0.5);
+  text-transform: none;
+
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.description h6 a:hover {
+  color: #e4e4e4;
+  color: rgba(255,255,255,1);
+}
+
+.viewviz {
+  font-size: 10px;
+}
+
 /* Typography */
 .content .well {
   background-color: #f6f6f6;
