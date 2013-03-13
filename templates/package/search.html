@@ -2,10 +2,6 @@
 
 {% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
 
-{% block toolbar_groups %}
-<div class="facet groups">{% include 'snippets/facet_group.html'  %}</div> 
-{% endblock %}
-
 {% block actions_content %}
   <li class="facet tags">{% include 'snippets/facet_tags.html' %}</li>
   <li class="facet formats">{% include 'snippets/facet_formats.html' %}</li>

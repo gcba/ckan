@@ -1,18 +1,15 @@
-<nav>
-  <ul>
-
      {% for item in h.groups_all()  %}
-      <li>
+      <li class="facet group">
           <a {% if c.pkg_dict %}{% for group in c.pkg_dict.groups %}{% if item == group.name %}class="active"{% endif %}{% endfor %}{% endif %}
              href="/dataset/#groups=.{{item}}"
              ckan-filter="groups" ckan-facet="{{item}}"
 
-             data-toggle="tooltip" title="" data-original-title="{{h.group_name_to_title(item)}}">
-            <span aria-hidden="true" class="icon-{{item}}"></span>
+             >
+            <span aria-hidden="true" class="icon-{{item}}"
+              data-toggle="tooltip" title="" data-original-title="{{h.group_name_to_title(item)}}"
+            ></span>
           </a>
         </li>
     {% endfor %}
-    <!-- ... -->
-    <li class="stretch"></li>
-  </ul>
-</nav>
+    
+

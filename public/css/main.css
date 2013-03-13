@@ -870,7 +870,7 @@ Search Widget
   display: block;
   min-height: 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #bcbcbc;
+  /*border-bottom: 1px solid #bcbcbc;*/
 }
 
 .tagbox .tags {
@@ -942,6 +942,10 @@ Search Widget
   margin: 2px 0px 0px 5px;
 }
 
+.tagbox .visible a {
+  float: right;
+}
+
 .toolbar .btn {
   border-color: #b7b7b7;
 
@@ -986,115 +990,116 @@ margin-right: 0px;
 .tags-status a {
   color: #ffffff;
   color: rgba(255,255,255,0.6);
+  color: black;
 }
 
 .tags-status p {
   color: #ffffff;
   color: rgba(255,255,255,0.6);
+  color: black;
   font-size: 14px;
   padding: 15px;
   padding-bottom: 0px;
+}
+
+.toolbar .information .row {
+  padding-top: 10px;
 }
 
 .toolbar {
 background-color: #262e39;
 margin-top: 0px;
 margin-bottom: 0px;
-padding: 30px 0 8px 0;
+padding: 30px 0 20px 0;
 }
 
 .facet {
   margin-left: 5px;
 }
 
-.facet.groups ul {
+
+
+.toolbar nav > ul {
   list-style: none;
-  font-size: 12px;
-  text-align: left;
   list-style-type: none;
-  height: 38px;
+  min-height: 38px;
   padding: 0;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 0px;
+  font-size: 12px;
+  text-align: justify;
 }
 
-.facet.groups nav ul li {
-  display: inline;
-  text-align: left;
-  margin-left: 25px;
-  margin-right: 25px;
+.toolbar nav ul li a{
+  color: #6e7379;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: normal;
+ }
+
+.toolbar nav > ul li a:hover,
+.toolbar nav > ul li a.active {
+  color: #ffffff;
 }
 
-/*responsive grid */
-
-/*@media (min-width: 768px) and (max-width: 979px) {
-
-.facet.groups nav ul li {
-margin-left: 7px;
-margin-right: 7px;
-}
-
-}
-@media (max-width: 979px) {
-
-.facet.groups nav ul li {
-margin-left: 7px;
-margin-right: 7px;
-background-color: red;
-}
-
-}
-
-
-http://localhost:5000/dataset#groups=.arte-cultura-y-recreacion
-http://localhost:5000/dataset/#res_format=.json
-
-*/
-.facet.groups nav ul li:first-child {
-
+.toolbar nav > ul li:first-child {
   margin-left: 0;
-
 }
 
-.facet.groups nav ul li:last-child {
-
+.toolbar nav > ul li:last-child {
   margin-right: 0;
-
 }
 
-.facet.groups nav ul li.stretch {
+.toolbar nav > ul li.group{
+  display: inline;
+  text-align: left; 
+}
+
+ .toolbar nav > ul li.group a{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+ }
+
+.toolbar nav > ul li.action{
+  display: inline;
+  text-align: left; 
+}
+
+.toolbar nav li.action > ul {
+  display: inline-block;
+  text-align: right;
+}
+
+.toolbar nav li.action > ul > li {
+  display: inline;
+  text-align: left; 
+}
+
+.toolbar nav li.action > ul > li button{
+  margin-top: -25px;
+  
+}
+
+.toolbar nav li.action > ul > li ul.dropdown-menu{
+  right: 0;
+  left: auto; 
+}
+
+.toolbar nav li.action > ul > li ul.dropdown-menu a {
+  color: black;
+}
+
+.toolbar nav > ul > li.stretch {
     display: inline-block;
     width: 100%;
     *display: inline;
     zoom: 1
 }
 
-.facet.groups li .badge {
-  position: absolute;
-  top: -5px;
-  right: -8px;
-}
-
-.facet.groups ul li a {
 
 
-  color: #6e7379;
-  width: 40px;
-  height: 40px;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: normal;
-  line-height: normal;
- }
 
-.facet.groups ul li a span{
-  margin: 0 auto;
-}
-
-.facet.groups ul li a:hover,
-.facet.groups ul li a.active {
-  color: #ffffff;
-}
 
 .facet .btn-group {
 margin-top: 2px;

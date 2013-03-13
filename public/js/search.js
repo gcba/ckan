@@ -422,7 +422,7 @@ $( document ).ready( function() {
 	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('a[ckan-sort]').click(toggleSort);	
-	$('.facet.groups ul li a').tooltip();
+	$('.facet.groups ul li a span').tooltip();
 
 });
 
