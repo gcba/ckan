@@ -1290,26 +1290,26 @@ FONTS
     readers do not read off random characters that represent icons */
 
 /*.
-.awe-urbanismo-y-territorio
-.awe-actividad-economicas
-.awe-arte-cultura-y-recreacion
+.awe-urbanismo-territorio
+.awe-actividad-economica
+.awe-cultura-recreacion
 .awe-educacion
-.awe-infraestructura-y-obras-publicas
-.awe-seguridad-y-justicia
-.awe-medio-ambiente-y-meteorologia
-.awe-salud-y-servicios-sociales
-.awe-administracion-publica-y-normativa
-.awe-movilidad-trafico-y-transporte
+.awe-infraestructura-obra-publica
+.awe-seguridad
+.awe-medio-ambiente
+.awe-salud-servicios-sociales
+.awe-administracion-publica-normativa
+.awe-movilidad-transporte
 */
 
-.icon-arte-cultura-y-recreacion:before, .icon-bill:before,
-.icon-educacion:before, .icon-stats:before, .icon-seguridad-y-justicia:before,
-.icon-medio-ambiente-y-meteorologia:before, .icon-plus-sign:before,
+.icon-cultura-recreacion:before, .icon-bill:before,
+.icon-educacion:before, .icon-stats:before, .icon-seguridad:before,
+.icon-medio-ambiente:before, .icon-plus-sign:before,
 .icon-layers:before, .icon-plus:before, .icon-shield:before, .icon-bus:before,
-.icon-infraestructura-y-obras-publicas:before, .icon-vimeo:before,
-.icon-twitter:before, .icon-github:before, .icon-urbanismo-y-territorio:before,
-.icon-actividad-economicas:before, .icon-salud-y-servicios-sociales:before,
-.icon-administracion-publica-y-normativa:before, .icon-movilidad-trafico-y-transporte:before,
+.icon-infraestructura-obra-publica:before, .icon-vimeo:before,
+.icon-twitter:before, .icon-github:before, .icon-urbanismo-territorio:before,
+.icon-actividad-economica:before, .icon-salud-servicios-sociales:before,
+.icon-administracion-publica-normativa:before, .icon-movilidad-transporte:before,
 .icon-dataset:before, .icon-apps:before, .icon-labs:before, .icon-viz:before {
   font-family: 'icomoon';
   speak: none;
@@ -1322,19 +1322,19 @@ FONTS
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
 }
-.icon-arte-cultura-y-recreacion:before {
+.icon-cultura-recreacion:before {
   content: "\21";
 }
 .icon-educacion:before {
   content: "\22";
 }
-.icon-seguridad-y-justicia:before {
+.icon-seguridad:before {
   content: "\30";
 }
-.icon-medio-ambiente-y-meteorologia:before {
+.icon-medio-ambiente:before {
   content: "\2f";
 }
-.icon-infraestructura-y-obras-publicas:before {
+.icon-infraestructura-obra-publica:before {
   content: "\26";
 }
 .icon-vimeo:before {
@@ -1346,19 +1346,19 @@ FONTS
 .icon-github:before {
   content: "\28";
 }
-.icon-urbanismo-y-territorio:before {
+.icon-urbanismo-territorio:before {
   content: "\29";
 }
-.icon-actividad-economicas:before {
+.icon-actividad-economica:before {
   content: "\32";
 }
-.icon-salud-y-servicios-sociales:before {
+.icon-salud-servicios-sociales:before {
   content: "\2a";
 }
-.icon-administracion-publica-y-normativa:before {
+.icon-administracion-publica-normativa:before {
   content: "\2b";
 }
-.icon-movilidad-trafico-y-transporte:before {
+.icon-movilidad-transporte:before {
   content: "\2c";
 }
 
@@ -1386,7 +1386,7 @@ FONTS
   font-size: 50px;
 }
 
-.icon-seguridad-y-justicia, .icon-actividad-economicas {
+.icon-seguridad, .icon-actividad-economica {
   margin: 0px auto 0 !important;
 }
 
