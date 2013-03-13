@@ -306,6 +306,13 @@ function clearFilter(eventObject) {
 		case 'sort':
 			$.bbq.pushState( $.param( {sort: "original-order"} ));
 			break;
+		case 'all':
+			$.bbq.pushState( $.param( {groups: ""} ));
+			$.bbq.pushState( $.param( {tags: ""} ));
+			$.bbq.pushState( $.param( {res_format: ""} ));
+			$.bbq.pushState( $.param( {query: ""} ));
+			$.bbq.pushState( $.param( {sort: "original-order"} ));
+			break;
 	}
 	return false;
 }
