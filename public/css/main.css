@@ -14,6 +14,11 @@ html{-webkit-font-smoothing:antialiased}
   font-style: normal;
 }
 
+a:hover,
+a:active , a:focus{
+  outline: none !important;
+}
+
 [data-icon]:before {
   font-family: 'icomoon';
   content: attr(data-icon);
@@ -243,6 +248,54 @@ a:hover, a {
   height: 38px;
   background-position: -384px -62px;
 }
+
+
+.dataset-metadata {
+  margin-top: 10px;
+}
+
+.dataset-metadata p {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.dataset-metadata a.label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #bdc3c7;
+  margin: 0;
+  background-color: #ecf0f1;
+  text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.dataset-metadata a.label:hover {
+  color: #ffffff;
+  background-color: #95a5a6;
+}
+
+.dataset-metadata a.label-format {
+  color: white !important;
+  background-color: #D94709;
+  background-color: rgba(217, 71, 9,0.5) !important;
+}
+
+.dataset-metadata a.label-format:hover {
+  background-color: #D94709;
+  background-color: rgba(217, 71, 9,1) !important;
+}
+
+.dataset-metadata a.label-tags {
+  color: white !important;
+  background-color: #601286;
+  background-color: rgba(96, 18, 134,0.5) !important;
+}
+
+.dataset-metadata a.label-tags:hover {
+  background-color: #601286;
+  background-color: rgba(96, 18, 134,1) !important;
+}
+
+
 
 .table {
   font-size: 12px;
@@ -636,28 +689,6 @@ width: 267px;
   padding: 8px;
 }
 
-.dataset-metadata {
-  margin-top: 10px;
-}
-
-.dataset-metadata p {
-    display: inline-block;
-    margin-bottom: 0px;
-}
-
-.dataset-metadata a.label {
-  font-size: 10px;
-  font-weight: bold;
-  color: #bdc3c7;
-  margin: 0;
-  background-color: #ecf0f1;
-  text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
-}
-
-.dataset-metadata a.label:hover {
-  color: #ffffff;
-  background-color: #95a5a6;
-}
 
 
 
@@ -932,14 +963,14 @@ Search Widget
 }
 
 .tagbox .close {
-  float: right;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 10px;
-  color: #000000;
-  text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
-  margin: 2px 0px 0px 5px;
+float: right;
+font-size: 11px;
+font-weight: bold;
+line-height: 8px;
+color: #000000;
+text-shadow: 0 1px 0 #ffffff;
+opacity: 0.4;
+margin: 2px 1px 0px 6px;
 }
 
 .tagbox .visible a {
@@ -1268,7 +1299,7 @@ FONTS
 .icon-twitter:before, .icon-github:before, .icon-urbanismo-y-territorio:before,
 .icon-actividad-economicas:before, .icon-salud-y-servicios-sociales:before,
 .icon-administracion-publica-y-normativa:before, .icon-movilidad-trafico-y-transporte:before,
-.icon-dataset:before, .icon-apps:before, .icon-labs:before {
+.icon-dataset:before, .icon-apps:before, .icon-labs:before, .icon-viz:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -1319,6 +1350,14 @@ FONTS
 .icon-movilidad-trafico-y-transporte:before {
   content: "\2c";
 }
+
+.icon-viz:before {
+  content: "\35";
+  font-size: 16px;
+  line-height: 9px;
+  margin-left: 4px;
+}
+
 
 
 .icon-dataset:before {
@@ -1664,6 +1703,28 @@ background-color: #262e39;
 .content .page-header .loading {
   float: right;
 }
+
+.description h6 a {
+  margin-right: 10px;
+  color: #ffffff;
+  color: rgba(255,255,255,0.5);
+  text-transform: none;
+
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.description h6 a:hover {
+  color: #e4e4e4;
+  color: rgba(255,255,255,1);
+}
+
+.viewviz {
+  font-size: 10px;
+}
+
 /* Typography */
 .content .well {
   background-color: #f6f6f6;

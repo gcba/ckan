@@ -3381,6 +3381,11 @@ a.badge:hover {
 .badge-inverse[href] {
   background-color: #1a1a1a;
 }
+
+.dataset-metadata a..label-format {
+  background-color: #D94709 !important;
+}
+
 @-webkit-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0;
@@ -4586,7 +4591,7 @@ ul.icons li .icon-large:before {
   text-decoration: underline;
 }
 .module-content {
-  padding: 0 0 0 25px;
+  padding: 0 0 0 25p;
   margin: 20px 0;
 }
 .module-content:first-child {
@@ -5033,6 +5038,9 @@ label.radio:after,
 label.checkbox:after {
   content: "";
 }
+
+
+
 input,
 textarea,
 select,
@@ -6559,7 +6567,9 @@ textarea {
 .format-label:last-child {
   *margin-left: 0;
 }
-.format-label {
+
+li [class^="icon-"],
+li [class*=" icon-"] .format-label {
   width: 32px;
   height: 35px;
   background-position: 0px -62px;
@@ -6623,9 +6633,7 @@ textarea {
   width: 32px;
   height: 35px;
   background-position: -320px -62px;
-}
-li [class^="icon-"],
-li [class*=" icon-"] {
+}{
   width: auto;
 }
 li .icon-large:before,
