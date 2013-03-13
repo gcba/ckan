@@ -60,21 +60,19 @@
       {% if tags_count > 0 %}
         <strong class="tags"><a href="/dataset#tags=.{{ pkg.tags|join('.', attribute='name')|lower }}" ckan-filter="tags">
           {{ tags_count }}
-          {% if tags_count > 1%}tags{% else %}tag{% endif %}{% if formats_count > 0 %}{% if groups_count > 0 %},{% else %}y{% endif %}{% else %}{% if groups_count > 0 %}y{% endif %}{% endif %}
-        </a></strong>
+          {% if tags_count > 1%}tags{% else %}tag{% endif %}</a></strong>{% if formats_count > 0 %}{% if groups_count > 0 %},{% else %}y{% endif %}{% else %}{% if groups_count > 0 %}y{% endif %}{% endif %}
+        
       {% endif %}
       {% if formats_count > 0 %}
         <strong class="res_format"><a href="/dataset#res_format=.{{formats|join('.')|lower}}" ckan-filter="res_format">
           {{ formats_count }}
-          {% if formats_count > 1%}formatos{% else %}formato{% endif %}
+          {% if formats_count > 1%}formatos{% else %}formato{% endif %}</a></strong>
           {% if groups_count > 0 %}y{% endif %}
-        </a></strong>
       {% endif %}
       {% if groups_count > 0 %}
         <strong class="groups"><a href="/dataset#groups=.{{ pkg.groups|join('.', attribute='name')|lower }}" ckan-filter="groups">
           {{ groups_count }}
-          {% if groups_count > 1%}grupos{% else %}grupo{% endif %}
-        </a></strong>
+          {% if groups_count > 1%}grupos{% else %}grupo{% endif %}</a></strong>.
       {% endif %}
     </span>
     <small style="display: block;">Click para buscar por los mismos filtros.</small>
