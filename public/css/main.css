@@ -997,12 +997,12 @@ margin-right: 0px;
 
 
 .dropdown-menu>li>a{
-  font-size: 11px;
+  font-size: 12px;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 18px;
+  line-height: 20px;
   font-weight: bold;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   text-decoration: none;
   text-align: right;
 
@@ -1025,9 +1025,9 @@ margin-right: 0px;
 }
 
 .tags-status a {
-  color: #ffffff;
-  color: rgba(255,255,255,0.6);
-  color: black;
+  color: #333333;
+  color: rgba(50,50,50,0.6);
+  text-decoration: underline;
 }
 
 .tags-status p {
@@ -1047,7 +1047,7 @@ margin-right: 0px;
 background-color: #262e39;
 margin-top: 0px;
 margin-bottom: 0px;
-padding: 30px 0 20px 0;
+padding: 30px 0 10px 0;
 }
 
 .facet {
@@ -1715,7 +1715,7 @@ background-color: #262e39;
   float: right;
 }
 
-.description h6 a {
+.description h6 a, .info-dataviz h6 a {
   margin-right: 10px;
   color: #ffffff;
   color: rgba(255,255,255,0.5);
@@ -1727,12 +1727,12 @@ background-color: #262e39;
   transition: color 0.3s ease;
 }
 
-.description h6 a:hover {
+.description h6 a:hover, .info-dataviz h6 a:hover {
   color: #e4e4e4;
   color: rgba(255,255,255,1);
 }
 
-.viewviz {
+.viewviz, .hideviz {
   font-size: 10px;
 }
 
