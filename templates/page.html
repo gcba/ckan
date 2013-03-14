@@ -6,41 +6,38 @@
   {% endblock -%}
 
   {%- block content %}
-
     {% block fullbody %}
-              {% block toolbar %}
-          <div class="toolbar">
-            <div class="container">
-              <div class="row">
-                <div class="span12"> 
-                  <div>
-                    <nav>
-                      <ul>
-                        {% include 'snippets/facet_group.html'  %}
-                        {% block actions %}<li class="action"><ul> {% block actions_content %} {% endblock %} </ul></li>{% endblock %}
-                        <li class="stretch"></li>
-                      </ul>
-                    </nav> 
-                  </div> 
-                </div>
-              </div>
-
+      {% block toolbar %}
+      <div class="toolbar">
+        <div class="container">
+          <div class="row">
+            <div class="span12"> 
+                <nav> <ul>
+                    {% include 'snippets/facet_group.html'  %}
+                    {% block actions %}<li class="action"><ul> {% block actions_content %} {% endblock %} </ul></li>{% endblock %}
+                    <li class="stretch"></li>
+                  </ul> </nav>
             </div>
           </div>
-          <div class="information">
-            <div class="container">
-              <div class="row-fluid info">
-                <div class="span6 tags-status">
-                  {% block toolbar_information %}{% endblock %}
-                </div>
-                <div class="span6 tagbox">
-                  {% block tagbox %} {% endblock %} 
-                </div>
+        </div>
+      </div>
+        {% block info_toolbar %}
+        <div class="information">
+          <div class="container">
+            <div class="row-fluid info">
+              <div class="span12 tagbox">
+                {% block tagbox %} {% endblock %} 
+              </div>
+            </div>
+            <div class="row-fluid info">
+              <div class="span12 tags-status">
+                {% block toolbar_information %}{% endblock %}
               </div>
             </div>
           </div>
-          {% endblock %}
-
+        </div>
+        {% endblock %}
+      {% endblock %}
     {% endblock %}
     
     {% block maintag %}<div role="main">{% endblock %}

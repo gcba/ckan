@@ -7,9 +7,38 @@
 
 {% block subtitle %}{{ h.dataset_display_name(c.package) }} - {{ h.resource_display_name(res) }}{% endblock %}
 
+{% block data_tagbox %}
+{% endblock %} 
+
+{% block header_content %}
+<div class="row-fluid">
+  <div class="span12">
+    <h1 class="dataset-header">
+      <a href="{{h.url_for(controller='package', action='read', id=pkg.name)}}">{{ pkg.title or pkg.name }}</a> 
+      /
+      <a href="{{h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id)}}">
+         {{  h.resource_display_name(res) }}
+      </a>
+      {% if pkg.state.startswith('draft') %}
+        [{{ _('Draft') }}]
+      {% endif %}
+
+      <span class="resource-item-view"><a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
+            {% if res.resource_type in ('listing', 'service') %} 
+              {{ _('View') }}
+            {% elif  res.resource_type == 'api' %}
+              {{ _('API Endpoint') }}
+            {% else %}
+              {{ _('Download') }}
+            {% endif %}
+          </a>
+      </span>
+    </h1>
+  </div>
+</div>
+{% endblock %}
+
 {% block primary_content_inner %}
-
-
   <div class="row-fluid">
     <div class="span12">
       <section class="module">
