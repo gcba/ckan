@@ -6,7 +6,10 @@
 
   <!-- Header GCBA
   ================================================== -->
-    <div class="header-gcba">
+  <div class="navbar-fixed-top">
+
+
+      <div class="header-gcba">
         <div class="header-inner">
           <div class="container">
             <a href="http://buenosaires.gob.ar" target="_blank"><div class="logo"></div></a>
@@ -14,6 +17,50 @@
           </div>
         </div>
     </div>
+
+
+    <!-- Navbar
+    ================================================== -->
+
+    <div class="menu-gcba navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+  
+            {% block header_site_navigation %}
+            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+
+              <ul class="nav">
+                {{ h.build_nav_main(
+                  ('home', _('Home')),
+                  ('search', _('Datasets')),
+                ) }}
+                <li><a href="#">Aplicaciones</a></li>
+                <li><a href="#">Laboratorio</a></li>
+                  {{ h.build_nav_main(
+                    ('about', _('About')),
+                    ('add dataset', _('Add Dataset'), 'package_create'),
+                  ) }}
+              </ul>
+
+              <ul class="social pull-right">
+                <li><a href="" target="_blank"><i class="icon-twitter"></i></a></li>
+                <li><a href="" target="_blank"><i class="icon-github"></i></a></li>
+              </ul>
+
+            </div>
+
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!#-- Cierre NavBar -->
 
     <!-- BRAND DATA -->
     <div class="branding-data">
@@ -53,65 +100,16 @@ la Ciudad Autónoma de Buenos Aires.</h4>
           </div>
         </div>
 
-        {# <div id="map" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div> #}
-
-{#         <iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://pixelbeat.cartodb.com/tables/lineas2/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=false&sql=&sw_lat=-34.69194468425017&sw_lon=-58.56330871582031&ne_lat=-34.56481755671176&ne_lon=-58.233718872070305'></iframe> #}
-
-        
 
 
-<iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://mrdoob.github.com/three.js/examples/canvas_lines.html'></iframe>
 
-
-{# 
-<iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://gcbadata.cartodb.com/tables/comunas/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=false&sql=&sw_lat=-34.74951144572544&sw_lon=-58.67797851562499&ne_lat=-34.49523909266902&ne_lon=-58.018798828125'></iframe> #}
 
       </div>
-    </div>
 
-    <!-- Navbar
-    ================================================== -->
+<!--         <iframe width='100%' height='100%' style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;" frameborder='0' src='http://mrdoob.github.com/three.js/examples/canvas_lines.html'></iframe>
 
-    <div class="menu-gcba navbar navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-  
-            {% block header_site_navigation %}
-            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <div class="nav-collapse collapse">
+ -->    </div>
 
-              <ul class="nav">
-                {{ h.build_nav_main(
-                  ('home', _('Home')),
-                  ('search', _('Datasets')),
-                ) }}
-                <li><a href="#">Aplicaciones</a></li>
-                <li><a href="#">Laboratorio</a></li>
-                  {{ h.build_nav_main(
-                    ('about', _('About')),
-                    ('add dataset', _('Add Dataset'), 'package_create'),
-                  ) }}
-              </ul>
-
-              <ul class="social pull-right">
-                <li><a url-base="https://plus.google.com/share?url=" href="" target="_blank"><i class="icon-gplus"></i> Google+</a></li>
-                <li><a url-base="https://twitter.com/intent/tweet?hashtags=opendata&via=gcbadata&url=" href="" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
-                <li><a url-base="https://www.facebook.com/sharer.php?u=" href="" target="_blank"><i class="icon-fb"></i> Facebook</a></li>
-              </ul>
-
-            </div>
-
-          {% endblock %}
-        </div>
-      </div>
-    </div>
-
-
-  <!#-- Cierre NavBar -->
   </div>
 </header>
 {% endblock %}
