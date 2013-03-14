@@ -1780,6 +1780,7 @@ background-color: #262e39;
 /***** mvs css ****/
 
 .full-screen {
+  margin-top: 0px;
   position: absolute;
   left: 0px;
   width: 100%;

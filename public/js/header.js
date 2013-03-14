@@ -1,7 +1,7 @@
 $( document ).ready( function() {
 	var showHeader = function (eventObject) {
 		brandingObj = $('.branding-data');
-		topHeader = $('.header-gcba')
+		topHeader = $('.navbar-fixed-top')
 		subtitle = $('.title h4');
 
 		$('.branding-data .navbar-search').hide();
@@ -20,7 +20,7 @@ $( document ).ready( function() {
 
 	var hideHeader = function(eventObject) {
 		brandingObj = $('.branding-data');
-		topHeader = $('.header-gcba')
+		topHeader = $('.navbar-fixed-top')
 		subtitle = $('.title h4');
 
 		brandingObj.animate({"height":95},1000, 'easeInOutQuart');
