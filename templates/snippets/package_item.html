@@ -65,12 +65,16 @@ Example:
               {{ formatos }} {% if formatos > 0 %} {% if formatos > 1 %} formatos {% else %} formato {%endif %}{%endif%}
             </a></p>        
           {% endif %}
+
+<!-- 
           {% set tags= package.tags|length %}
           {% if tags > 0 %}
           <p><a href="#" tabindex="-1" class="label label-tags"  ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
             {{tags}}  {% if tags > 1 %} tags {% else %} tag {%endif %}
           </a></p>
           {%endif%}
+
+ -->
         </span>
       </div>
     </div>

@@ -1,4 +1,7 @@
-html{-webkit-font-smoothing:antialiased}
+html{
+  -webkit-font-smoothing:antialiased;
+text-rendering: optimizelegibility;
+}
 ::-webkit-scrollbar-thumb:vertical{width:10px;height:10px;background-color:#535353}
 ::-webkit-scrollbar{width:10px;height:5px;background:#000;margin-right:5px}
 >>>>>>> c2400bd5c0af970a079e1244f0b9bb9f368a8fdf
@@ -101,7 +104,7 @@ border:none;
 .navbar-inverse .brand:hover,.navbar-inverse .nav>li>a:hover,.navbar-inverse .brand:focus,.navbar-inverse .nav>li>a:focus{color:#ffbd04}
 .navbar .nav>li>a{font-size:13px;padding:15px 10px}
 .branding-data{margin-top: 100px;padding-top:10px;padding-bottom:10px;background-color:black;display:block;vertical-align:middle;position:relative;height:95px;overflow:hidden}
-.branding-data h1{position:relative;color:white;padding-top:20px;font-size:45px;letter-spacing:-1px;line-height:16px;text-align:left;z-index:11;}
+.branding-data h1{font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif;position:relative;color:white; font-weight: bold; padding-top:20px;font-size:55px;letter-spacing:-2px;line-height:16px;text-align:left;z-index:11;}
 .branding-data h1 a {text-decoration: }
 .navbar-search{padding-top:3px}
 .navbar-search .search-query,.navbar-search .search-query:focus,.navbar-search .search-query.focused{padding:15px 10px;font-size:15px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
@@ -109,13 +112,17 @@ border:none;
 .branding-data h4,
 .branding-data h6{
   color: #ffffff;color: rgba(255,255,255,0.6); position:relative;
-  padding-left:5px;font-weight:normal;font-size:11px;
+  padding-left:5px;font-weight:normal;font-size:14px;
   line-height:14px;display:block;color:white;padding-top:6px;z-index:11}
   .branding-data h6 {
 
     padding-top: 2px;
 
   }
+.title {
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+}
+
 .info-dataviz-container {position:absolute;width:100%;left:0;width:100%;top:300px;bottom: 0;}
 .info-dataviz{position: absolute;bottom:30px;right:5%;margin-top:110px;background-color:rgba(255,255,255,0.1);display:block;z-index:11;color:#b0b0b0;padding:5px 15px;border:1px solid #666}
 .info-dataviz h5{font-size:14px;line-height:10px;color:#00ccbe}
@@ -924,8 +931,17 @@ Search Widget
   /*border-bottom: 1px solid #bcbcbc;*/
 }
 
+.tagbox {
+  text-align: right;
+}
+
+.tagbox .label {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
 .tagbox .tags {
-  padding: 4px 30px 4px 8px;
+  padding: 4px 20px 4px 8px;
   margin-bottom: 8px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: white;
