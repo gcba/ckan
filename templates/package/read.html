@@ -7,13 +7,10 @@
 {% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
 
 {% block primary_content_inner %}
-
-
   <div class="row-fluid">
     <div class="span12">
       {% block package_description %}
         <section class="module-content">
-          
           {% if c.pkg_notes_formatted %}
             <div class="notes embedded-content">
               {{ c.pkg_notes_formatted }}
@@ -25,7 +22,6 @@
   </div>
   <div class="row-fluid">
     <div class="span8">
-
       <section id="dataset-resources" class="resources module-content">
         {% if pkg.resources %}
         <h4>Recursos disponibles</h4>
@@ -45,10 +41,8 @@
       </section>
     </div>
     <div class="span4">
-
      <section class="resources module-content">
       {% block package_additional_info %}
-     
       <h4>Información adicional</h4>
         {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
       {% endblock %}
