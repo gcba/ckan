@@ -11,9 +11,27 @@
 {% block tagbox %}
   <div class="visible"></div>
   <div class="all"  style="display:none">
-    {% include 'snippets/list_tags.html' %}
-    {% include 'snippets/list_formats.html' %}
-    {% include 'snippets/list_groups.html' %}
+    <li ckan-facet="tags" ckan-category-creator>
+      <a class="example label"  ckan-facet="tags" href="#" ckan-category="">
+        <span class="facet-operator"></span>
+        <span class="close">x</span>
+        <span class="category-name"></span>
+      </a>
+    </li>
+    <li ckan-facet="res_format" ckan-category-creator>
+      <a class="example label"  ckan-facet="res_format" href="#" ckan-category="">
+        <span class="facet-operator"></span>
+        <span class="close">x</span>
+        <span class="category-name"></span>
+      </a>
+    </li>
+    <li ckan-facet="groups" ckan-category-creator>
+      <a class="example label"  ckan-facet="groups" href="#" ckan-category="">
+        <span class="facet-operator"></span>
+        <span class="close">x</span>
+        <span class="category-name"></span>
+      </a>
+    </li>
   </div>
 {% endblock %}
 
