@@ -60,17 +60,24 @@ Example:
             </a>
           </p>
           {% if package.resources and not hide_resources %}
-            <p><a href="#" tabindex="-1" class="label label-format"  ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+            {# <p><a href="#" tabindex="-1" class="label label-format"  ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
               {% set formatos= h.dict_list_reduce(package.resources, 'format')|length%}
               {{ formatos }} {% if formatos > 0 %} {% if formatos > 1 %} formatos {% else %} formato {%endif %}{%endif%}
-            </a></p>        
+            </a></p>   #}      
           {% endif %}
-          {% set tags= package.tags|length %}
-          {% if tags > 0 %}
-          <p><a href="#" tabindex="-1" class="label label-tags"  ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
-            {{tags}}  {% if tags > 1 %} tags {% else %} tag {%endif %}
-          </a></p>
-          {%endif%}
+
+            <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format">
+            <span>api</span> 
+            </a>
+
+            <a href="/dataset#res_format=.rss" ckan-filter="res_format" ckan-facet="rss" class="label label-format">
+            <span>rss</span> 
+            </a>
+
+            <a href="/dataset#res_format=.csv" ckan-filter="res_format" ckan-facet="csv" class="label label-format">
+            <span>csv</span> 
+            </a>
+
         </span>
       </div>
     </div>

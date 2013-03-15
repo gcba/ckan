@@ -19,7 +19,8 @@
     {%- block meta -%}
       <meta charset="utf-8" />
       {% block meta_generator %}<meta name="generator" content="ckan {{ c.__version__ }}" />{% endblock %}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     
     {%- endblock -%}
 
@@ -35,8 +36,10 @@
 
     {%- block styles %}
       {% resource g.main_css[6:] %}
-      <link href="/css/bootstrap-combined.min.css" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
       <link href="/css/main.css" rel="stylesheet" media="screen">
+      <link href="/css/adaptive-main.css" rel="stylesheet" media="screen">
     {% endblock %}
 
     {% block head_extras %} {{ g.template_head_end | safe }} {% endblock %}
