@@ -1128,10 +1128,10 @@ margin-right: 0px;
 }
 
 .toolbar {
-background-color: #262e39;
-margin-top: 0px;
-margin-bottom: 0px;
-padding: 30px 0 10px 0;
+  background-color: #262e39;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 30px 0 10px 0;
 }
 
 .facet {
@@ -1151,79 +1151,66 @@ padding: 30px 0 10px 0;
   text-align: justify;
 }
 
-.toolbar nav ul li a{
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: normal;
-  line-height: normal;
- }
-
-.toolbar nav > ul li a:hover,
-.toolbar nav > ul li a.active {
-  color: #6e7379;
-
-}
-
-.toolbar nav > ul li:first-child {
-  margin-left: 0;
-}
-
-.toolbar nav > ul li:last-child {
-  margin-right: 0;
-}
-
-.toolbar nav > ul li{
+.toolbar nav > ul li, .toolbar nav > ul li > ul{
   display: inline;
   text-align: left; 
+  margin-left:0px;
 }
 
-.toolbar nav > ul li.group{
-  display: inline;
-  text-align: left; 
-}
-
- .toolbar nav > ul li.group a{
+.toolbar nav > ul li.facet.groups ul li a {
   width: 40px;
   height: 40px;
   font-size: 25px;
- }
-
-
-.toolbar nav > ul li.action{
-  display: inline;
-  text-align: left; 
-}
-
-.toolbar nav > ul > li > ul {
   display: inline-block;
-  text-align: right;
+  color: #6e7379;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: normal;
 }
 
-.toolbar nav > ul > li  > ul > li {
-  display: inline;
-  text-align: left; 
+.toolbar nav > ul li.facet.groups ul li a:hover,
+.toolbar nav > ul li.facet.groups ul li a.active {
+  color: #ffffff;
 }
 
-.toolbar nav > ul > li  > ul > li button{
-  margin-top: -25px;
-  
+.toolbar nav ul li.facet.groups ul li:first-child {
+  margin-left: 0;
 }
 
-.toolbar nav > ul > li  > ul > li ul.dropdown-menu{
-  right: 0;
-  left: auto; 
+.toolbar nav ul li.facet.groups ul li:last-child {
+  margin-right: 0;
 }
 
-.toolbar nav > ul > li  > ul > li ul.dropdown-menu a {
-  color: black;
-}
 
-.toolbar nav > ul > li.stretch {
+.toolbar nav ul li.stretch {
     display: inline-block;
     width: 100%;
     *display: inline;
     zoom: 1
 }
+
+.toolbar nav ul li.action  {
+  display: inline-block;
+  text-align: right;
+}
+
+.toolbar nav ul li.action li button{
+  margin-top: -25px;
+}
+
+.toolbar nav ul li.action ul.dropdown-menu{
+  right: 0;
+  left: auto; 
+}
+
+.toolbar nav ul li.action ul.dropdown-menu a {
+  color: black;
+}
+
+
+
+
+
 
 
 
@@ -1233,11 +1220,11 @@ padding: 30px 0 10px 0;
 margin-top: 2px;
 }
 
-.facet .btn-group li.toggleable {
+.facet .btn-group li.toggleable.and {
   display:none;
 }
 
-.facet .btn-group li.toggleable.active {
+.facet .btn-group li.toggleable.selectable {
   display:block;
 }
 

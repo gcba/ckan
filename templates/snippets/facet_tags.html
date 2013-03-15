@@ -1,11 +1,11 @@
-<div class="btn-group" ckan-facet="tags">
-  <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
-    <span class="title">Tags</span><span class="caret"></span>
+<div class="btn-group">
+  <button class="btn btn-large dropdown-toggle disableable" data-toggle="dropdown">
+    <span>Tags</span> (<span ckan-facet="tags" class="facet-counter"></span>) <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" ckan-facet="tags" ckan-category-creator>
       <li class="divider"></li>
       <li class="example" ckan-facet="tags" ckan-category="" >
-        <a href="#" tabindex="-1" ckan-facet="tags" ckan-category="">  </a>
+        <a href="#" tabindex="-1" ckan-facet="tags" ckan-category=""><span class="category-name"></span> </a>
       </li>
       <li><a href="#" ckan-facet="tags" ckan-clear="true" class="action">{{ _('Clear All') }}</a></li>
   </ul>

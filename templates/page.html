@@ -12,11 +12,13 @@
         <div class="container">
           <div class="row">
             <div class="span12"> 
-                <nav> <ul>
-                    {% include 'snippets/facet_group.html'  %}
+                <nav> 
+                  <ul>
+                    <li class="facet groups">{% include 'snippets/facet_group.html'  %}</li>
                     {% block actions %}<li class="action"><ul> {% block actions_content %} {% endblock %} </ul></li>{% endblock %}
-                    <li class="stretch"></li>
-                  </ul> </nav>
+                        <li class="stretch"></li>
+                  </ul> 
+                </nav>
             </div>
           </div>
         </div>
