@@ -24,18 +24,18 @@
 <div class="tagbox">
   <div class="visible">
     {% for item in pkg.tags %}
-    <a href="/dataset#tags=.{{item.name.replace(" ", "-")|lower}}" ckan-filter="tags" ckan-facet="{{item.name.replace(" ", "-")|lower}}" class="label">
+    <a href="/dataset#tags=.{{item.name.replace(" ", "-")|lower}}" ckan-facet="tags" ckan-category="{{item.name.replace(" ", "-")|lower}}" class="label">
       <span>{{item.display_name|lower}}</span> 
     </a>
     {% endfor %}
     {% for item in formats %}  
-    <a href="/dataset#res_format=.{{item|lower}}" ckan-filter="res_format" ckan-facet="{{item|lower}}" class="label">
+    <a href="/dataset#res_format=.{{item|lower}}" ckan-facet="res_format" ckan-category="{{item|lower}}" class="label">
         <span>{{item|lower}}</span> 
       </a>
     {% endfor %}
 
     {% for item in pkg.groups %}
-      <a href="/dataset#groups=.{{item.name|lower}}" ckan-filter="groups" ckan-facet="{{item.name}}" data-format="{{item.name|lower}}" class="label">
+      <a href="/dataset#groups=.{{item.name|lower}}" ckan-facet="groups" ckan-category="{{item.name}}" data-format="{{item.name|lower}}" class="label">
         <span>{{item.name|lower}}</span> 
       </a>
     {% endfor %}

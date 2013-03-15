@@ -39,7 +39,7 @@ ckan-res_format="{{format_items|join(',')|lower}}"
             {{h.truncate(title, truncate_title)}}   
           </a>
           {% for item in group_items %}
-          <a href="#" ckan-filter="groups" ckan-facet="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
+          <a href="#" ckan-facet="groups" ckan-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
             <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
           </a>
           {% endfor %}
@@ -64,7 +64,7 @@ ckan-res_format="{{format_items|join(',')|lower}}"
             </a>
           </p>
           {% if package.resources and not hide_resources %}
-            <p><a href="#" tabindex="-1" class="label label-format"  ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+            <p><a href="#" tabindex="-1" class="label label-format"  ckan-facet="res_format" ckan-category="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
               {% set formatos= h.dict_list_reduce(package.resources, 'format')|length%}
               {{ formatos }} {% if formatos > 0 %} {% if formatos > 1 %} formatos {% else %} formato {%endif %}{%endif%}
             </a></p>        
@@ -73,7 +73,7 @@ ckan-res_format="{{format_items|join(',')|lower}}"
 <!-- 
           {% set tags= package.tags|length %}
           {% if tags > 0 %}
-          <p><a href="#" tabindex="-1" class="label label-tags"  ckan-filter="tags" ckan-facet="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+          <p><a href="#" tabindex="-1" class="label label-tags"  ckan-facet="tags" ckan-category="{% for tag in package.tags %}{{tag.name|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
             {{tags}}  {% if tags > 1 %} tags {% else %} tag {%endif %}
           </a></p>
           {%endif%}
