@@ -25,7 +25,11 @@ Example:
 <li class="{{ item_class or 'dataset-item' }} 
 {% for item in tag_items %}{{ item.name.replace(' ', '-') |lower}} {% endfor %} 
 {% for item in format_items %}{{ item |lower}} {% endfor %} 
-{% for item in group_items %}{{ item.name |lower}}{% endfor %} project">
+{% for item in group_items %}{{ item.name |lower}}{% endfor %} project"
+ckan-tags="{{tag_items|join(',', 'name')|replace(' ', '-')}}"
+ckan-groups="{{group_items|join(',', 'name')}}"
+ckan-res_format="{{format_items|join(',')|lower}}"
+>
   <div class="well">
     <div class="cover shadow"> </div>
     <div class="well-content">
@@ -35,7 +39,7 @@ Example:
             {{h.truncate(title, truncate_title)}}   
           </a>
           {% for item in group_items %}
-          <a href="#" ckan-filter="groups" ckan-facet="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
+          <a href="#" ckan-facet="groups" ckan-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
             <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
           </a>
           {% endfor %}
@@ -60,13 +64,15 @@ Example:
             </a>
           </p>
           {% if package.resources and not hide_resources %}
-            {# <p><a href="#" tabindex="-1" class="label label-format"  ckan-filter="res_format" ckan-facet="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
+          {#
+            <p><a href="#" tabindex="-1" class="label label-format"  ckan-facet="res_format" ckan-category="{% for resource in h.dict_list_reduce(package.resources, 'format') %}{{resource|lower}}{% if not loop.last %}.{% endif %}{%endfor%}">
               {% set formatos= h.dict_list_reduce(package.resources, 'format')|length%}
               {{ formatos }} {% if formatos > 0 %} {% if formatos > 1 %} formatos {% else %} formato {%endif %}{%endif%}
             </a></p>   #}      
+          
           {% endif %}
 
-            <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format">
+           <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format">
             <span>api</span> 
             </a>
 

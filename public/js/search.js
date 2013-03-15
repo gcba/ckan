@@ -47,6 +47,29 @@ function initSearch() {
 	};
 }
 
+function initDropdownElement(facet, category) {
+	newEle = $('.btn-group[ckan-facet="' + facet + '"] li.example').clone();
+	newEle.removeClass('example');
+	newEle.addClass('toggleable');
+	newEle.attr('ckan-category',category );
+	newEleLink = newEle.find('a');
+	newEleLink.attr('ckan-category',category );
+	newEleLink.text(category);
+	newEle.prependTo('.btn-group[ckan-facet="' + facet + '"] ul');
+}
+
+function initDropdown(facet) {
+	categories = getAllFacetCategories(facet, [], false);
+	for ( var i = 0; i < categories.length; i++ ) {
+		initDropdownElement(facet, categories[i]);
+	}
+}
+
+function initDropdowns() {
+	counter = initDropdown('tags');
+	counter = initDropdown('res_format');
+}
+
 function updateMessage() {
 	var hashOptions = $.deparam.fragment();
 	var tag_count = 0;
@@ -167,70 +190,118 @@ function filterDatasets() {
 }
 
 function showTagBox(ele){
-	$('.tagbox .all [ckan-facet="'+ele+'"]').appendTo('.tagbox .visible');
-}
-
-function showDropdown(ele) {
-	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).show();
+	$('.tagbox .all [ckan-category="'+ele+'"]').appendTo('.tagbox .visible');
 }
 
 function showGroupBar(ele) {
-	obj = $('.group [ckan-facet="' + ele + '"]');
+	obj = $('.group [ckan-category="' + ele + '"]');
 	if ( !obj.hasClass('active') )
 		obj.addClass('active');
 }
 
 function hideTagBox(ele){
-	$('.tagbox .visible [ckan-facet="'+ele+'"]').appendTo('.tagbox .all');
-}
-
-function hideDropdown(ele) {
-	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).hide();
+	$('.tagbox .visible [ckan-category="'+ele+'"]').appendTo('.tagbox .all');
 }
 
 function hideGroupBar(ele) {
-	obj = $('.group [ckan-facet="' + ele + '"]');
+	obj = $('.group [ckan-category="' + ele + '"]');
 	if ( obj.hasClass('active') )
 		obj.removeClass('active');
 }
 
 function showGroup(ele) {
 	showTagBox(ele);
-	showGroupBar(ele);
+	//showGroupBar(ele);
 }
 
 function showTag(ele){
 	showTagBox(ele);
-	hideDropdown(ele);
 }
 
 function showFormat(ele){
 	showTagBox(ele);
-	hideDropdown(ele);
 }
 
 function hideGroup(ele) {
 	hideTagBox(ele);
-	hideGroupBar(ele);
+	//hideGroupBar(ele);
 }
 
 function hideTag(ele){
 	hideTagBox(ele);
-	showDropdown(ele);
 }
 
 function hideFormat(ele){
 	hideTagBox(ele);
-	showDropdown(ele);
 }
 
 function toggleQueryText(ele){
 	$('#search').val(ele);
 }
 
-function toggleFacets() {
+function getAllFacetCategories(facet, selectedCategories, onlyVisible) {
+	answer = []
+	$('.dataset.isotope-item').each(function(index, value) {
+		var theObj = $(value);
+		if ( !onlyVisible || !theObj.hasClass('isotope-hidden') ){
+			atributo = theObj.attr('ckan-' + facet);
+			elementos = atributo.split(',');
+			for ( var i = 0; i < elementos.length; i++) {
+				var elemento = elementos[i];
+				if ( elemento.length > 0) {
+					answer.push(elemento);
+				}
+			}
+		}
+	});
+
+	all_elementos = $.unique(answer);
+	final_answer = []
+	for ( var i = 0; i < all_elementos.length; i++ ) {
+		var elemento = all_elementos[i];
+		if (  $.inArray(elemento, selectedCategories ) < 0) {
+			final_answer.push(elemento);
+		}
+	}
+	return final_answer;
+}
+
+function updateSelector(facet, selectedCategories, parentSelector) {
+	categories = getAllFacetCategories(facet, selectedCategories, true)
+	parentObj = $(parentSelector);
+	parentObj.find('li.toggleable').removeClass('active');
+
+	selectors = $.map(categories, function(value, index){ return 'li[ckan-category="' + value + '"]'; })
+	parentObj.find(selectors.join()).addClass('active');
+	return categories.length;
+}
+
+function updateSelectors() {
 	var hashOptions = $.deparam.fragment();
-	
+	categories = []
+	if (hashOptions.tags) {
+		categories = hashOptions.tags.split('.')
+	} 
+	counter = updateSelector('tags', categories, '.btn-group[ckan-facet="tags"]');
+	newEle = $('.btn-group[ckan-facet="tags"] button span.title').text('Tags (' + counter + ') ');
+	categories = []
+	if (hashOptions.res_format) {
+		categories = hashOptions.res_format.split('.')
+	}
+	counter = updateSelector('res_format', categories, '.btn-group[ckan-facet="res_format"]');
+	newEle = $('.btn-group[ckan-facet="res_format"] button span.title').text('Formatos (' + counter + ') ')	
+	categories = []
+	if (hashOptions.groups) {
+		categories = hashOptions.groups.split('.')
+	}
+	counter = updateSelector('groups', categories, '.toolbar ul');
+}
+
+
+
+function updateTagbox() {
+	var hashOptions = $.deparam.fragment();
+
 	var filters;
 
 	filters = [];
@@ -240,9 +311,9 @@ function toggleFacets() {
 			showTag(filters[i]);
 		}
 	} 
-	$('.tagbox [ckan-filter="tags"]').each( function(index, element) {
+	$('.tagbox [ckan-facet="tags"]').each( function(index, element) {
 		obj = $(element);
-		facet = obj.attr('ckan-facet')
+		facet = obj.attr('ckan-category')
 		if ( $.inArray(facet, filters) < 0 )
 			hideTag(facet)
 	});
@@ -254,9 +325,9 @@ function toggleFacets() {
 			showFormat(filters[i])
 		}
 	}
-	$('.tagbox [ckan-filter="res_format"]').each( function(index, element) {
+	$('.tagbox [ckan-facet="res_format"]').each( function(index, element) {
 		obj = $(element);
-		facet = obj.attr('ckan-facet')
+		facet = obj.attr('ckan-category')
 		if ( $.inArray(facet, filters) < 0)
 			hideFormat(facet);
 	});
@@ -268,9 +339,9 @@ function toggleFacets() {
 			showGroup(filters[i])
 		}
 	}
-	$('.tagbox [ckan-filter="groups"]').each( function(index, element) {
+	$('.tagbox [ckan-facet="groups"]').each( function(index, element) {
 		obj = $(element);
-		facet = obj.attr('ckan-facet')
+		facet = obj.attr('ckan-category')
 		if ( $.inArray(facet, filters) < 0 )
 			hideGroup(facet);
 	});
@@ -278,15 +349,15 @@ function toggleFacets() {
 }
 
 function clearTagBox(filter){
-	$('.tagbox [ckan-filter="'+filter+'"]').appendTo('.tagbox .all');
+	$('.tagbox [ckan-facet="'+filter+'"]').appendTo('.tagbox .all');
 }
 
 function clearDropdown(filter) {
-	$($('.btn-group [ckan-filter="' + filter + '"]').parent()).show();
+	$($('.btn-group [ckan-facet="' + filter + '"]').parent()).show();
 }
 
 function clearFilter(eventObject) {
-	var filter = $(eventObject.currentTarget).attr('ckan-filter');
+	var filter = $(eventObject.currentTarget).attr('ckan-facet');
 	clearTagBox(filter);
 	clearDropdown(filter);
 	switch(filter){
@@ -374,18 +445,18 @@ function toggleUrlFormat(facet) {
 }
 
 function toggleFacetToFilter(eventObject) {
-	var filter = $(eventObject.currentTarget).attr('ckan-filter');
 	var facet = $(eventObject.currentTarget).attr('ckan-facet');
+	var category = $(eventObject.currentTarget).attr('ckan-category');
 
-	switch(filter){
+	switch(facet){
 		case 'groups':
-			toggleUrlGroup(facet)
+			toggleUrlGroup(category)
 			break;
 		case 'tags':
-			toggleUrlTag(facet)
+			toggleUrlTag(category)
 			break;
 		case 'res_format':
-			toggleUrlFormat(facet)
+			toggleUrlFormat(category)
 			break;
 	}
 
@@ -412,10 +483,16 @@ function toggleSort(eventObject) {
 	return false;
 }
 
+function updateLinks() {
+	
+}
+
 function checkUrl() {
 	closeDropdowns();
-	toggleFacets();
+	updateSelectors();
+	updateTagbox();
   	filterDatasets();
+  	updateDropdowns();
   	updateMessage();
 }
 
@@ -424,10 +501,11 @@ $( document ).ready( function() {
 
 	initSearch();
   	initIsotope();
+  	initDropdowns();
   	$(window).bind( 'hashchange', checkUrl).trigger('hashchange');
 	$('a[ckan-clear]').click(clearFilter);
-	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
+	$('a[ckan-category]').click(toggleFacetToFilter);
 	$('a[ckan-sort]').click(toggleSort);	
 	$('.toolbar nav li.group span').tooltip();
 
