@@ -9,30 +9,50 @@
 {% endblock %}
 
 {% block tagbox %}
-  <div class="visible"></div>
-  <div class="all"  style="display:none">
-    <li ckan-facet="tags" ckan-category-creator>
-      <a class="example label"  ckan-facet="tags" href="#" ckan-category="">
-        <span class="facet-operator"></span>
-        <span class="close">x</span>
-        <span class="category-name"></span>
-      </a>
+  <ul >
+    <li ckan-default-operator="or" ckan-facet="groups" ckan-category-selector>
+      Groupos: 
+      <span ckan-facet="groups" ckan-category-creator>
+        <a class="example label"  ckan-facet="groups" href="#" ckan-category="">
+          <span class="facet-operator"></span>
+          <span class="close">x</span>
+          <span class="category-name"></span>
+        </a>
+        <span class="toggleable clear-element">
+          <a href="#" ckan-facet="groups" ckan-clear class="action">Limpiar</a>
+        </span>
+      </span>
     </li>
-    <li ckan-facet="res_format" ckan-category-creator>
-      <a class="example label"  ckan-facet="res_format" href="#" ckan-category="">
-        <span class="facet-operator"></span>
-        <span class="close">x</span>
-        <span class="category-name"></span>
-      </a>
+    <li ckan-default-operator="or" ckan-facet="tags" ckan-category-selector>
+      Tags:
+      <span ckan-facet="tags" ckan-category-creator>
+        <a class="example label"  ckan-facet="tags" href="#" ckan-category="">
+          <span class="facet-operator"></span>
+          <span class="close">x</span>
+          <span class="category-name"></span>
+        </a>
+        <span class="toggleable clear-element">
+          <a href="#" ckan-facet="tags" ckan-clear class="action">Limpiar</a>
+        </span>
+      </span>
     </li>
-    <li ckan-facet="groups" ckan-category-creator>
-      <a class="example label"  ckan-facet="groups" href="#" ckan-category="">
-        <span class="facet-operator"></span>
-        <span class="close">x</span>
-        <span class="category-name"></span>
-      </a>
+    <li ckan-default-operator="or" ckan-facet="res_format" ckan-category-selector>
+      Formatos: 
+      <span ckan-facet="res_format" ckan-category-creator>
+        <a class="example label"  ckan-facet="res_format" href="#" ckan-category="">
+          <span class="facet-operator"></span>
+          <span class="close">x</span>
+          <span class="category-name"></span>
+        </a>
+        <span class="toggleable clear-element">
+          <a href="#" ckan-facet="res_format" ckan-clear class="action">Limpiar</a>
+        </span>
+      </span>
+      
     </li>
-  </div>
+    
+    
+  </ul>
 {% endblock %}
 
 {% block toolbar_information %}

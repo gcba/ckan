@@ -1,4 +1,4 @@
-<ul>
+<ul ckan-facet="groups" ckan-default-operator="or" ckan-category-selector>
    {% for item in h.groups_all()  %}
       <li >
           <a {% if c.pkg_dict %}{% for group in c.pkg_dict.groups %}{% if item == group.name %}class="active"{% endif %}{% endfor %}{% endif %}
