@@ -25,7 +25,11 @@ Example:
 <li class="{{ item_class or 'dataset-item' }} 
 {% for item in tag_items %}{{ item.name.replace(' ', '-') |lower}} {% endfor %} 
 {% for item in format_items %}{{ item |lower}} {% endfor %} 
-{% for item in group_items %}{{ item.name |lower}}{% endfor %} project">
+{% for item in group_items %}{{ item.name |lower}}{% endfor %} project"
+ckan-tags="{{tag_items|join(',', 'name')|replace(' ', '-')}}"
+ckan-groups="{{group_items|join(',', 'name')}}"
+ckan-res_format="{{format_items|join(',')|lower}}"
+>
   <div class="well">
     <div class="cover shadow"> </div>
     <div class="well-content">

@@ -1,14 +1,12 @@
 <div class="btn-group" ckan-filter="res_format">
   <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
-    Formatos <span class="caret"></span>
+    <span class="title">Formatos</span> <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-    {% for item in h.get_facet_items_dict('res_format') %}
-      <li>
-        <a href="#" tabindex="-1" ckan-filter="res_format" ckan-facet="{{item.name|lower}}"> {{ item.display_name|lower }} </a>
-      </li>
-    {% endfor %}
       <li class="divider"></li>
+       <li  class="example" style="display:hidden">
+        <a href="#" tabindex="-1" ckan-filter="" ckan-facet=""></a>
+      </li>
       <li><a href="#" ckan-filter="res_format" ckan-clear="true" class="action">{{ _('Clear All') }}</a></li>
   </ul>
 </div>

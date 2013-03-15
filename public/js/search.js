@@ -170,10 +170,6 @@ function showTagBox(ele){
 	$('.tagbox .all [ckan-facet="'+ele+'"]').appendTo('.tagbox .visible');
 }
 
-function showDropdown(ele) {
-	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).show();
-}
-
 function showGroupBar(ele) {
 	obj = $('.group [ckan-facet="' + ele + '"]');
 	if ( !obj.hasClass('active') )
@@ -182,10 +178,6 @@ function showGroupBar(ele) {
 
 function hideTagBox(ele){
 	$('.tagbox .visible [ckan-facet="'+ele+'"]').appendTo('.tagbox .all');
-}
-
-function hideDropdown(ele) {
-	$($('.btn-group [ckan-facet="' + ele + '"]').parent()).hide();
 }
 
 function hideGroupBar(ele) {
@@ -201,12 +193,10 @@ function showGroup(ele) {
 
 function showTag(ele){
 	showTagBox(ele);
-	hideDropdown(ele);
 }
 
 function showFormat(ele){
 	showTagBox(ele);
-	hideDropdown(ele);
 }
 
 function hideGroup(ele) {
@@ -216,21 +206,75 @@ function hideGroup(ele) {
 
 function hideTag(ele){
 	hideTagBox(ele);
-	showDropdown(ele);
 }
 
 function hideFormat(ele){
 	hideTagBox(ele);
-	showDropdown(ele);
 }
 
 function toggleQueryText(ele){
 	$('#search').val(ele);
 }
 
-function toggleFacets() {
+function fillDropdown(filter, facet) {
+	newEle = $('.btn-group[ckan-filter="' + filter + '"] li.example').clone();
+	newEle.removeClass('example');
+	newEle.addClass('real');
+	newEleLink = newEle.find('a');
+	newEleLink.attr('ckan-facet',facet );
+	newEleLink.text(facet);
+	newEle.prependTo('.btn-group[ckan-filter="' + filter + '"] ul');
+}
+
+function updateDropdown(filter, currentFacets) {
+	answer = []
+	$('.dataset.isotope-item').each(function(index, value) {
+		var theObj = $(value);
+		if ( ! theObj.hasClass('isotope-hidden') ){
+			atributo = theObj.attr('ckan-' + filter);
+			elementos = atributo.split(',');
+			for ( var i = 0; i < elementos.length; i++) {
+				var elemento = elementos[i];
+				if ( elemento.length > 0) {
+					answer.push(elemento);
+				}
+			}
+		}
+	});
+
+	$('.btn-group[ckan-filter="'+filter+'"] li.real').remove();
+
+	all_elementos = $.unique(answer);
+	counter = 0;
+	for ( var i = 0; i < all_elementos.length; i++ ) {
+		var elemento = all_elementos[i];
+		if (  $.inArray(elemento, currentFacets ) < 0) {
+			fillDropdown(filter, elemento);
+			counter += 1;
+		}
+	}
+	return counter;
+}
+
+function updateDropdowns() {
 	var hashOptions = $.deparam.fragment();
-	
+	filters = []
+	if (hashOptions.tags) {
+		filters = hashOptions.tags.split('.')
+	} 
+	counter = updateDropdown('tags', filters);
+	newEle = $('.btn-group[ckan-filter="tags"] button span.title').text('Tags (' + counter + ') ');
+	filters = []
+	if (hashOptions.res_format) {
+		filters = hashOptions.res_format.split('.')
+	}
+	counter = updateDropdown('res_format', filters);
+	newEle = $('.btn-group[ckan-filter="res_format"] button span.title').text('Formatos (' + counter + ') ')	
+}
+
+function updateSelectors() {
+	var hashOptions = $.deparam.fragment();
+
 	var filters;
 
 	filters = [];
@@ -412,10 +456,16 @@ function toggleSort(eventObject) {
 	return false;
 }
 
+function updateLinks() {
+	$('a[ckan-facet]').click(toggleFacetToFilter);
+}
+
 function checkUrl() {
 	closeDropdowns();
-	toggleFacets();
+	updateSelectors();
   	filterDatasets();
+  	updateDropdowns();
+  	updateLinks();
   	updateMessage();
 }
 
@@ -426,7 +476,6 @@ $( document ).ready( function() {
   	initIsotope();
   	$(window).bind( 'hashchange', checkUrl).trigger('hashchange');
 	$('a[ckan-clear]').click(clearFilter);
-	$('a[ckan-facet]').click(toggleFacetToFilter);
 	$('#search').keyup(toggleQuery) ;
 	$('a[ckan-sort]').click(toggleSort);	
 	$('.toolbar nav li.group span').tooltip();
