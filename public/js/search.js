@@ -203,50 +203,6 @@ function filterDatasets() {
 	});
 }
 
-function showTagBox(ele){
-	$('.tagbox .all [ckan-category="'+ele+'"]').appendTo('.tagbox .visible');
-}
-
-function showGroupBar(ele) {
-	obj = $('.group [ckan-category="' + ele + '"]');
-	if ( !obj.hasClass('active') )
-		obj.addClass('active');
-}
-
-function hideTagBox(ele){
-	$('.tagbox .visible [ckan-category="'+ele+'"]').appendTo('.tagbox .all');
-}
-
-function hideGroupBar(ele) {
-	obj = $('.group [ckan-category="' + ele + '"]');
-	if ( obj.hasClass('active') )
-		obj.removeClass('active');
-}
-
-function showGroup(ele) {
-	showTagBox(ele);
-}
-
-function showTag(ele){
-	showTagBox(ele);
-}
-
-function showFormat(ele){
-	showTagBox(ele);
-}
-
-function hideGroup(ele) {
-	hideTagBox(ele);
-}
-
-function hideTag(ele){
-	hideTagBox(ele);
-}
-
-function hideFormat(ele){
-	hideTagBox(ele);
-}
-
 function toggleQueryText(ele){
 	$('#search').val(ele);
 }
@@ -312,130 +268,72 @@ function initSelectors() {
 	});
 }
 
-function updateSelector(facet, selectedCategories, parentSelector, operator) {
+function updateSelector(facet, selectedCategories, parentObj, operator) {
 	var categories = getAllFacetCategories(facet, selectedCategories, true)
-	var parentObj = $(parentSelector);
 	var all_categories = getAllFacetCategories(facet, selectedCategories, false);
 	var toggleables = parentObj.find('.toggleable');
-	var disableObj = parentObj.find('.disableable');
+	var hideableObj = parentObj.find('.hideable')
+	var counterObj = parentObj.find('.facet-counter');
+	var allObj = parentObj.find('.clear-element')
+	var counter = 0;
+	var activeSelectors = []
 
+	parentObj.removeClass('no-options');
+	parentObj.removeClass('no-actives');
 	toggleables.removeClass('selectable active');
 	toggleables.addClass(operator);
 
 	switch (operator) {
 		case 'or':
-			selectedCategories = (selectedCategories.length == 0)? all_categories : selectedCategories;
-			selectors = $.map(selectedCategories, function(value, index){ return '.toggleable[ckan-category="' + value + '"]'; });
-			parentObj.find(selectors.join()).addClass('active');
-			return all_categories.length;
+			if ( selectedCategories.length == 0 ){
+				allObj.addClass('active');
+			} else {
+				allObj.addClass('selectable');
+			}
+			counter = all_categories.length;
+			break
 		case 'and':
+			if ( selectedCategories.length > 0 ){
+				allObj.addClass('selectable');
+			} 
 			if ( categories.length > 0 ){
 				selectors = $.map(categories, function(value, index){ return '.toggleable[ckan-category="' + value + '"]'; });
 				parentObj.find(selectors.join()).addClass('selectable');
-				if (disableObj) {
-					disableObj.removeAttr('disabled');
-				}
-			} else {
-				if (disableObj) {
-					disableObj.attr('disabled', '')
-				}
-			}
-			return categories.length;
+			} 
+			counter = categories.length;
+			break;
+	}
+
+	if (selectedCategories.length > 0 ){
+		activeSelectors = $.map(selectedCategories, function(value, index){ return '.toggleable[ckan-category="' + value + '"]'; });
+		parentObj.find(activeSelectors.join()).addClass('active');
+	}
+	
+	// counter
+	if (counter == 0 ) {
+		parentObj.addClass('no-options')
+	}
+
+	if (selectedCategories.length == 0) {
+		parentObj.addClass('no-actives')
+	}
+ 	
+	if (counterObj) {
+		counterObj.text(counter);
 	}
 }
 
 function updateSelectors() {
-	var hashOptions = $.deparam.fragment();
-	var categories = [];
-	var operator = hashOptions.tags_op == 'or' ? 'or' : 'and';
-	if (hashOptions.tags) {
-		categories = hashOptions.tags.split('.')
-	} 
-	var counter = updateSelector('tags', categories, '.facet.tags', operator);
-	$('.facet-counter[ckan-facet="tags"]').text(counter);
+ 	var hashOptions = $.deparam.fragment();
 
-	var operator = hashOptions.res_format == 'or' ? 'or' : 'and';
-	var categories = []
-	if (hashOptions.res_format) {
-		categories = hashOptions.res_format.split('.')
-	}
-	var counter = updateSelector('res_format', categories, '.facet.formats', operator);
-	$('.facet-counter[ckan-facet="res_format"]').text(counter);
-
-	var categories = []
-	var operator = hashOptions.groups_op == 'and' ? 'and' : 'or';
-	if (hashOptions.groups) {
-		categories = hashOptions.groups.split('.')
-	}
-	var counter = updateSelector('groups', categories, '.facet.groups ul', operator);
-}
-
-
-
-function updateTagbox() {
-	var hashOptions = $.deparam.fragment();
-
-	var filters;
-
-	filters = [];
-	if (hashOptions.tags) {
-		filters = hashOptions.tags.split('.')
-		for ( var i=1; i<filters.length; i++ ) {
-			showTag(filters[i]);
-		}
-	} 
-	$('.tagbox [ckan-facet="tags"]').each( function(index, element) {
-		obj = $(element);
-		facet = obj.attr('ckan-category')
-		if ( $.inArray(facet, filters) < 0 )
-			hideTag(facet)
+	$('[ckan-category-selector]').each(function(value, index) {
+		var theObj = $(this);
+		var facet = theObj.attr('ckan-facet');
+		var default_op = theObj.attr('ckan-default-operator');
+		var categories = hashOptions[facet] ? hashOptions[facet].split('.') : []
+		var operator = hashOptions[facet + '_op'] == 'or' || hashOptions[facet + '_op'] == 'and' ? hashOptions[facet + '_op'] : default_op;
+		updateSelector(facet, categories, theObj, operator);
 	});
-	if (hashOptions.tags_op && hashOptions.tags_op == 'or') {
-		$('.tagbox [ckan-facet="tags"] span.facet-operator').text('|')
-	} else {
-		$('.tagbox [ckan-facet="tags"] span.facet-operator').text('&')
-	}
-	
-
-	filters = [];
-	if (hashOptions.res_format) {
-		filters = hashOptions.res_format.split('.')
-		for ( var i=1; i<filters.length; i++ ) {
-			showFormat(filters[i])
-		}
-	}
-	$('.tagbox [ckan-facet="res_format"]').each( function(index, element) {
-		obj = $(element);
-		facet = obj.attr('ckan-category')
-		if ( $.inArray(facet, filters) < 0)
-			hideFormat(facet);
-	});
-	if (hashOptions.res_format_op && hashOptions.res_format_op == 'or') {
-		$('.tagbox [ckan-facet="res_format"] span.facet-operator').text('|')
-	} else {
-		$('.tagbox [ckan-facet="res_format"] span.facet-operator').text('&')
-	}
-
-	filters = [];
-	if (hashOptions.groups) {
-		filters = hashOptions.groups.split('.')
-		for ( var i=1; i<filters.length; i++ ) {
-			showGroup(filters[i])
-		}
-	}
-	$('.tagbox [ckan-facet="groups"]').each( function(index, element) {
-		obj = $(element);
-		facet = obj.attr('ckan-category')
-		if ( $.inArray(facet, filters) < 0 )
-			hideGroup(facet);
-	});
-	if (hashOptions.groups_op && hashOptions.groups_op == 'and') {
-		$('.tagbox [ckan-facet="groups"] span.facet-operator').text('&')
-	} else {
-		$('.tagbox [ckan-facet="groups"] span.facet-operator').text('|')
-	}
-
-
 }
 
 function clearTagBox(filter){
@@ -572,7 +470,6 @@ function toggleSort(eventObject) {
 }
 
 function checkUrl() {
-	updateTagbox();
   	filterDatasets();
   	updateSelectors();
   	updateMessage();

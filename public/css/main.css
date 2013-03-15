@@ -985,8 +985,9 @@ Search Widget
   /*border-bottom: 1px solid #bcbcbc;*/
 }
 
-.tagbox {
-  text-align: right;
+.tagbox li{
+  list-style: none;
+  list-style-type: none;
 }
 
 .tagbox .label {
@@ -1181,6 +1182,10 @@ margin-right: 0px;
   margin-right: 0;
 }
 
+.toolbar nav ul li.facet.groups ul.no-actives li a{
+  color: #ffffff;
+}
+
 
 .toolbar nav ul li.stretch {
     display: inline-block;
@@ -1220,6 +1225,22 @@ margin-right: 0px;
 margin-top: 2px;
 }
 
+.tagbox .toggleable {
+  display:none;
+}
+
+.tagbox .toggleable.active {
+  display: inline-block;
+}
+
+.tagbox .toggleable.clear-element.selectable  {
+  display: inline-block;
+}
+
+.tagbox .no-actives {
+  display: none;
+}
+
 .facet .btn-group li.toggleable.and {
   display:none;
 }
@@ -1228,9 +1249,15 @@ margin-top: 2px;
   display:block;
 }
 
-.facet .btn-group li.example {
-  display:;
+.example {
+  display:none !important;
 }
+
+.facet .no-options {
+   pointer-events: none;
+   cursor: default;
+}
+
 
 .tooltip {line-height: 1;}
 .tooltip.top {margin-top: 0px;padding: 5px 0;}
