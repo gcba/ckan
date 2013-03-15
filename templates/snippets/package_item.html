@@ -31,7 +31,6 @@ ckan-groups="{{group_items|join(',', 'name')}}"
 ckan-res_format="{{format_items|join(',')|lower}}"
 >
   <div class="well">
-    <div class="cover shadow"> </div>
     <div class="well-content">
       <div class="dataset-content">
         <h3 class="dataset-heading">
@@ -58,7 +57,7 @@ ckan-res_format="{{format_items|join(',')|lower}}"
         {% else %}
           <p class="empty">{{ _("This dataset has no description") }}</p>
         {% endif %}
-        <span class="dataset-metadata">
+        <div class="dataset-metadata">
           <p class="date last-modified">
             <a href="#" class="label label-date" ckan-sort="last_modified" ckan-modified="{{package.metadata_modified}}" >{{ h.snippet('snippets/date.html', date_str=package.metadata_modified) }}
             </a>
@@ -72,19 +71,13 @@ ckan-res_format="{{format_items|join(',')|lower}}"
           
           {% endif %}
 
-           <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format">
-            <span>api</span> 
-            </a>
+           <p><a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format"><span>api</span></a></p>
 
-            <a href="/dataset#res_format=.rss" ckan-filter="res_format" ckan-facet="rss" class="label label-format">
-            <span>rss</span> 
-            </a>
+            <p><a href="/dataset#res_format=.rss" ckan-filter="res_format" ckan-facet="rss" class="label label-format"><span>rss</span></a></p>
 
-            <a href="/dataset#res_format=.csv" ckan-filter="res_format" ckan-facet="csv" class="label label-format">
-            <span>csv</span> 
-            </a>
+            <p><a href="/dataset#res_format=.csv" ckan-filter="res_format" ckan-facet="csv" class="label label-format"><span>csv</span></a></p>
 
-        </span>
+        </div>
       </div>
     </div>
   </div>

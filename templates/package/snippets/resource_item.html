@@ -5,7 +5,7 @@
     {{ h.resource_display_name(res) | truncate(50) }}<span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
     {{ h.popular('views', res.tracking_summary.total, min=10) }}
   </a> 
-  <a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
+  <a class="btn btn-mini btn-resource pull-right" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
     {% if res.resource_type in ('listing', 'service') %} 
       {{ _('View') }}
     {% elif  res.resource_type == 'api' %}

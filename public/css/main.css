@@ -37,12 +37,33 @@ a:active , a:focus{
 }
 
 
-body{color:#535353;font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif}
-header a{color:#fff;text-decoration:none}
-a:hover,a:focus{color:#e4e4e4;text-decoration:none}
-.text-center {text-align: center; }
-.text-left {text-align: left; }
-.text-right {text-align: right; }
+body {
+color:#535353;
+font-family:"Gotham","Helvetica Neue","Helvetica",sans-serif
+}
+
+header a {
+color:#fff;
+text-decoration:none
+}
+
+a:hover,a:focus {
+color:#e4e4e4;
+text-decoration:none
+}
+
+.text-center {
+text-align:center
+}
+
+.text-left {
+text-align:left
+}
+
+.text-right {
+text-align:right
+}
+
 
 [role=main], .main, .information {
 position: relative;
@@ -64,42 +85,67 @@ height: 7px;
 background: #ffffff;
 border:none;
 }
-.gcba-fixed-top .container{width:940px}
+.gcba-fixed-top .container {
+width:940px
+}
+
 .header-gcba {
-    height: 30px;
-    padding: 10px 0;
-    overflow: visible;
-    background-color: #f9dd00;
-    *background-color: #ffbd04;
-    background-image: -o-linear-gradient(top,#ffe603,#ffbd04);
-    background-image: linear-gradient(top,#ffe603,#ffbd04);
-    background-image: -ms-linear-gradient(top,#ffe603,#ffbd04);
-    background-image: -webkit-linear-gradient(top,#ffe603,#ffbd04);
-    background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffe603),to(#ffbd04));
-    background-image: -moz-linear-gradient(top,#ffe603,#ffbd04);
-    background-repeat: repeat-x;
-/*    border-color: #ffbd04 #ffbd04 #a39100;
-    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
-*/
-  
-    border-top: 1px solid #fdfd00;
-    border-bottom: 1px solid #ffc702;
-    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffe603',endColorstr='#ffbd04',GradientType=0);
-    box-shadow: 0 0 6px black;
+height:30px;
+padding:10px 0;
+overflow:visible;
+background-color:#f9dd00;
+*background-color:#ffbd04;
+background-image:-o-linear-gradient(top,#ffe603,#ffbd04);
+background-image:linear-gradient(top,#ffe603,#ffbd04);
+background-image:-ms-linear-gradient(top,#ffe603,#ffbd04);
+background-image:-webkit-linear-gradient(top,#ffe603,#ffbd04);
+background-image:-webkit-gradient(linear,0 0,0 100%,from(#ffe603),to(#ffbd04));
+background-image:-moz-linear-gradient(top,#ffe603,#ffbd04);
+background-repeat:repeat-x;
+border-top:1px solid #fdfd00;
+border-bottom:1px solid #ffc702;
+filter:progid:dximagetransform.microsoft.gradient(enabled=false);
+filter:progid:dximagetransform.microsoft.gradient(startColorstr='#ffe603',endColorstr='#ffbd04',GradientType=0);
+box-shadow:0 0 6px #000
 }
-.header-gcba:hover,.header-gcba:active,.header-gcba.active,.header-gcba.disabled,.header-gcba[disabled]{background-color:#ffbd04;*background-color:#d6be00}
-.header-gcba:active,.header-gcba.active{background-color:#bda700 \9}
-.header-inner{padding-right:20px;padding-left:20px}
-.header-gcba .logo{float:left;width:172px;height:33px;background:url(/img/logo-normal.png)}
-.header-gcba h2.slogan{font-family:"Gotham", "Helvetica Neue","Helvetica", sans-serif; float:right;margin-top:-4px;font-size:15px;letter-spacing:-1px; color: #000}
-.header-gcba .logo, .header-gcba h2 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-  filter: alpha(opacity=70);
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  opacity: 0.7;
+.header-gcba:hover,.header-gcba:active,.header-gcba.active,.header-gcba.disabled,.header-gcba[disabled] {
+background-color:#ffbd04;
+*background-color:#d6be00
 }
+
+.header-gcba:active,.header-gcba.active {
+background-color:#bda700 \9
+}
+
+.header-inner {
+padding-right:20px;
+padding-left:20px
+}
+
+.header-gcba .logo {
+float:left;
+width:172px;
+height:33px;
+background:url(/img/logo-normal.png)
+}
+
+.header-gcba h2.slogan {
+font-family:"Gotham","Helvetica Neue","Helvetica",sans-serif;
+float:right;
+margin-top:-4px;
+font-size:15px;
+letter-spacing:-1px;
+color:#000
+}
+
+.header-gcba .logo,.header-gcba h2 {
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+filter:alpha(opacity=70);
+-moz-opacity:.7;
+-khtml-opacity:.7;
+opacity:.7
+}
+
 .navbar{color:#535353;margin-bottom:0;overflow:visible;font-family: "Open Sans", "Helvetica Neue","Helvetica", sans-serif; font-weight: 600;}
 /*.navbar-inner{min-height:40px;padding-right:20px;padding-left:20px;background-color:#313131;background-image:-moz-linear-gradient(top,#3c3c3c,#222);background-image:-ms-linear-gradient(top,#3c3c3c,#222);background-image:-webkit-gradient(linear,0 0,0 100%,from(#3c3c3c),to(#222));background-image:-webkit-linear-gradient(top,#3c3c3c,#222);background-image:-o-linear-gradient(top,#3c3c3c,#222);background-image:linear-gradient(top,#3c3c3c,#222);background-repeat:repeat-x;filter:progid:dximagetransform.microsoft.gradient(startColorstr='#3c3c3c',endColorstr='#222222',GradientType=0);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);-moz-box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1)}
 */
@@ -378,16 +424,7 @@ a.download-link {
 }
 
 
-.featured {
-  background-color: #262e39;
-  min-height: 400px;
 
-
-  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-
- color: #ffffff;
-
-}
 
 
 .featured h2 {
@@ -395,7 +432,7 @@ a.download-link {
   font-weight: normal;
   font-size: 25px;
   line-height: 24px;
-  margin: 70px 10px 160px;
+  margin: 70px 10px 50px;
   border: none !important;
 }
 
@@ -413,18 +450,21 @@ a.download-link {
   font-size: 12px;
 }
 .featured li {
-  line-height: 18px;
-  padding-left: 10px;
+line-height:18px;
+padding-left:10px
 }
 
 .featured li:last-child {
-  margin-bottom: 20px;
+margin-bottom:20px
 }
 
 
-.news-feed {
-  color: white;
+
+.news-feed, .datasets-feed {
+  
+  width: auto;
   margin-top: 180px;
+
 }
 
 .news-feed h5 {
@@ -504,28 +544,26 @@ padding-top: 20px;
   
 }
 
-.news-feed .lead {
+.news-feed .lead,.datasets-feed .lead {
 margin-bottom: 20px;
 font-size: 30px;
 color: #272f3a;
-font-weight: 200;
 line-height: 30px;
-margin-left: 110px;
 }
 
 
 
 .ribbon-wrapper {
-  height: 88px;
+/*  height: 88px;
   overflow: hidden;
   position: absolute;
   top: -3px;
   right: -5px;
-  z-index: 9999;
+  z-index: 9999;*/
 }
 
 .ribbon-type, .ribbon-date {
-  font-size: 11px;
+/*  font-size: 11px;
   font-weight: bold;
   color: #333;
   text-align: center;
@@ -535,19 +573,31 @@ margin-left: 110px;
   left: -15px;
   display: block;
   padding-right: 5px;
-padding-left: 70px;
+padding-left: 70px;*/
 }
 
 .ribbon-type {
-  top: 12px;
+  /*top: 12px;*/
 }
 
 .ribbon-date {
-  top: 50px;
+/*  top: 50px;
   background-color: white;
   color: #777;
+*/}
+
+.lista-datasets, .lista-noticias {
+
 }
 
+.lista-datasets .datasets {
+  margin: 0;
+}
+
+.lista-datasets .dataset {
+  width: 260px;
+  display: inline-block;
+}
 
 .blog {
   background-color: white;
@@ -593,7 +643,7 @@ Por Dan Z.
 
 
 
-.well {
+.well, .news-item {
   font-family: "Open Sans", "Helvetica Neue","Helvetica", sans-serif;
   min-height:                                           90px;
   margin-bottom:                                        30px;
@@ -693,7 +743,6 @@ Por Dan Z.
 }
 
 .project .well {
-  border-top:10px solid grey;
 }
 
 .project {
@@ -779,7 +828,7 @@ h1.dataset-header > a:hover {
 
 .resource-item {
   position: relative;
-  padding: 10px 110px 10px 60px;
+  padding: 10px 10px 10px 60px;
   margin-bottom: 0px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -1785,13 +1834,13 @@ background-color: #262e39;
 }
 
 /* Typography */
-.content .well {
+/*.content .well {
   background-color: #f6f6f6;
   border: 1px solid #e0e0e0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-}
+}*/
 
 .content .badge {
   padding: 1px 9px;
@@ -1886,4 +1935,144 @@ border: none;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 0px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 0;
+      
+    }
+
+    .carousel-control {
+top: 50%;
+font-size: 50px;
+font-weight: 400;
+line-height: 30px;
+
+    }
+
+    .carousel .item {
+      height: 350px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      position: static;
+      padding: 0 20px;
+      margin-top: 00px;
+      background-color: transparent;
+    }
+    .carousel-caption h2,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+
+    .carousel-caption h2 {
+      font-size: 20px;
+      margin-top: 100px;
+    }
+
+    .carousel-caption ul {
+      list-style: none;
+      margin: 0;
+      margin-top: 30px;
+      font-size: 12px;
+
+    }
+
+
+
+.feature-ckan {
+  background-color: #262e39;
+}
+
+
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-size: 30px;
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+
+    /* Featurettes
+    ------------------------- */
+
+    .featurette-divider {
+      margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+    .featurette {
+      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
 
