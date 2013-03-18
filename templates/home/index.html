@@ -1,4 +1,4 @@
-{% extends "page.html" %}
+ {% extends "page.html" %}
 
 {% block subtitle %}{{ _("Welcome") }}{% endblock %}
 
@@ -115,11 +115,14 @@
       <div id="feed">
           <div class="container news-feed">
             <p class="lead">Últimas novedades</p>
-            <div class="news-item dummy" style="display:none">
-                <div class="ribbon-type"></div>
-                <div class="ribbon-date"></div>
-                <h5></h5>
+            <div class="news-item dummy well" style="display:none">
+               <div class="well-content">
+                <h3></h3>
                 <p></p>
+               
+                 <div class="label label-format ribbon-type"></div>
+                 <div class="label label-date ribbon-date"></div>
+              </div>
             </div>  
           </div>
       </div>    
@@ -172,7 +175,7 @@ $( document ).ready( function() {
       obj.find('.ribbon-type').html(entry.categories[0]);
       var parsedDate = Date.parseExact(entry.publishedDate, "ddd, dd MMM yyyy hh:mm:ss zzz");
       obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yy"));
-      obj.find('h5').html(entry.title);
+      obj.find('h3').html(entry.title);
       obj.find('p').html(entry.contentSnippet);
       obj.show();
 

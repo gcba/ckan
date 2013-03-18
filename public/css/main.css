@@ -594,10 +594,12 @@ padding-left: 70px;*/
   margin: 0;
 }
 
-.lista-datasets .dataset {
+.lista-datasets .dataset, .news-item {
   width: 260px;
   display: inline-block;
 }
+
+
 
 .blog {
   background-color: white;
@@ -703,7 +705,7 @@ Por Dan Z.
   box-shadow: 0 0 6px #999;
 }
 
-.well h3 {
+.well h3, .news-item h3 {
   margin:0 0 10px 0;
   font-size:             15px;
   font-weight:            700;
@@ -743,6 +745,11 @@ Por Dan Z.
 }
 
 .project .well {
+}
+
+.project, .news-item {
+margin-left: 15px;
+width: 267px;
 }
 
 .project {
