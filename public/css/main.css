@@ -42,13 +42,23 @@ color:#535353;
 font-family:"Gotham","Helvetica Neue","Helvetica",sans-serif
 }
 
+
+a {
+color: #262e39;
+text-decoration: none;
+}
+
 header a {
 color:#fff;
 text-decoration:none
 }
 
+header a:hover {
+color:#fff;
+}
+
 a:hover,a:focus {
-color:#e4e4e4;
+color:#0B486B;
 text-decoration:none
 }
 
@@ -576,6 +586,13 @@ padding-left: 70px;*/
   /*top: 12px;*/
 }
 
+.ribbon-type, .ribbon-date{
+font-size: 10px;
+margin: 0;
+font-weight: bold;
+
+}
+
 .ribbon-date {
 /*  top: 50px;
   background-color: white;
@@ -796,6 +813,10 @@ h1.dataset-header > a:hover {
 
 .dataset-header {
   position: relative;
+}
+
+.social-share {
+  margin-top: 25px;
 }
 
 .resource-item-view {

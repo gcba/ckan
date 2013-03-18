@@ -103,11 +103,12 @@
             <p class="lead">Últimas novedades</p>
             <div class="news-item dummy well" style="display:none">
                <div class="well-content">
-                <h3></h3>
+                <h3><a href=""></a></h3>
                 <p></p>
                
-                 <div class="label label-format ribbon-type"></div>
-                 <div class="label label-date ribbon-date"></div>
+                
+                <div class="label label-date ribbon-date"></div>
+                <div class="label label-format ribbon-type"><a href=""></a></div>
               </div>
             </div>  
           </div>
@@ -158,10 +159,10 @@ $( document ).ready( function() {
       var entry = feeds.entries[i];
       obj = $('.news-feed .news-item.dummy').clone().appendTo('.news-feed')
       obj.removeClass('dummy');
-      obj.find('.ribbon-type').html(entry.categories[0]);
+      obj.find('.ribbon-type a').html(entry.categories[0]);
       var parsedDate = Date.parseExact(entry.publishedDate, "ddd, dd MMM yyyy hh:mm:ss zzz");
       obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yy"));
-      obj.find('h3').html(entry.title);
+      obj.find('h3 a').html(entry.title);
       obj.find('p').html(entry.contentSnippet);
       obj.show();
 
