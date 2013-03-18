@@ -57,6 +57,7 @@
           <h2>Buenos Aires Hackaton.</h2>
           <ul>
           <li>Acceso programático via RESTful API a los conjuntos de datos.</li>
+
         </ul>
         </div>
       </div>
@@ -104,77 +105,10 @@
   <div class="row-fluid">
     <div class="span6 lista-datasets">
     {# Ultimos Datasets #}  
-              <div class="container datasets-feed">
-            <p class="lead">Últimos datasets</p>
-
-<ul class="datasets">
-
-    <li class="dataset">
-        <div class="well">
-            <div class="well-content">
-                <div class="dataset-content">
-                    <h3 class="dataset-heading">
-                        <a href="/dataset/agenda" class="title">Agenda Cultural</a> <a href="#" ckan-facet="groups" ckan-category="infraestructura-obra-publica" data-format="infraestructura-obra-publica" class="pull-right group-icon"></a>
-                    </h3>
-                    <p>
-                        Información de los eventos culturales organizados en la Ciudad. Cine, Música, Visitas Guiadas, Artes Visuales, Teatro, Exposiciones, Aire...
-                    </p>
-                    <div class="dataset-metadata">
-                        <p class="date last-modified" data-original-title="">
-                            <a href="#" class="label label-date" ckan-sort="last_modified" ckan-modified="2013-03-07T21:54:40.170043"><!-- Snippet snippets/date.html start -->
-                             <span class="fecha">07/03/13</span> <!-- Snippet snippets/date.html end --></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format"><span>api</span></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.rss" ckan-filter="res_format" ckan-facet="rss" class="label label-format"><span>rss</span></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.csv" ckan-filter="res_format" ckan-facet="csv" class="label label-format"><span>csv</span></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-
-
-    <li class="dataset">
-        <div class="well">
-            <div class="well-content">
-                <div class="dataset-content">
-                    <h3 class="dataset-heading">
-                        <a href="/dataset/agenda" class="title">Agenda Cultural</a> <a href="#" ckan-facet="groups" ckan-category="infraestructura-obra-publica" data-format="infraestructura-obra-publica" class="pull-right group-icon"></a>
-                    </h3>
-                    <p>
-                        Información de los eventos culturales organizados en la Ciudad. Cine, Música, Visitas Guiadas, Artes Visuales, Teatro, Exposiciones, Aire...
-                    </p>
-                    <div class="dataset-metadata">
-                        <p class="date last-modified" data-original-title="">
-                            <a href="#" class="label label-date" ckan-sort="last_modified" ckan-modified="2013-03-07T21:54:40.170043"><!-- Snippet snippets/date.html start -->
-                             <span class="fecha">07/03/13</span> <!-- Snippet snippets/date.html end --></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.api" ckan-filter="res_format" ckan-facet="api" class="label label-format"><span>api</span></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.rss" ckan-filter="res_format" ckan-facet="rss" class="label label-format"><span>rss</span></a>
-                        </p>
-                        <p>
-                            <a href="/dataset#res_format=.csv" ckan-filter="res_format" ckan-facet="csv" class="label label-format"><span>csv</span></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-
-
-
-</ul>
-
-          </div>
+      <div class="container datasets-feed">
+        <p class="lead">Últimos datasets</p>
+          {{ h.snippet('snippets/package_list.html', packages=c.datasets, list_class='datasets', item_class="dataset") }}
+      </div>
     </div>
     <div class="span6 lista-noticias">
     {# Ultimas noticias #}
