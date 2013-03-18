@@ -1084,14 +1084,45 @@ margin: 2px 1px 0px 6px;
   display: none;
 }
 
+.tagbox .fiso-selector {
+  position: relative;
+}
+
+.tagbox .fiso-selector span {
+}
+
+.tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet {
+
+  color: #262e39;
+    font-size: 15px;
+    line-height: 10px !important;
+    display: inline-block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+
+}
+
+.tagbox .fiso-toggle-facet:hover, 
+.tagbox .fiso-clear-facet:hover {
+  color: white;
+}
+
 .tagbox .fiso-toggle-facet.and:before {
-  content: 'aaaa';
+content: '\37';
+right: 15px;
 }
 
 .tagbox .fiso-toggle-facet.or:before {
-  content: 'oooo';
+  content: '\39';
 }
 
+.tagbox .fiso-clear-facet:before {
+ 
+  content: '\38';
+
+
+
+}
 
 .dropdown-menu>li>a{
   font-size: 12px;
@@ -1155,7 +1186,7 @@ margin: 2px 1px 0px 6px;
   background-color: #262e39;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding: 30px 0 10px 0;
+  padding: 30px 0 0px 0;
 }
 
 .toolbar nav > ul {
@@ -1230,7 +1261,7 @@ margin: 2px 1px 0px 6px;
 }
 
 .facet .btn-group {
-margin-top: 2px;
+margin-top: 12px;
 }
 
 .toolbar .facet .btn {
@@ -1278,6 +1309,13 @@ margin-right: 0px;
 .action .facet .fiso-selector.fiso-no-available {
     pointer-events: none;
     cursor: default;
+    background-image: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
 }
 
 .facet.groups .fiso-toggle-category.available {
@@ -1449,7 +1487,7 @@ FONTS
 .icon-twitter:before, .icon-github:before, .icon-urbanismo-territorio:before,
 .icon-actividad-economica:before, .icon-salud-servicios-sociales:before,
 .icon-administracion-publica-normativa:before, .icon-movilidad-transporte:before,
-.icon-dataset:before, .icon-apps:before, .icon-labs:before, .icon-viz:before {
+.icon-dataset:before, .icon-apps:before, .icon-labs:before, .icon-viz:before, .tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
