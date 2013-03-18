@@ -179,14 +179,11 @@ class HomeController(BaseController):
     def about(self):
         return render('home/about.html')
 
-    def faq(self):
-        return render('home/faq.html')
+    def spec(self):
+        return render('home/spec.html')
 
     def tyc(self):
         return render('home/tyc.html')
-
-    def recursos(self):
-        return render('home/recursos.html')
 
     def cache(self, id):
         '''Manual way to clear the caches'''
