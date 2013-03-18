@@ -1,5 +1,5 @@
-{% for item in h.get_facet_items_dict('res_format') %}
-  <a href="#" ckan-facet="res_format" ckan-category="{{item.name|lower}}" class="label">
+{% for item in h.get_facet_items_dict('res-format') %}
+  <a href="#" fiso-facet="res-format" fiso-category="{{item.name|lower}}" class="label">
   	<span class="close">x</span>
   	<span>{{item.display_name|lower}}</span> 
   </a>

@@ -10,45 +10,26 @@
 
 {% block tagbox %}
   <ul >
-    <li ckan-default-operator="or" ckan-facet="groups" ckan-category-selector>
-      Groupos: 
-      <span ckan-facet="groups" ckan-category-creator>
-        <a class="example label"  ckan-facet="groups" href="#" ckan-category="">
-          <span class="facet-operator"></span>
-          <span class="close">x</span>
-          <span class="category-name"></span>
-        </a>
-        <span class="toggleable clear-element">
-          <a href="#" ckan-facet="groups" ckan-clear class="action">Limpiar</a>
-        </span>
-      </span>
+    <li class="fiso-selector" fiso-facet="groups">
+      Grupos <a href="#" class="fiso-toggle-facet" fiso-facet="groups"></a>:
+      <span>
+        <a class="fiso-example label" href="#"> <span class="close">x</span> </a>
+        <a href="#" class="fiso-clear-facet" fiso-facet="groups">Limpiar</a>
+       </span>
     </li>
-    <li ckan-default-operator="or" ckan-facet="tags" ckan-category-selector>
-      Tags:
-      <span ckan-facet="tags" ckan-category-creator>
-        <a class="example label"  ckan-facet="tags" href="#" ckan-category="">
-          <span class="facet-operator"></span>
-          <span class="close">x</span>
-          <span class="category-name"></span>
-        </a>
-        <span class="toggleable clear-element">
-          <a href="#" ckan-facet="tags" ckan-clear class="action">Limpiar</a>
-        </span>
-      </span>
+    <li class="fiso-selector" fiso-facet="tags">
+      Tags <a href="#" class="fiso-toggle-facet" fiso-facet="tags"></a>:
+      <span>
+        <a class="fiso-example label" href="#"> <span class="close">x</span> </a>
+        <a href="#" class="fiso-clear-facet" fiso-facet="tags">Limpiar</a>
+       </span>
     </li>
-    <li ckan-default-operator="or" ckan-facet="res_format" ckan-category-selector>
-      Formatos: 
-      <span ckan-facet="res_format" ckan-category-creator>
-        <a class="example label"  ckan-facet="res_format" href="#" ckan-category="">
-          <span class="facet-operator"></span>
-          <span class="close">x</span>
-          <span class="category-name"></span>
-        </a>
-        <span class="toggleable clear-element">
-          <a href="#" ckan-facet="res_format" ckan-clear class="action">Limpiar</a>
-        </span>
-      </span>
-      
+    <li class="fiso-selector" fiso-facet="res-format">
+      Formatos <a href="#" class="fiso-toggle-facet" fiso-facet="res-format"></a>:
+      <span>
+        <a class="fiso-example label" href="#"> <span class="close">x</span> </a>
+        <a href="#" class="fiso-clear-facet" fiso-facet="res-format">Limpiar</a>
+       </span>
     </li>
     
     
@@ -56,18 +37,9 @@
 {% endblock %}
 
 {% block toolbar_information %}
-  <p>
-    <span class="title"></span>
-    <span class="selection">Seleccionaste 
-      <strong class="tags"><a href="#" ckan-facet="tags" ckan-clear="true"></a></strong><span class="tag-union"></span>
-      <strong class="res_format"><a href="#" ckan-facet="res_format" ckan-clear="true"></a></strong>
-      <span class="format-union"></span>
-      <strong class="groups"><a href="#" ckan-facet="groups" ckan-clear="true"></a></strong>.
-    </span>
-    <span class="filter">Filtrado por el termino <strong><a href="#" ckan-facet="query" ckan-clear="true"></a></strong>.</span>
-    <span class="sort">Ordenados por <strong><a href="#" ckan-facet="sort" ckan-clear="true"></a></strong>.</span>
-    <small>Click para borrar algún filtro o <a href="#" ckan-facet="all" ckan-clear="true">todos</a>.</small>
-  </p>
+<div> <span class="fiso-total-visible"></span> </div>
+<div> Datasets </div>
+<div> <small><a href="#" fiso-facet="all" ckan-clear="true">Limpiar Filtros</a>.</small> </div>
 {% endblock %}
 
 {% block secondary_content %}
@@ -93,6 +65,7 @@
 {{ super() }}
 <script type="text/javascript" src="/js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="/js/jquery.ba-bbq.min.js"></script>
+<script type="text/javascript" src="/js/fisotope.js"></script>
 <script type="text/javascript" src="/js/search.js"></script>
 {% endblock -%}
 

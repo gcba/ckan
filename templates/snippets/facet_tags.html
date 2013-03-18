@@ -1,14 +1,11 @@
-<div class="btn-group" ckan-facet="tags" ckan-default-operator="and" ckan-category-selector>
+<div class="btn-group fiso-selector" fiso-facet="tags">
   <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
-    <span>Tags</span> (<span ckan-facet="tags" class="facet-counter"></span>) <span class="caret"></span>
+    <span>Tags</span> (<span class="fiso-counter-available"></span>) <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" ckan-facet="tags" ckan-category-creator>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" fiso-facet="tags" fiso-category-creator>
+      <li class="fiso-example"> <a href="#" tabindex="-1"></a> </li>
       <li class="divider"></li>
-      <li class="example" ckan-facet="tags" ckan-category="" >
-        <a href="#" tabindex="-1" ckan-facet="tags" ckan-category=""><span class="category-name"></span> </a>
-      </li>
-      <li class="toggleable clear-element">
-        <a href="#" ckan-facet="tags" ckan-clear="true" class="action">Limpiar</a>
-      </li>
+      <li> <a href="#" class="fiso-toggle-facet" fiso-facet="tags">Cambiar Operación</a> </li>
+      <li> <a href="#" class="fiso-clear-facet" fiso-facet="tags">Limpiar</a> </li>
   </ul>
 </div>
