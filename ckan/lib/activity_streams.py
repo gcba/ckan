@@ -27,14 +27,14 @@ def get_snippet_dataset(activity, detail):
 
 def get_snippet_tag(activity, detail):
     tag = detail['data']['tag']['name']
-    link = "<a href='/dataset/#tags=.%s'>%s</a>" % (tag.lower().replace(" ", "-"), tag)
+    link = "<a href='/dataset#tags_cats=.%s.'>%s</a>" % (tag.lower().replace(" ", "-"), tag)
     return literal('''<span data-module-type="tag" >%s</span>'''
         % (link)
         )
 
 def get_snippet_group(activity, detail):
     group = detail['data']['group']
-    link = "<a href='/dataset/#groups=.%s'>%s</a>" % (group, group)
+    link = "<a href='/dataset#groups_cats=.%s.'>%s</a>" % (group, group)
     return literal('''<span data-module-type="group" >%s</span>'''
         % (link)
         )

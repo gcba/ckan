@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+  {% extends "base.html" %}
 
 {%- block page -%}
   {%- block header %}
@@ -26,17 +26,15 @@
         {% block info_toolbar %}
         <div class="information">
           <div class="container">
+           
             <div class="row-fluid info">
-              <div class="span12 tags-status">
+              <div class="span10 tagbox">
+                {% block tagbox %} {% endblock %} 
+              </div>
+              <div class="span2 tags-status">
                 {% block toolbar_information %}{% endblock %}
               </div>
             </div>
-            <div class="row-fluid info">
-              <div class="span12 tagbox">
-                {% block tagbox %} {% endblock %} 
-              </div>
-            </div>
-            
           </div>
         </div>
         {% endblock %}
