@@ -101,8 +101,7 @@ def make_map():
 
     map.connect('home', '/', controller='home', action='index')
     map.connect('about', '/about', controller='home', action='about')
-    map.connect('faq', '/faq', controller='home', action='faq')
-    map.connect('tyc', '/tyc', controller='home', action='tyc')
+    map.connect('spec', '/spec', controller='home', action='spec')
     map.connect('recursos', '/recursos', controller='home', action='recursos')
 
     # CKAN API versioned.
