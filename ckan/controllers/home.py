@@ -179,8 +179,8 @@ class HomeController(BaseController):
     def about(self):
         return render('home/about.html')
 
-    def spec(self):
-        return render('home/spec.html')
+    def specs(self):
+        return render('home/specs.html')
 
     def tyc(self):
         return render('home/tyc.html')
