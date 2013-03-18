@@ -1,12 +1,14 @@
 {% extends "page.html" %}
 
-{% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
+{% block subtitle %}{{ _("Search for a Dataset") }} - {% endblock %}
 
 {% block actions_content %}
   <li class="facet tags">{% include 'snippets/facet_tags.html' %}</li>
   <li class="facet formats">{% include 'snippets/facet_formats.html' %}</li>
   <li class="facet sort">{% include 'snippets/facet_sort.html' %}</li>
 {% endblock %}
+
+{% block flash %} {% endblock %}
 
 {% block tagbox %}
   <ul >
