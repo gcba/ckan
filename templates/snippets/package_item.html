@@ -37,11 +37,13 @@ ckan-res_format="{{format_items|join(',')|lower}}"
           <a href="{{h.url_for(controller='package', action='read', id=package.name)}}" class="title"> 
             {{h.truncate(title, truncate_title)}}   
           </a>
-          {% for item in group_items %}
-          <a href="/dataset#groups=.{{item.name|lower}}" ckan-facet="groups" ckan-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
-            <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
-          </a>
-          {% endfor %}
+          <div class="group-icon-list">
+            {% for item in group_items %}
+            <a href="/dataset#groups=.{{item.name|lower}}" ckan-facet="groups" ckan-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon">
+              <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
+            </a>
+            {% endfor %}
+          </div>
           {% if package.get(state, '').startswith('draft') %}
             <span class="label label-info">{{ _('Draft') }}</span>
           {% elif package.get(state, '').startswith('deleted') %}

@@ -762,12 +762,16 @@ width: 267px;
 
 
 
-.group-icon {
+.group-icon-list {
   position: absolute;
   right: 0;
   top: 7px;
   font-size: 14px;
   padding: 8px;
+}
+
+.group-icon {
+  margin: 0px 2px;
 }
 
 
