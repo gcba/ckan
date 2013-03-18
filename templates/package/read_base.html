@@ -14,7 +14,7 @@
 {% endif %}
 {% set groups_count=pkg.groups|length %}
 
-{% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
+{% block subtitle %}{{ pkg.title or pkg.name }} - {% endblock %}
 
 {% block actions %}
   {% if h.check_access('package_update', {'id':pkg.id }) %}
