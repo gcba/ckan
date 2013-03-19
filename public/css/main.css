@@ -1355,7 +1355,7 @@ margin-right: 0px;
   background-color: #f69f74;
 }
 
-.action .facet .fiso-selector.fiso-no-available {
+.action .facet .fiso-selector.and.fiso-no-available {
     pointer-events: none;
     cursor: default;
     background-image: none;
