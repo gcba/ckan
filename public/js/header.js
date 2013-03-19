@@ -42,9 +42,4 @@ $( document ).ready( function() {
 		location.href = "/dataset#query=" + $('#search').val();
 	});
 
-	$(".menu-gcba .social li a").click(function() {
-		var url_base = $(this).attr("url-base");
-		$(this).attr("href", url_base + encodeURIComponent($(location).attr('href')));
-	});
-
 });
