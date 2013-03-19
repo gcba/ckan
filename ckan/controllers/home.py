@@ -45,7 +45,7 @@ class HomeController(BaseController):
             data_dict = {
                 'q': '*:*',
                 'facet.field': g.facets,
-                'rows': 4,
+                'rows': 1000,
                 'start': 0,
                 'sort': 'views_recent desc',
                 'fq': 'capacity:"public"'
@@ -55,7 +55,8 @@ class HomeController(BaseController):
             c.search_facets = query['search_facets']
             c.package_count = query['count']
             c.datasets = query['results']
-
+            c.datasets = filter(lambda x: len(filter(lambda y: y['key'].lower() == 'destacado' and y['value'].lower() == '"si"', x['extras'])) > 0, c.datasets )
+            c.datasets = c.datasets[0:6]
             c.facets = query['facets']
             maintain.deprecate_context_item(
               'facets',
