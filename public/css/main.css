@@ -1125,15 +1125,21 @@ margin: 2px 1px 0px 6px;
   display: inline-block;
 }
 
-.tagbox .fiso-no-selected{
+.tagbox .fiso-selector {
+  position: relative;
   display: none;
 }
 
-.tagbox .fiso-selector {
-  position: relative;
+.tagbox .fiso-selector.and, .tagbox .fiso-selector.or {
+  display: list-item;
+}
+
+.tagbox .fiso-selector.fiso-no-selected{
+  display: none;
 }
 
 .tagbox .fiso-selector span {
+  
 }
 
 .tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet {
