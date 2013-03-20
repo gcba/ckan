@@ -1117,6 +1117,14 @@ opacity: 0.4;
 margin: 2px 1px 0px 6px;
 }
 
+.information.fiso-all.fiso-all-no-categories {
+  display: none;
+}
+
+.information .tags-status {
+  padding-top: 0px;
+}
+
 .tagbox .fiso-toggle-category {
   display:none;
 }
@@ -1127,7 +1135,6 @@ margin: 2px 1px 0px 6px;
 
 .tagbox .fiso-selector {
   position: relative;
-  display: none;
 }
 
 .tagbox .fiso-selector.and, .tagbox .fiso-selector.or {
@@ -1139,7 +1146,7 @@ margin: 2px 1px 0px 6px;
 }
 
 .tagbox .fiso-selector span {
-  
+ 
 }
 
 .tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet {
