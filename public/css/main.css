@@ -828,7 +828,7 @@ Vista Dataset
 */
 
 h1.dataset-header > a {
-  color: #666666;
+  color: #000;
 }
 
 h1.dataset-header > a:hover {
@@ -836,7 +836,11 @@ h1.dataset-header > a:hover {
 }
 
 .dataset-header {
-  position: relative;
+
+}
+
+.content .page-container [class*="span"] {
+  margin-bottom: 0px;
 }
 
 .social-share {
@@ -844,8 +848,7 @@ h1.dataset-header > a:hover {
 }
 
 .resource-item-view {
-  position: absolute;
-  right: 0px;
+
 }
 
 
@@ -2138,15 +2141,14 @@ line-height: 30px;
     }
 
     .carousel-caption h2 {
-      font-size: 20px;
+      font-size: 25px;
       margin-top: 100px;
     }
 
     .carousel-caption ul {
-      list-style: none;
-      margin: 0;
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 12px;
+      max-width: 400px;
 
     }
 

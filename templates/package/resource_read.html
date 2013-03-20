@@ -12,7 +12,7 @@
 
 {% block header_content %}
 <div class="row-fluid">
-  <div class="span12">
+  <div class="span10">
     <h1 class="dataset-header">
       <a href="{{h.url_for(controller='package', action='read', id=pkg.name)}}">{{ pkg.title or pkg.name }}</a> 
       /
@@ -22,8 +22,10 @@
       {% if pkg.state.startswith('draft') %}
         [{{ _('Draft') }}]
       {% endif %}
-
-      <span class="resource-item-view"><a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
+    </h1>
+  </div>
+  <div class="span2">
+      <span class="resource-item-view pull-right"><a class="btn btn-mini btn-resource" href="{{ res.url }}" target="_blank"><i class="icon-download"></i>
             {% if res.resource_type in ('listing', 'service') %} 
               {{ _('View') }}
             {% elif  res.resource_type == 'api' %}
@@ -33,7 +35,6 @@
             {% endif %}
           </a>
       </span>
-    </h1>
   </div>
 </div>
 {% endblock %}
