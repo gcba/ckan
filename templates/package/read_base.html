@@ -31,12 +31,6 @@
 
 {% endblock %}
 
-{% block flash %} 
-{% if h.check_access('package_update', {'id':pkg.id }) %}
-{{ super() }}  
-{% endif %}
-{% endblock %}
-
 {% block info_toolbar %}
 {% endblock %}
 

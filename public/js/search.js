@@ -37,6 +37,6 @@ $( document ).ready( function() {
 
 	$('.tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet, .toolbar .facet.groups .fiso-toggle-category span').tooltip();
 
-
+	
 });
 
