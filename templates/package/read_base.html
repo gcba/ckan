@@ -16,6 +16,8 @@
 
 {% block subtitle %}{{ pkg.title or pkg.name }} - {% endblock %}
 
+{% block flash %} {% endblock %}
+
 {% block actions %}
   {% if h.check_access('package_update', {'id':pkg.id }) %}
   <li>
