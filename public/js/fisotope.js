@@ -92,7 +92,7 @@
 		    });
 		},
 		getAllFacetCategories: function(facet, selectedCategories, onlyVisible) {
-			answer = []
+			var answer = []
 			$('.isotope-item').each(function(index, value) {
 				var theObj = $(value);
 				if ( !onlyVisible || !theObj.hasClass('isotope-hidden') ){
@@ -107,15 +107,17 @@
 				}
 			});
 
-			all_elementos = methods.unique(answer);
-			final_answer = []
+			var all_elementos = methods.unique(answer);
+			var final_answer = []
 			for ( var i = 0; i < all_elementos.length; i++ ) {
 				var elemento = all_elementos[i];
 				if (  $.inArray(elemento, selectedCategories ) < 0) {
 					final_answer.push(elemento);
 				}
 			}
-			return final_answer.reverse();
+			final_answer.sort();
+			final_answer.reverse();
+			return final_answer;
 		},
 		getFacetOperationDefault: function(facet)
 		{
