@@ -1588,6 +1588,10 @@ FONTS
   content: "\30";
   font-size: 31px;
 }
+.well .icon-seguridad:before {
+  content: "\30";
+  font-size: 23px;
+}
 .icon-medio-ambiente:before {
   content: "\2f";
 }
