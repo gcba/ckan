@@ -756,6 +756,8 @@ Por Dan Z.
   font-size: 12px;
   line-height: 14px;
   color:#777;
+  width: 220px;
+  word-break: normal;
 }
 
 
@@ -796,10 +798,12 @@ width: 267px;
   top: 7px;
   font-size: 14px;
   padding: 8px;
+  width: 30px;
 }
 
 .group-icon {
   margin: 0px 2px;
+  margin-bottom: 5px;
 }
 
 
