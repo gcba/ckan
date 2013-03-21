@@ -35,10 +35,8 @@
             <div class="nav-collapse collapse">
 
               <ul class="nav">
-                {{ h.build_nav_main(
-                  ('home', _('Home')),
-                  ('search', _('Datasets')),
-                ) }}
+                {{ h.build_nav_main(('home', _('Home')), ) }}
+                <li><a href="/dataset">Datos</a></li>
                 <li><a href="http://concursos.buenosaires.gob.ar/buenos-aires-apps/apps/">Aplicaciones</a></li>
                 <li><a href="http://digital.buenosaires.gob.ar/tag/lab">Laboratorio</a></li>
                 <li><a href="http://digital.buenosaires.gob.ar/" target="_blank">Blog</a></li>
