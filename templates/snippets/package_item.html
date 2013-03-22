@@ -71,6 +71,12 @@ fiso-res-format=".{{format_items|join('.')|lower}}."
             </a>
             {% endfor %}
 
+          <div class="tags" style="display:none">
+          {% for tag in package.tags %}
+          <span>{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+
         </div>
       </div>
     </div>
