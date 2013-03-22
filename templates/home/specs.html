@@ -14,39 +14,122 @@
 	<div class="page-container">
 
 <article class="about">
-<h3>Enlaces de interés </h3>
-<p>Una gran cantidad de plataformas de Open Data han ido naciendo en estos últimos años en el mundo entero, tanto a nivel nacional o federal, como en<a href="http://www.whitehouse.gov/open"> Estados Unidos</a>,<a href="http://www.data.govt.nz/"> Nueva Zelanda</a>,<a href="http://www.data.gouv.fr/"> Francia</a>, el<a href="http://data.gov.uk/"> Reino Unido</a>,<a href="http://datos.gob.es/datos/"> España</a>,<a href="http://www.open.gc.ca/index-eng.asp"> Canadá</a>,<a href="http://opendata.mx/"> México</a>,<a href="http://www.modernizacion.gob.cl/gobierno-abierto/"> Chile</a> y<a href="http://programa.gobiernoenlinea.gov.co/documentos.shtml?apc=&amp;s=e&amp;m=b&amp;als%5BLEVEL___%5D=1&amp;cmd%5B17%5D=c-1-'231'&amp;als%5BMIGA____%5D=Nacionales"> Colombia</a>; como a nivel local,  en ciudades como<a href="http://data.dc.gov/"> Washington</a>,<a href="http://datasf.org/"> San Francisco</a>,<a href="http://nycopendata.socrata.com/"> Nueva York</a>,<a href="http://www.cityofboston.gov/doit/databoston/app/data_disclaimer.asp"> Boston</a>, <a href="http://www.ottawa.ca/online_services/opendata/index_en.html">Ottawa</a> o<a href="http://www1.toronto.ca/wps/portal/open_data/open_data_home?vgnextoid=b3886aa8cc819210VgnVCM10000067d60f89RCRD"> Toronto</a>, por mencionar algunas. Europa también ha sido un terreno particularmente fértil para las experiencias regionales y locales como las del<a href="http://www.irekia.euskadi.net/lang"> País Vasco</a>,<a href="http://w20.bcn.cat/opendata/"> Barcelona</a>,<a href="http://data.london.gov.uk/"> Londres</a>, o<a href="http://opendata.paris.fr/opendata/jsp/site/Portal.jsp"> París</a>, <a href="http://www.montevideo.gub.uy/institucional/datos-abiertos">Montevideo</a> y  <a href="http://www.governoaberto.sp.gov.br/view/">San Pablo</a> son muestras del incipiente desarrollo en América Latina.</p>
 
 
-<p>La Organización sin fines de lucro <a href="http://civiccommons.org/">CivicCommons</a>  mantiene una <a target="_blank" href="#Open_Data_Initiatives">lista actualizada</a> sobre las distintas iniciativas de Open Data que existen en todo el mundo, tanto a nivel federal como regional y local.</p>
+
+
+
+
+<h1>DATA 2.0 GCBA</h1>
+<h2>Especificaciones Técnicas</h2>
+<h3>Introducción a la Versión 2 del Catálogo</h3>
+<p>
+La versión 2.0 de data.buenosaires.gob.ar supone para el Gobierno de la Ciudad de Buenos Aires una oportunidad de revisar los criterios con que se han organizado los datos del catalogo hasta el momento.
+</p>
+<p>
+En base a la experiencia acumulada en la primera etapa de la iniciativa, se han incluido una serie de cambios tanto en la forma en que se organizan los datos como su denominación y formatos.
+A continuación se detallan los criterios empleados.
+</p>
+<p>
+CKAN es software libre distribuido bajo la licencia “GNU Affero General Public License”  <a target="_blank" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>
+</p>
+
+<h3>Plataforma</h3>
+<p>El catálogo de datos utiliza CKAN (<a target="_blank" href="http://ckan.org/">http://ckan.org/</a>) en su versión 2.0 como plataforma. </p>
+<p>CKAN es una herramienta desarrollada por la Open Knowledge Foundation (<a target="_blank" href="http://okfn.org/">http://okfn.org/</a>) y actualmente se encuentra entre las plataformas más populares siendo utilizada, entre otros, por el Gobierno Británico, de Brásil, Chile y ciudades como Londres, Berlin o Helsinky.</p>
+<p>CKAN permite tanto la organización de los conjuntos de datos y recursos como el acceso programático a estos datos aplicando estándares aprobados internacionalmente. </p>
+<p>A partir de su versión 1.8 CKAN permite la integración de una herramienta denominada Recline.js (<a target="_blank" href="http://okfnlabs.org/recline/">http://okfnlabs.org/recline/</a>), también desarrollada por la Open Knowledge Foundation. Recline permite la visualización de los distintos recursos de modo intuitivo, acercando la experiencia a una mayor cantidad de usuarios.</p>
+<p>La implementación de CKAN para nuestro catálogo de datos carece de una funcionalidad explicada con mayor detalle en el siguiente link: <a target="_blank" href="http://docs.ckan.org/en/latest/datastore-setup.html#legacy-mode">Legacy Mode</a></p>
+
+<h3>Conjuntos de Datos</h3>
+<p>Los “conjuntos de datos” (también denominados “datasets”) son la pieza principal en todo el catálogo de datos.  Los conjuntos de datos agrupan uno o más recursos de datos así como la documentación que les da contexto.</p>
+<h4>Criterios de Agrupamiento</h4>
+<p>Para pertenecer a un mismo conjunto de datos, los recursos deben:</p>
+<ol>
+<li>Versar sobre un mismo tema y </li>
+<li>tener la misma de estructura o encontrarse relacionados entre sí de tal modo que adquieran valor al utilizarlos en conjunto.</li>
+</ol>
+<p>Asimismo, un conjunto de datos puede contener recursos documentales que sin proveer datos permiten su interpretación y enriquecen el análisis, así como recursos alternativos en una variedad de formatos que permitan la reutilización con un mayor número de herramientas.</p>
+
+<h3>Recursos</h3>
+<p>Los recursos son la pieza de información más pequeña del catálogo. </p>
+
+<h4>Formato de los recursos</h4>
+<p>Si bien pueden existir casos en los que por cuestiones técnicas u operativas esto no sea posible, en el catálogo se prefiere la publicación de los datos en los siguiente formatos:</p>
+<ul>
+<li><strong>Tablas</strong>: Comma Separated Value (csv), utilizando “comas” (,) como delimitador y “comillas dobles” (“) para indicar campos de texto.</li>
+<li><strong>Información Geográfica</strong>: en el caso de información geográfica se utilizará también csv pero incorporando un campo WKT (<a target="_blank" href="http://www.opengeospatial.org/standards/ct">http://www.opengeospatial.org/standards/ct</a>) o los campos Longitud y Latitud (WGS84)</li>
+<li><strong>Encoding</strong>: en todos los casos la codificación de caracteres (character encoding) será UTF8, según los estándares propuestos por la IETF <a target="_blank" href="http://tools.ietf.org/html/rfc3629">http://tools.ietf.org/html/rfc3629</a></li>
+<li><strong>Fechas</strong>: se preferirá la utilización de las fechas en el siguiente formato: YYYY-MM-DD HH:MM:SS. En caso de que no corresponda ingresar datos de tiempo basta con completar con ceros. Ej. 2002-12-25 00:00:00.</li>
+<li><strong>Documentos</strong>: para los documentos se utilizarán los formatos PDF, TXT o MD.</li>
+<li><strong>Denominación de los campos</strong>: se utilizarán mayúsculas para nombrar los campos.</li>
+<li><strong>Archivos comprimidos</strong>: se preferirá la compresión en zip de los archivos.</li>
+</ul>
+<h3>Grandes Archivos</h3>
+<p>En el caso de archivos grandes que dificulten su manipulación, se incorporará -además del original- un fraccionamiento de los mismos siguiendo los siguientes criterios:</p>
+<ul>
+<li>por períodos, en caso de tratarse de información temporal (Ej.: años, semestres, trimestres, meses, semanas, días), </li>
+<li>por zonas, en caso de tratarse de información geográfica (Ej.: comunas, barrios, secciones, manzanas), </li>
+<li>en caso de no prevalecer ningún otro criterio se lo hará por cantidad de registros.</li>
+</ul>
+<h3>Formatos alternativos</h3>
+<p>Además de los archivos con el formato detallado anteriormente, en algunos casos se procederá a brindar formatos alternativos atentos a ampliar la variedad de aplicaciones con que puedan ser manipulados, por ejemplo, shapefiles o geojson en el caso de información geográfica.</p>
+<p>Documentación Anexa</p>
+<p>Cada uno de los recursos cargados estará acompañado por un recurso denominado “Documentación Anexa-Nombre del Recurso de Origen” (Ej.: Documentación Anexa-Estaciones Saludables). Este documento describe el tipo de información que se publica, el proceso por el cual se obtiene,  la campos del recurso y cualquier información extra que facilite su correcta interpretación, procesamiento y lectura.</p>
+<h3>Metadata</h3>
+<p>Para facilitar la navegación en el sitio y la búsqueda de conjuntos de datos se utiliza los estándares de metadata propuestos por defecto en CKAN (dublin core  <a target="_blank" href="http://dublincore.org/">http://dublincore.org/</a> y dcat <a target="_blank" href="http://www.w3.org/TR/2013/WD-vocab-dcat-20130312/">http://www.w3.org/TR/2013/WD-vocab-dcat-20130312/</a>)</p>
+<h4>Dataset</h4>
+<ul>
+<li><strong>Título</strong>: descriptivo y único. Lo suficientemente abstracto como para abarcar la multiplicidad de recursos. No incluye referencia a fechas ni lugares.</li>
+<li><strong>Descripción</strong>: una descripción amplia de los temas que aborda el conjunto de datos.</li>
+<li><strong>Tags</strong>: etiquetas que colaboran en la búsqueda de los usuarios. Los tags escritos, en singular y respetando la existencia de tags anteriores. </li>
+<li><strong>Organización</strong>: área del gobierno responsable del mantenimiento del dato.</li>
+<li><strong>Autor</strong>: unidad que genera la información. Estructura jerárquica separada por guiones. Ej</strong>: Ministerio de Cultura- SS Patrimonio Cultural- DG del Libro, Bibliotecas y Promoción de la Lectura</li>
+<li><strong>Responsable</strong>: En algunos casos puede que el responsable de publicar y mantener la información actualizada no responda a la misma unidad que el generador de la información; en dicho caso se detalla al igual que se lo hizo con el autor. En caso de que coincidan, se repite la información.</li>
+<li><strong>Email del Responsable</strong>: dirección de correo  para la recepción de consultas.</li>
+<li><strong>Frecuencia de actualización Value</strong>: frecuencia de actualización acordada con el área que produce/mantiene el conjunto de datos.</li>
+<li><strong>Grupo</strong>: área/s temáticas/s predefinida a la que el conjunto de datos pertenece.</li>
+</ul>
+<h4>Recurso</h4>
+<ul>
+<li><strong>Nombre del Recurso</strong>: nombre simple y descriptivo.</li>
+<li><strong>Descripción</strong>: descripción simple de la información contenida en el recurso. No más de una línea. </li>
+<li><strong>Formato</strong>: formato del archivo.</li>
+</ul>
+<h3>API</h3>
+<p>CKAN provee acceso a los datos y a la metadata por medio de una API. </p>
+<p>La documentación puede encontrarse en el siguiente link: <a target="_blank" href="http://docs.ckan.org/en/latest/api.html">http://docs.ckan.org/en/latest/api.html</a></p>
 <h3>Glosario</h3>
+<ul>
+<li><strong>Datos abiertos (open data)</strong>: datos públicos completos, primarios, oportunos, accesibles, procesables, no discriminatorios, de uso libre y con formatos no restringidos.</li>
+<li><strong>Recurso</strong>: archivos con datos o documentación de contexto.</li>
+<li><strong>Conjunto de Datos (Dataset)</strong>: Agrupamiento de recursos que tratan sobre un mismo tema y/o tienen una misma estructura.</li>
+<li><strong>Codificación de caracteres (encoding)</strong>: estándares por los cuales un sistema informático reproduce un carácter al lenguaje natural.</li>
+<li><strong>API (Interfaz de Programación de Aplicaciones)</strong>: es una interfaz de comunicación entre componentes software.</li>
+<li><strong>Aplicación</strong>: programa compilado y escrito en cualquier lenguaje de programación que suele resultar una solución informática para la automatización de ciertas tareas.</li>
+<li><strong>Catálogo de datos</strong>: herramienta que reúne, ordena y categoriza datasets de diverso tipo para facilitar su descubrimiento y localización.</li>
+<li><strong>Metadatos</strong>: datos y/o documentos que describen otros datos en términos de contexto, contenido o, en general, cualquier aspecto que se considere necesario para ampliar la conceptualización del dato descrito.</li>
+<li><strong>Software Libre</strong>: software que una vez obtenido puede ser usado, copiado, estudiado, modificado,y redistribuido libremente.</li>
+<li><strong>Licencia Abierta (de contenido abierto)</strong>: es toda aquella formalización por escrito -por parte del titular, originario o no, de los derechos de propiedad intelectual de una determinada información- que recoja necesariamente la cesión explícita en exclusiva de los derechos patrimoniales de reproducción, distribución y comunicación pública de dicha información, incluyendo la puesta a disposición interactiva.</li>
+</ul>
+<h4>Normativa</h4>
+<p>Existen un gran conjunto de leyes, normas y jurisprudencia que otorgan marco a la iniciativa de datos abiertos en el contexto del Gobierno de la Ciudad Autónoma, tanto en materia del Derecho de Acceso a la Información como en materia de Protección de Datos Personales.</p>
+<p>Entre ella se destaca la <a target="_blank" href="http://www.google.com/url?q=http%3A%2F%2Fwww.cedom.gov.ar%2Fes%2Flegislacion%2Fnormas%2Fleyes%2Fley104.html&sa=D&sntz=1&usg=AFQjCNH1P8hea5oNeblzKoZV40tZXiXPZQ">Ley N° 104</a> de Acceso a la Información Pública, cuyo objetivo es garantizar el derecho de toda persona a solicitar y recibir información de manera que la misma sea completa, veraz, adecuada y oportuna (documentos escritos, fotografías, grabaciones, soporte magnético o digital, etc) relativa a los actos o a la actividad administrativa de los poderes ejecutivo, legislativo y judicial, sin que exista la necesidad de indicar los motivos y la finalidad de dicha solicitud de información.</p>
+<p>Asimismo, la <a target="_blank" href="http://www.google.com/url?q=http%3A%2F%2Fwww.cedom.gov.ar%2Fes%2Flegislacion%2Fnormas%2Fleyes%2Fley1845.html&sa=D&sntz=1&usg=AFQjCNFJx_Eu608LSHB7fwdzW9w43fAqPg">Ley N° 1845</a> sobre Protección de Datos Personales faculta a los ciudadanos a decidir cuáles de esos datos personales quieren brindar a terceros, ya sea el Estado o un particular; o bien, cuáles datos pueden esos terceros obtener, permitiendo asimismo que se sepa quién posee sus datos personales y por qué motivo, pudiendo oponerse a esa posesión o uso. Esta última ley intenta proteger ciertos aspectos de la personalidad que formen un perfil determinado de una persona. Frente a esa posibilidad surge el derecho de sus titulares de exigir que esos datos permanezcan en el ámbito de su privacidad.</p>
+<h4>Links Útiles</h4>
+<p>Plataforma de Datos. <a target="_blank" href="http://ckan.org/">http://ckan.org/</a></p>
+<p>Open Knowledge Foundation: <a target="_blank" href="http://okfn.org/">http://okfn.org/</a></p>
+<p></p>
+<p>
 
-<p>API: (Interfaz de Programación de Aplicaciones) es una interfaz de comunicación entre componentes software.</p>
 
-<p>Aplicación: Programa compilado y escrito en cualquier lenguaje de programación, que suele resultar una solución informática para la automatización de ciertas tareas.</p>
 
-<p>Catálogo de datos: Herramienta que reúne, ordena y categoriza datasets de diverso tipo para facilitar su descubrimiento y localización.</p>
 
-<p>Conjunto de datos (dataset): Colección de datos, incluyendo las tablas que contienen, ordenan y restringen esos datos, así como las relaciones entre las tablas. Cada fila corresponde a un registro determinado del conjunto de datos en cuestión. Cada valor se conoce como un dato.</p>
 
-<p>Dato: Representación simbólica (numérica, alfabética, etc.), atributo o característica de una entidad. Un dato es una expresión mínima de contenido sobre un tema.</p>
 
-<p>Datos abiertos (open data): Datos públicos completos, primarios, oportunos, accesibles, procesables, no discriminatorios, de uso libre y con formatos no restringidos.</p>
 
-<p>Metadatos: Datos y/o documentos que describen otros datos en términos de contexto, contenido o, en general, cualquier aspecto que se considere necesario para ampliar la conceptualización del dato descrito.</p>
+	
 
-<p>Minería de datos (data mining): La práctica de procesar gran cantidad de datos para encontrar patrones o relaciones entre ellos que den significado a la información.</p>
-
-<p>Software libre: Software que una vez obtenido puede ser usado, copiado, estudiado, modificado, y redistribuido libremente.</p>
-
-<p>Licencia abierta: (de contenido abierto) es toda aquella formalización por escrito, por parte del titular, originario o no, de los derechos de propiedad intelectual de una determinada información,  que recoja necesariamente la cesión explícita en exclusiva de los derechos patrimoniales de reproducción, distribución y comunicación pública de la dicha información, incluyendo la puesta a disposición interactiva.</p>
-<h3>Normativa</h3>
-
-<p>Existen un gran conjunto de leyes, normas y jurisprudencia que otorgan marco a la iniciativa de datos abiertos en el contexto del Gobierno de la Ciudad Autónoma, tanto en materia del Derecho de Acceso a la Información como en materia de Protección de Datos Personales. </p>
-
-<p>Entre ellla se destaca la <a href="http://www.cedom.gov.ar/es/legislacion/normas/leyes/ley104.html">Ley N° 104</a> de Acceso al a Información Pública, cuyo objetivo es garantizar el derecho de toda persona a solicitar y recibir información de manera que la misma sea completa, veraz, adecuada y oportuna (documentos escritos, fotografías, grabaciones, soporte magnético o digital, etc) relativa a los actos o a la actividad administrativa de los poderes ejecutivo, legislativo y judicial, sin que exista la necesidad de indicar los motivos y la finalidad de dicha solicitud de información.</p>
-
-<p>Asimismo, la <a href="http://www.cedom.gov.ar/es/legislacion/normas/leyes/ley1845.html">Ley N° 1845</a> sobre Protección de Datos Personales, faculta a los ciudadanos a decidir cuáles de esos datos personales quieren brindar a terceros, ya sea el Estado o un particular, o bien, cuáles datos pueden esos terceros obtener, permitiendo asimismo que se sepa quien posee sus datos personales y por qué motivo, pudiendo oponerse a esa posesión o uso. Esta última ley intenta proteger ciertos aspectos de la personalidad, que formen un perfil determinado de una persona. Frente a esa posibilidad surge el derecho de sus titulares de exigir que esos datos permanezcan en el ámbito de su privacidad.</p>
   </article>
     </div>
   <!-- /Page container -->
