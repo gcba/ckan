@@ -10,6 +10,16 @@ $( document ).ready( function() {
         {id: 'formats', text: 'Agregamos formatos de datos nuevos.',img_url: '/img/formats.png'},
         {id: 'api', text: 'Nuevo modo de acceder y filtrar los datasets.',img_url: '/img/api.png'}
       ]
+    },
+    {
+      isActive: true,
+      title: 'Un segunda versión de Buenos Aires Data.',
+      links: [
+        {id: 'datasets', text: 'Acceso programático via RESTful API a los conjuntos de datos.', img_url: '/img/datasets.png'},
+        {id: 'recline', text: 'Visualización de los conjuntos de datos en formato de lista, gráficos y mapas interactivos.',img_url: '/img/recline.png'},
+        {id: 'formats', text: 'Agregamos formatos de datos nuevos.',img_url: '/img/formats.png'},
+        {id: 'api', text: 'Nuevo modo de acceder y filtrar los datasets.',img_url: '/img/api.png'}
+      ]
     }
   ];
 
