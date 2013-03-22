@@ -1,20 +1,49 @@
 $( document ).ready( function() {
   
+  caruselData = [
+    {
+      isActive: true,
+      title: 'Un nueva versión de Buenos Aires Data.',
+      links: [
+        {id: 'datasets', text: 'Acceso programático via RESTful API a los conjuntos de datos.', img_url: '/img/datasets.png'},
+        {id: 'recline', text: 'Visualización de los conjuntos de datos en formato de lista, gráficos y mapas interactivos.',img_url: '/img/recline.png'},
+        {id: 'formats', text: 'Agregamos formatos de datos nuevos.',img_url: '/img/formats.png'},
+        {id: 'api', text: 'Nuevo modo de acceder y filtrar los datasets.',img_url: '/img/api.png'}
+      ]
+    }
+  ];
 
-  
+  for ( caruselItem in caruselData ){
+    var data = caruselData[caruselItem]
+    
+    var prefixStr = '<div class="item ' + (data.isActive ? 'active' : '') + ' feature-ckan"><div class="container">'
+    var imgsStr = ''
+    for ( linkIndex in data.links) {
+      var link = data.links[linkIndex]
+      imgsStr += '<img id="' + link.id + '" src="' +  link.img_url + '" />'
+    }
+    var middleStr = '<div class="carousel-caption"><h2>' + data.title + '</h2><ul>'
+    var linksStr = ''
+    for ( linkIndex in data.links ){
+      var link = data.links[linkIndex];
+      linksStr += '<li><a href="#" img-id="' + link.id + '">' + link.text + '</a></li>';
+    }
+    var suffixStr = '</ul> </div> </div> </div>'
+    $('.carousel-inner').append(prefixStr + imgsStr + middleStr + linksStr + suffixStr)
+  }
 
-  $.ajax({
-    url: 'https://raw.github.com/gcba/ckan/abril-2013/public/js/home.jsonp',
-      cache: false,
-      dataType: "jsonp",
-      success: function(data) {
-        for ( caruselItem in caruselData ){
-          $('.carousel-inner').append(data.title)
-        }
-      }
-  });  
+  if (caruselData.length > 1 )
+  {
+    $('#homeCarousel').append('<a class="left carousel-control" href="#homeCarousel" data-slide="prev">&lsaquo;</a> <a class="right carousel-control" href="#homeCarousel" data-slide="next">&rsaquo;</a> #}');
+  }
 
-  
+  $('.carousel-inner img').hide();
+  $('.carousel-inner img:first-child').show();
+  $('.carousel-inner a').hover(function(){
+    var imgId = $(this).attr('img-id')
+    $('.carousel-inner img').hide();
+    $('.carousel-inner #' + imgId).show();
+  });
 
   $.jGFeed('http://digital.buenosaires.gob.ar/feed/',
     function(feeds){
