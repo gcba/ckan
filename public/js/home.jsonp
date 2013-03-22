@@ -1,0 +1,13 @@
+callback([
+	{
+	  img_url: '/img/home.png',
+	  isActive: true,
+	  title: 'Un nueva versión de Buenos Aires Data.',
+	  links: [
+	    {text: 'Acceso programático via RESTful API a los conjuntos de datos.', img_url: '/img/datasets.png'},
+	    {text: 'Visualización de los conjuntos de datos en formato de lista, gráficos y mapas interactivos.',img_url: '/img/recline.png'},
+	    {text: 'Agregamos formatos de datos nuevos.',img_url: '/img/formats.png'},
+	    {text: 'Nuevo modo de acceder y filtrar los datasets.',img_url: '/img/api.png'}
+	  ]
+	}
+])
