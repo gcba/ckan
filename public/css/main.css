@@ -75,6 +75,13 @@ text-align:right
 }
 
 
+.notfound {
+background: url("http://www.buenosaires.gob.ar/sites/gcaba/themes/gcba/images/404.png") no-repeat center top transparent;
+padding-top: 335px;
+margin: 30px 0 60px 0;
+text-align: center;
+}
+
 [role=main], .main, .information {
 position: relative;
 padding-top: 0px;
