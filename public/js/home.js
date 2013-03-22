@@ -12,7 +12,7 @@ $( document ).ready( function() {
       ]
     },
     {
-      isActive: true,
+      isActive: false,
       title: 'Un segunda versión de Buenos Aires Data.',
       links: [
         {id: 'datasets', text: 'Acceso programático via RESTful API a los conjuntos de datos.', img_url: '/img/datasets.png'},
