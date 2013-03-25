@@ -254,6 +254,19 @@
 
 				// Clean
 				selectorObj.removeClass('or and fiso-no-categories fiso-no-selected fiso-no-available')
+				selectorObj.removeClass (function (index, css) {
+					var allClass = $(this).attr('class').split(' ')
+					var answerClass = []
+					for ( index in allClass ) {
+						var theClass = allClass[index];
+						if  ( theClass.indexOf('fiso-selected') == 0 || 
+							theClass.indexOf('fiso-all') == 0 || 
+							theClass.indexOf('fiso-available') == 0 ) {
+							answerClass.push(theClass);
+						}
+					}
+					return answerClass.join(' ');
+				});
 				toggleables.removeClass('or and selected available');
 				toggleOperatorObj.removeClass('or and');
 
@@ -271,8 +284,11 @@
 
 				// Update counters
 				selectorObj.find('.fiso-counter-all').text(allCategories.length);
+				selectorObj.addClass('fiso-all-' + allCategories.length);
 				selectorObj.find('.fiso-counter-selected').text(selectedCategories.length);
+				selectorObj.addClass('fiso-selected-' + selectedCategories.length);
 				selectorObj.find('.fiso-counter-available').text(availableCategories.length);
+				selectorObj.addClass('fiso-available-' + availableCategories.length);
 				var totalItems = $('.isotope-item').length;
 				var totalHidden = $('.isotope-item.isotope-hidden').length;
 				var totalVisible = totalItems - totalHidden

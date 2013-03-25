@@ -1169,9 +1169,9 @@ margin: 2px 1px 0px 6px;
   display: none;
 }
 
-.tagbox .fiso-selector span {
- 
-}
+.tagbox .fiso-selector.fiso-selected-1 .fiso-toggle-facet {
+  display: none;
+  }
 
 .tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet {
 
