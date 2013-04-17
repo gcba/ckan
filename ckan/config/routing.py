@@ -102,7 +102,7 @@ def make_map():
     map.connect('home', '/', controller='home', action='index')
     map.connect('about', '/about', controller='home', action='about')
     map.connect('specs', '/specs', controller='home', action='specs')
-    map.connect('recursos', '/recursos', controller='home', action='recursos')
+    map.connect('tyc', '/tyc', controller='home', action='tyc')
 
     # CKAN API versioned.
     register_list = [
