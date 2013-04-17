@@ -2,10 +2,10 @@ $( document ).ready( function() {
 
 	vizData = 
     {
-      title: 'Experimento con three.js',
-      body: 'Enviado por <a tabindex="-1"  href="http://twitter.com/pixelbeat">@pixelbeat</a>.',
-      sub_body: '<small>Graph generado con three.js</small> <small>Data: API USIG</small> <small>Tecnologías: three.js</small>',
-      url: 'http://mrdoob.github.com/three.js/examples/canvas_lines.html'
+      title: 'Bicicletas públicas - CABA',
+      body: 'Visualización de relación matrcial entre las estaciones de bicicletas de la Ciudad.',
+      sub_body: '<small>Las áreas más grandes representan mayor tráfico entre estaciones.</small>',
+      url: 'http://gcba.github.io/visualizaciones-gcbadata/Bicicletas/estaciones.html'
     } ;
 
 	var showHeader = function (eventObject) {
