@@ -2140,7 +2140,7 @@ msgstr "v"
 
 #: ckan/templates/activity_streams/added_tag.html:8
 msgid "{actor} added the tag {object} to the dataset {target}"
-msgstr "{actor} anadió la etiqueta {object} al conjunto de datos {target}"
+msgstr "{actor} añadió la etiqueta {object} al conjunto de datos {target}"
 
 #: ckan/templates/activity_streams/changed_group.html:8
 msgid "{actor} updated the group {object}"
@@ -4377,3 +4377,218 @@ msgstr "Tabla de posiciones - Estadísticas"
 msgid "Dataset Leaderboard"
 msgstr "Tabla de posiciones del conjunto de datos"
 
+#: ckan/templates/package/resource_read.html:97
+msgid "created"
+msgstr "Fecha de Creación"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "datastore active"
+msgstr "Datastore Activo"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "format"
+msgstr "Formato"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "resource type"
+msgstr "Tipo de Recurso"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "revision timestamp"
+msgstr "Último Cambio"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "position"
+msgstr "Posición"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'January'
+msgstr "Enero"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'February'
+msgstr "Febrero"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'March'
+msgstr "Marzo"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'April'
+msgstr "Abril"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'May'
+msgstr "Mayo"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'June'
+msgstr "Junio"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'July'
+msgstr "Julio"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'August'
+msgstr "Agosto"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'September'
+msgstr "Septiembre"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'October'
+msgstr "Octubre"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'November'
+msgstr "Noviembre"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'December'
+msgstr "Diciembre"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Just now'
+msgstr "Hace un instante"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{mins} minute ago'
+msgstr "hace {mins} minuto"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{mins} minutes ago'
+msgstr "hace {mins} minutos"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{hours} hour ago'
+msgstr "hace {hours} hora"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{hours} hours ago'
+msgstr "hace {hours} horas"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{days} day ago' 
+msgstr "hace {days} dia"
+
+#: ckan/templates/package/resource_read.html:97
+msgid '{days} days ago'
+msgstr "hace {days} dias"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Activity Stream'
+msgstr "Actividad Reciente"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} updated the group {group}"
+msgstr "{actor} actualizó el grupo {group}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} updated the organization {organization}"
+msgstr "{actor} actualizó la organización {organization}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} updated the dataset {dataset}"
+msgstr "{actor} actualizó el conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} changed the extra {extra} of the dataset {dataset}"
+msgstr "{actor} cambió el parametro extra {extra} del conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} updated the resource {resource} in the dataset {dataset}"
+msgstr "{actor} actualizó el recurso {resource} en el conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} updated their profile"
+msgstr "{actor} actualizó su perfil"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the group {group}"
+msgstr "{actor} borró el grupo {group}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the organization {organization}"
+msgstr "{actor} borró la organización {organization}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the dataset {dataset}"
+msgstr "{actor} borró el conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the extra {extra} from the dataset {dataset}"
+msgstr "{actor} borró el campo extra {extra} del conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the resource {resource} from the dataset {dataset}"
+msgstr "{actor} borró el recurso {resource} del conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} created the group {group}"
+msgstr "{actor} creó el grupo {group}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} created the organization {organization}"
+msgstr "{actor} creó la organización {organization}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} created the dataset {dataset}"
+msgstr "{actor} creó el conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} added the extra {extra} to the dataset {dataset}"
+msgstr "{actor} agregó el campo extra {extra} al conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} added the resource {resource} to the dataset {dataset}"
+msgstr "{actor} agregó el recurso {resource} al conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} signed up"
+msgstr "{actor} se registró"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} removed the tag {tag} from the dataset {dataset}"
+msgstr "{actor} quitó el tag {tag} del conjunto de datos {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} deleted the related item {related_item}"
+msgstr "{actor} borró el elemento relacionado {related_item}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} started following {dataset}"
+msgstr "{actor} empezó a seguir a {dataset}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} started following {user}"
+msgstr "{actor} empezó a seguir a {user}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} started following {group}"
+msgstr "{actor} empezó a seguir a {group}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid "{actor} created the link to related {related_type} {related_item}"
+msgstr "{actor} creó un link relacionado {related_type} {related_item}"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Name Ascending'
+msgstr "Nombre"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Last Modified'
+msgstr "Última modificación"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Popular'
+msgstr "Popularidad"
+
+#: ckan/templates/package/resource_read.html:97
+msgid Random'
+msgstr "Al Azar"
+
+#: ckan/templates/package/resource_read.html:97
+msgid 'Original Order'
+msgstr "Òrden Orginal"

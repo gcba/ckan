@@ -1,7 +1,7 @@
 import re
 import datetime
 
-from pylons.i18n import _
+from pylons.i18n import _, ungettext
 from webhelpers.html import literal
 
 import ckan.lib.helpers as h
@@ -13,7 +13,7 @@ import ckan.logic as logic
 # etc.
 
 def get_snippet_actor(activity, detail):
-    return literal("")
+    return literal("Se")
 
 def get_snippet_user(activity, detail):
     return literal("")
