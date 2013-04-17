@@ -310,7 +310,10 @@
 				availableSelectors = $.map(availableCategories, function(value, index){ return '.fiso-toggle-category[fiso-category="' + value + '"]'; });
 				$(availableSelectors.join()).addClass('available');
 
-
+				if ( $('input.fiso-search').val() == '' && hashOptions.query != '' )
+				{
+					$('input.fiso-search').val(hashOptions.query);
+				}
 			});
 		},
 		recursiveFilter: function(big_table) {

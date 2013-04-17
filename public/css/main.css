@@ -1141,7 +1141,7 @@ opacity: 0.4;
 margin: 2px 1px 0px 6px;
 }
 
-.information.fiso-all.fiso-all-no-categories {
+.information.fiso-all.fiso-all-no-categories.fiso-all-no-query {
   display: none;
 }
 
