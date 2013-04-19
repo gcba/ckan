@@ -172,16 +172,27 @@ opacity:.7
 .navbar-search{padding-top:3px}
 .navbar-search .fiso-search,.navbar-search .fiso-search:focus,.navbar-search .fiso-search.focused{padding:15px 10px;font-size:15px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 .branding-data .description{position:relative;z-index:11;margin-top:5px}
+
 .branding-data h4,
-.branding-data h6{
-  color: #ffffff;color: rgba(255,255,255,0.6); position:relative;
-  padding-left:5px;font-weight:normal;font-size:14px;
-  line-height:14px;display:block;color:white;padding-top:6px;z-index:11}
-  .branding-data h6 {
+.branding-data h6 {
+color:#fff;
+color:rgba(255,255,255,0.6);
+position:relative;
+padding-left:5px;
+font-weight:400;
+font-size:14px;
+line-height:20px;
+display:block;
+color:#fff;
+padding-top:6px;
+z-index:11
+}
 
-    padding-top: 2px;
+.branding-data h6 {
+padding-top:2px;
+line-height:5px;
+}
 
-  }
 .branding-data .title {
   text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
 }
@@ -2124,29 +2135,6 @@ border: none;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /* CUSTOMIZE THE CAROUSEL
     -------------------------------------------------- */
 
@@ -2170,7 +2158,7 @@ line-height: 30px;
     }
 
     .carousel .item {
-      height: 380px;
+      height: 400px;
       color: #ffffff;
       text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
     }
