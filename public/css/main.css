@@ -619,9 +619,11 @@ text-shadow: none;
 font-size: 10px;
 margin: 0;
 font-weight: bold;
-
 }
 
+.ribbon-date {
+  cursor: pointer;
+}
 
 
 

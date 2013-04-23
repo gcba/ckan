@@ -60,8 +60,10 @@ $( document ).ready( function() {
         var entryIndex = Math.floor(Math.random() * entry.categories.length - 1) + 1
         obj.find('.ribbon-type a').text(entry.categories[entryIndex]);
         obj.find('.ribbon-type a').attr('href', "http://digital.buenosaires.gob.ar/tag/" +entry.categories[entryIndex].replace(' ', '-') );
+        obj.find('.ribbon-type a').tooltip();
         var parsedDate = Date.parseExact(entry.publishedDate, "ddd, dd MMM yyyy hh:mm:ss zzz");
         obj.find('.ribbon-date').html(parsedDate.toString("dd/MM/yy"));
+        obj.find('.ribbon-date').tooltip();
         obj.find('h3 a').html(entry.title);
         obj.find('h3 a').attr('href', entry.link);
         obj.find('p').html(entry.contentSnippet);
@@ -74,4 +76,5 @@ $( document ).ready( function() {
   }, 6);
 
   $('.group-icon-list a').tooltip();
+  $('.dataset-metadata a').tooltip();
 });
