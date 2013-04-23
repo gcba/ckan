@@ -4597,3 +4597,6 @@ msgstr "Órden Orginal"
 msgid 'There is no description for this resource'
 msgstr "No existe descripción para este recurso"
 
+#: ckan/templates/package/resource_read.html:55
+msgid 'From the dataset abstract'
+msgstr "De la descripción del conjunto de datos"
