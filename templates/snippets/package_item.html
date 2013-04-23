@@ -23,8 +23,8 @@ Example:
 {% set group_items = package.groups %}
 
 <li class="{{ item_class or 'dataset-item' }} project"
-fiso-tags=".{{tag_items|join('.', 'name')|replace(' ', '-')}}."
-fiso-groups=".{{group_items|join('.', 'name')}}."
+fiso-tags=".{{tag_items|join('.', 'name')|replace(' ', '-')|lower}}."
+fiso-groups=".{{group_items|join('.', 'name')|lower}}."
 fiso-res-format=".{{format_items|join('.')|lower}}."
 >
   <div class="well">
