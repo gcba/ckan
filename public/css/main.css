@@ -636,6 +636,7 @@ font-weight: bold;
 .lista-datasets .dataset, .news-item {
   width: 260px;
   display: inline-block;
+  vertical-align: top;
 }
 
 
