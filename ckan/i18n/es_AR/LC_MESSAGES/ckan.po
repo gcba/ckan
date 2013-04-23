@@ -4591,4 +4591,9 @@ msgstr "Al Azar"
 
 #: ckan/templates/package/resource_read.html:97
 msgid 'Original Order'
-msgstr "Òrden Orginal"
+msgstr "Órden Orginal"
+
+#: ckan/templates/package/resource_read.html:52
+msgid 'There is no description for this resource'
+msgstr "No existe descripción para este recurso"
+
