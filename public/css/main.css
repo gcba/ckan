@@ -910,6 +910,12 @@ h1.dataset-header > a:hover {
   border-bottom: 1px solid #34495e;
 }
 
+.module-content .alert h4 {
+border-bottom: none;
+padding-bottom: 0px;
+}
+
+
 .resource-list {
   margin: 0;
   list-style: none;

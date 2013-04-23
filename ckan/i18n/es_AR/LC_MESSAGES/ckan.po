@@ -4604,3 +4604,19 @@ msgstr "De la descripción del conjunto de datos"
 #: ckan/templates/snippets/package_item.html:38
 msgid 'This dataset has no description'
 msgstr "Este conjunto de datos no tiene descripción"
+
+#: ckan/templates/dataviewer/snippets/no_preview.html:3
+msgid 'This resource cannot be previewed.'
+msgstr "No existe una visualización disponible para este tipo de recurso."
+
+#: ckan/templates/dataviewer/snippets/no_preview.html:5
+msgid 'More details...'
+msgstr "Mas detalles"
+
+#: ckan/templates/dataviewer/snippets/no_preview.html:12
+msgid 'No handler defined for data type: %(type)s.'
+msgstr "No existe visualización definida para el tipo: %(type)s."
+
+#: ckan/templates/dataviewer/snippets/no_preview.html:12
+msgid 'Your browser does not support iframes.'
+msgstr "El explorador no soporta iframes."
