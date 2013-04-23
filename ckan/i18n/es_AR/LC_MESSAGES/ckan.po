@@ -4600,3 +4600,7 @@ msgstr "No existe descripción para este recurso"
 #: ckan/templates/package/resource_read.html:55
 msgid 'From the dataset abstract'
 msgstr "De la descripción del conjunto de datos"
+
+#: ckan/templates/snippets/package_item.html:38
+msgid 'This dataset has no description'
+msgstr "Este conjunto de datos no tiene descripción"

@@ -36,7 +36,7 @@ fiso-res-format=".{{format_items|join('.')|lower}}."
           </a>
           <div class="group-icon-list">
             {% for item in group_items %}
-            <a href="/dataset#groups_cats=.{{item.name|lower}}." fiso-facet="groups" fiso-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon fiso-toggle-category">
+            <a href="/dataset#groups_cats=.{{item.name|lower}}." fiso-facet="groups" fiso-category="{{item.name|lower}}" data-format="{{item.name|lower}}" class="pull-right group-icon fiso-toggle-category" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{item.title}}">
               <span aria-hidden="true" class="icon-{{item.name|lower}}"></span>
             </a>
             {% endfor %}

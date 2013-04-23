@@ -35,7 +35,7 @@ $( document ).ready( function() {
 	}).trigger('hashchange');
 
 
-	$('.tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet, .toolbar .facet.groups .fiso-toggle-category span').tooltip();
+	$('.tagbox .fiso-toggle-facet, .tagbox .fiso-clear-facet, .toolbar .facet.groups .fiso-toggle-category span, .group-icon-list a').tooltip();
 
 	
 });

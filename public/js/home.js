@@ -72,4 +72,6 @@ $( document ).ready( function() {
         entry.title;
       }
   }, 6);
+
+  $('.group-icon-list a').tooltip();
 });
