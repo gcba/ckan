@@ -4479,7 +4479,7 @@ msgstr "hace {days} dias"
 
 #: ckan/templates/package/resource_read.html:97
 msgid 'Activity Stream'
-msgstr "Actividad Reciente"
+msgstr "Actividad reciente"
 
 #: ckan/templates/package/resource_read.html:97
 msgid "{actor} updated the group {group}"
@@ -4620,3 +4620,7 @@ msgstr "No existe visualización definida para el tipo: %(type)s."
 #: ckan/templates/dataviewer/snippets/no_preview.html:12
 msgid 'Your browser does not support iframes.'
 msgstr "El explorador no soporta iframes."
+
+#: ckan/templates/dataviewer/snippets/no_preview.html:12
+msgid 'Related Media for {dataset}'
+msgstr "Elementos relacionados con {dataset}"
