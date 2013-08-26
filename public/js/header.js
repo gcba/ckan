@@ -4,7 +4,7 @@ $( document ).ready( function() {
     {
       title: 'Bicicletas públicas - CABA',
       body: 'Visualización de relación matrcial entre las estaciones de bicicletas de la Ciudad.',
-      sub_body: '<small>Las áreas más grandes representan mayor tráfico entre estaciones.</small>',
+      sub_body: '<small>Las áreas más grandes representan mayor tráfico entre estaciones, creado en 2012.</small>',
       url: 'http://gcba.github.io/visualizaciones-gcbadata/Bicicletas/estaciones.html'
     } ;
 
